@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Agenda tu Cita | Estudio Privado</title>
+
+  <!-- META PIXEL: Reemplaza TU_PIXEL_ID en las 2 líneas de abajo -->
+  <script>
+    !function(f,b,e,v,n,t,s)
+    {if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+    n.callMethod.apply(n,arguments):n.queue.push(arguments)};
+    if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
+    n.queue=[];t=b.createElement(e);t.async=!0;
+    t.src=v;s=b.getElementsByTagName(e)[0];
+    s.parentNode.insertBefore(t,s)}(window, document,'script',
+    'https://connect.facebook.net/en_US/fbevents.js');
+    fbq('init', 'TU_PIXEL_ID');
+    fbq('track', 'PageView');
+  </script>
+  <noscript>
+    <img height="1" width="1" style="display:none"
+      src="https://www.facebook.com/tr?id=TU_PIXEL_ID&ev=PageView&noscript=1"/>
+  </noscript>
+  <!-- FIN META PIXEL -->
+
+  <style>
+    * { box-sizing: border-box; margin: 0; padding: 0; font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif; }
+    body {
+      background: #0d0d0d;
+      color: #f5f5f5;
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 20px;
+    }
+    .card {
+      background: #161616;
+      border: 1px solid #2a2a2a;
+      border-radius: 16px;
+      max-width: 420px;
+      width: 100%;
+      padding: 28px 24px;
+      box-shadow: 0 20px 50px rgba(0,0,0,0.6);
+    }
+    .badge {
+      display: inline-block;
+      font-size: 11px;
+      letter-spacing: 1.5px;
+      text-transform: uppercase;
+      color: #d4af37;
+      border: 1px solid rgba(212,175,55,0.4);
+      padding: 4px 10px;
+      border-radius: 99px;
+      margin-bottom: 12px;
+    }
+    h1 { font-size: 24px; font-weight: 700; margin-bottom: 6px; }
+    .subtitle { font-size: 14px; color: #a3a3a3; margin-bottom: 22px; line-height: 1.4; }
+    label { display: block; font-size: 13px; color: #d4d4d4; margin-bottom: 6px; font-weight: 500; }
+    input, select {
+      width: 100%;
+      padding: 12px 14px;
+      margin-bottom: 16px;
+      border-radius: 10px;
+      border: 1px solid #333;
+      background: #0f0f0f;
+      color: #fff;
+      font-size: 15px;
+      outline: none;
+    }
+    input:focus, select:focus { border-color: #d4af37; }
+    .info-box {
+      background: rgba(212,175,55,0.08);
+      border-left: 3px solid #d4af37;
+      padding: 12px;
+      border-radius: 8px;
+      font-size: 13px;
+      color: #e5e5e5;
+      margin-bottom: 18px;
+      line-height: 1.45;
+    }
+    button {
+      width: 100%;
+      padding: 14px;
+      border: none;
+      border-radius: 10px;
+      background: #d4af37;
+      color: #0d0d0d;
+      font-size: 16px;
+      font-weight: 700;
+      cursor: pointer;
+      transition: opacity 0.2s;
+    }
+    button:disabled { opacity: 0.6; cursor: not-allowed; }
+    .footer-note { text-align: center; font-size: 12px; color: #737373; margin-top: 14px; }
+  </style>
+</head>
+<body>
+  <div class="card">
+    <span class="badge">Solo con cita previa</span>
+    <h1>Reserva tu Horario</h1>
+    <p class="subtitle">Sin filas ni esperas. Registra tus datos para generar tu folio y confirmar por WhatsApp.</p>
+
+    <form id="bookingForm">
+      <label for="nombre">Tu nombre</label>
+      <input type="text" id="nombre" placeholder="Ej. Carlos Mendoza" required />
+
+      <label for="telefono">WhatsApp (10 dígitos)</label>
+      <input type="tel" id="telefono" placeholder="55 1234 5678" pattern="[0-9\s\-]{10,15}" required />
+
+      <label for="modalidad">Elige servicio y sede</label>
+      <select id="modalidad" required>
+        <option value="Lunes a Viernes ($480)" data-precio="480">Lunes a Viernes — $480 MXN (Apartas con $100)</option>
+        <option value="Domingo Privado Condesa ($380)" data-precio="380">Domingo Privado Condesa — $380 MXN</option>
+      </select>
+
+      <label for="horario">Día y horario que prefieres</label>
+      <input type="text" id="horario" placeholder="Ej. Jueves 6:00 PM / Domingo 11:00 AM" required />
+
+      <div class="info-box">
+        <strong>Política de agenda:</strong> Tu lugar se bloquea con un anticipo de <strong>$100 MXN</strong> (se descuenta de tu total el día de tu cita).
+      </div>
+
+      <button type="submit" id="submitBtn">Apartar cita por WhatsApp</button>
+    </form>
+
+    <p class="footer-note">Confirmación inmediata · Cupo limitado por día</p>
+  </div>
+
+  <script>
+    // === CONFIGURACIÓN (CAMBIA ESTOS 2 DATOS) ===
+    const SCRIPT_URL = "PEGA_AQUI_TU_URL_DE_GOOGLE_APPS_SCRIPT";
+    const WHATSAPP_DESTINO = "5215512345678"; // 521 + 10 dígitos (tu WA Business o el del barbero)
+
+    const form = document.getElementById("bookingForm");
+    const btn = document.getElementById("submitBtn");
+
+    form.addEventListener("submit", async (e) => {
+      e.preventDefault();
+      btn.disabled = true;
+      btn.textContent = "Generando tu folio...";
+
+      const select = document.getElementById("modalidad");
+      const precio = Number(select.options[select.selectedIndex].dataset.precio);
+
+      const payload = {
+        nombre: document.getElementById("nombre").value.trim(),
+        telefono: document.getElementById("telefono").value.trim(),
+        modalidad: select.value,
+        horario: document.getElementById("horario").value.trim(),
+        precio: precio
+      };
+
+      // 1. Dispara evento de conversión a Meta Ads
+      if (typeof fbq === "function") {
+        fbq("track", "Lead", {
+          content_name: payload.modalidad,
+          value: payload.precio,
+          currency: "MXN"
+        });
+      }
+
+      // 2. Guarda en tu Google Sheets y obtiene Folio
+      let folio = "BBR-" + Math.floor(100 + Math.random() * 900);
+      try {
+        const res = await fetch(SCRIPT_URL, {
+          method: "POST",
+          headers: { "Content-Type": "text/plain;charset=utf-8" },
+          body: JSON.stringify(payload)
+        });
+        const data = await res.json();
+        if (data.folio) folio = data.folio;
+      } catch (err) {
+        console.warn("Redirección con folio de respaldo", err);
+      }
+
+      // 3. Redirige a WhatsApp con el mensaje listo
+      const mensaje = `Hola, soy ${payload.nombre}. Quiero confirmar mi cita (Folio ${folio}) para ${payload.modalidad}, horario preferido: ${payload.horario}.`;
+      const waUrl = `https://wa.me/${WHATSAPP_DESTINO}?text=${encodeURIComponent(mensaje)}`;
+      window.location.href = waUrl;
+    });
+  </script>
+</body>
+</html>
