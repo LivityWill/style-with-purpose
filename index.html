@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Reservar Cita | Style with Purpose</title>
+  <title>Style with Purpose | Barbería de Autor CDMX</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
@@ -20,7 +20,7 @@
     'https://connect.facebook.net/en_US/fbevents.js');
     fbq('init', 'TU_PIXEL_ID');
     fbq('track', 'PageView');
-    fbq('track', 'InitiateCheckout');
+    fbq('track', 'ViewContent', { content_name: 'Landing Style with Purpose' });
   </script>
   <noscript>
     <img height="1" width="1" style="display:none"
@@ -32,288 +32,283 @@
     body {
       background: #000000;
       color: #ffffff;
-      min-height: 100vh;
+      line-height: 1.55;
+      -webkit-font-smoothing: antialiased;
+    }
+    .container {
+      max-width: 500px;
+      margin: 0 auto;
+      padding: 32px 20px 64px;
+    }
+    header {
+      text-align: center;
+      padding: 16px 0 36px;
+      border-bottom: 1px solid #1a1a1a;
+    }
+    .icon-wrap {
+      width: 58px;
+      height: 58px;
+      margin: 0 auto 18px;
+      border-radius: 16px;
+      background: #0a0a0a;
+      border: 1px solid #222222;
       display: flex;
       align-items: center;
       justify-content: center;
-      padding: 20px;
-      -webkit-font-smoothing: antialiased;
     }
-    .card {
-      background: #0a0a0a;
-      border: 1px solid #1f1f1f;
-      border-radius: 18px;
-      max-width: 440px;
-      width: 100%;
-      padding: 28px 24px;
-    }
-    .top-bar {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      margin-bottom: 18px;
-    }
-    .back-link {
-      font-size: 13px;
-      color: #a1a1aa;
-      text-decoration: none;
-      display: inline-flex;
-      align-items: center;
-      gap: 6px;
-    }
-    .back-link:hover { color: #ffffff; }
-    .mini-icon {
-      width: 20px;
-      height: 20px;
+    .barber-icon {
+      width: 28px;
+      height: 28px;
       stroke: #d4af37;
+      animation: subtleFloat 3s ease-in-out infinite;
+    }
+    @keyframes subtleFloat {
+      0%, 100% { transform: translateY(0) rotate(0deg); }
+      50% { transform: translateY(-3px) rotate(-4deg); }
     }
     .badge {
       display: inline-block;
       font-size: 11px;
       font-weight: 600;
-      letter-spacing: 1.6px;
+      letter-spacing: 2px;
       text-transform: uppercase;
       color: #d4af37;
-      border: 1px solid rgba(212,175,55,0.35);
-      padding: 4px 12px;
+      border: 1px solid rgba(212, 175, 55, 0.35);
+      padding: 5px 14px;
       border-radius: 99px;
+      margin-bottom: 16px;
+    }
+    h1 {
+      font-size: 32px;
+      font-weight: 800;
+      letter-spacing: -0.7px;
+      color: #ffffff;
       margin-bottom: 12px;
+      line-height: 1.15;
     }
-    h1 { font-size: 25px; font-weight: 800; letter-spacing: -0.5px; margin-bottom: 6px; color: #ffffff; }
-    .subtitle { font-size: 14px; color: #d4d4d8; margin-bottom: 22px; line-height: 1.45; }
-    label { display: block; font-size: 13px; color: #f4f4f5; margin-bottom: 7px; font-weight: 600; }
-    input {
-      width: 100%;
-      padding: 13px 14px;
-      margin-bottom: 16px;
-      border-radius: 10px;
-      border: 1px solid #27272a;
-      background: #000000;
-      color: #ffffff;
+    .hero-sub {
       font-size: 15px;
-      outline: none;
-      color-scheme: dark;
-    }
-    input::placeholder { color: #71717a; }
-    input:focus { border-color: #d4af37; }
-    .mode-pill {
-      font-size: 13px;
-      font-weight: 600;
-      color: #d4af37;
-      background: rgba(212,175,55,0.1);
-      border: 1px solid rgba(212,175,55,0.25);
-      padding: 10px 12px;
-      border-radius: 10px;
-      margin-bottom: 16px;
-      display: none;
-    }
-    .slots-grid {
-      display: grid;
-      grid-template-columns: repeat(2, 1fr);
-      gap: 10px;
-      margin-bottom: 18px;
-    }
-    .slot-btn {
-      padding: 12px;
-      border-radius: 10px;
-      border: 1px solid #27272a;
-      background: #000000;
-      color: #ffffff;
-      font-size: 14px;
-      font-weight: 600;
-      cursor: pointer;
-      transition: all 0.15s;
-    }
-    .slot-btn:hover { border-color: #d4af37; }
-    .slot-btn.active { background: #d4af37; color: #000000; border-color: #d4af37; }
-    .status-msg { font-size: 13px; color: #a1a1aa; margin-bottom: 14px; text-align: center; }
-    .info-box {
-      background: #000000;
-      border: 1px solid #27272a;
-      border-left: 3px solid #d4af37;
-      padding: 13px;
-      border-radius: 10px;
-      font-size: 13px;
-      color: #e4e4e7;
-      margin-bottom: 18px;
-      line-height: 1.5;
+      color: #d4d4d8;
+      margin-bottom: 26px;
     }
     .cta-btn {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 10px;
       width: 100%;
-      padding: 15px;
-      border: none;
+      text-decoration: none;
+      padding: 16px 20px;
       border-radius: 12px;
       background: #ffffff;
       color: #000000;
       font-size: 15.5px;
       font-weight: 700;
-      cursor: pointer;
-      transition: background 0.2s;
+      transition: transform 0.15s, background 0.2s;
     }
-    .cta-btn:hover:not(:disabled) { background: #d4af37; }
-    .cta-btn:disabled { opacity: 0.35; cursor: not-allowed; }
-    .footer-note { text-align: center; font-size: 12px; color: #71717a; margin-top: 16px; }
+    .cta-btn:hover { background: #d4af37; transform: translateY(-1px); }
+    section {
+      padding: 30px 0;
+      border-bottom: 1px solid #1a1a1a;
+    }
+    .section-head {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      margin-bottom: 18px;
+    }
+    .section-head svg { width: 18px; height: 18px; stroke: #d4af37; flex-shrink: 0; }
+    h2 {
+      font-size: 18px;
+      font-weight: 700;
+      color: #ffffff;
+      letter-spacing: -0.3px;
+    }
+    .service-card {
+      background: #0a0a0a;
+      border: 1px solid #1f1f1f;
+      border-radius: 14px;
+      padding: 20px;
+      margin-bottom: 14px;
+      transition: border-color 0.2s;
+    }
+    .service-card:hover { border-color: #333333; }
+    .service-top {
+      display: flex;
+      justify-content: space-between;
+      align-items: baseline;
+      margin-bottom: 8px;
+      gap: 12px;
+    }
+    .service-title {
+      font-size: 16px;
+      font-weight: 700;
+      color: #ffffff;
+    }
+    .price {
+      font-size: 18px;
+      font-weight: 800;
+      color: #d4af37;
+      white-space: nowrap;
+    }
+    .service-desc {
+      font-size: 14px;
+      color: #d4d4d8;
+    }
+    .steps { list-style: none; }
+    .steps li {
+      display: flex;
+      align-items: flex-start;
+      gap: 12px;
+      background: #0a0a0a;
+      border: 1px solid #1a1a1a;
+      padding: 14px 16px;
+      border-radius: 12px;
+      margin-bottom: 10px;
+      font-size: 14px;
+      color: #e4e4e7;
+    }
+    .step-num {
+      width: 24px;
+      height: 24px;
+      border-radius: 50%;
+      background: rgba(212, 175, 55, 0.15);
+      color: #d4af37;
+      font-size: 12px;
+      font-weight: 800;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+      margin-top: 1px;
+    }
+    .trust-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 10px;
+      text-align: center;
+    }
+    .trust-item {
+      background: #0a0a0a;
+      border: 1px solid #1f1f1f;
+      border-radius: 12px;
+      padding: 16px 8px;
+    }
+    .trust-num {
+      font-size: 18px;
+      font-weight: 800;
+      color: #ffffff;
+      display: block;
+      margin-bottom: 2px;
+    }
+    .trust-label {
+      font-size: 12px;
+      color: #a1a1aa;
+    }
+    .final-cta {
+      text-align: center;
+      padding-top: 32px;
+    }
+    .final-cta p {
+      font-size: 14px;
+      color: #d4d4d8;
+      margin: 8px 0 20px;
+    }
+    footer {
+      text-align: center;
+      font-size: 12px;
+      color: #71717a;
+      margin-top: 36px;
+    }
   </style>
 </head>
 <body>
-  <div class="card">
-    <div class="top-bar">
-      <a href="index.html" class="back-link">← Volver</a>
-      <svg class="mini-icon" viewBox="0 0 24 24" fill="none" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
-        <circle cx="6" cy="6" r="3"/><circle cx="6" cy="18" r="3"/>
-        <line x1="20" y1="4" x2="8.12" y2="15.88"/><line x1="14.47" y1="14.48" x2="20" y2="20"/>
-        <line x1="8.12" y1="8.12" x2="12" y2="12"/>
-      </svg>
-    </div>
+  <div class="container">
+    <header>
+      <div class="icon-wrap">
+        <!-- Ícono minimalista de tijeras de barbería -->
+        <svg class="barber-icon" viewBox="0 0 24 24" fill="none" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round">
+          <circle cx="6" cy="6" r="3"/>
+          <circle cx="6" cy="18" r="3"/>
+          <line x1="20" y1="4" x2="8.12" y2="15.88"/>
+          <line x1="14.47" y1="14.48" x2="20" y2="20"/>
+          <line x1="8.12" y1="8.12" x2="12" y2="12"/>
+        </svg>
+      </div>
+      <span class="badge">Style with Purpose · CDMX</span>
+      <h1>Tu imagen no es casualidad.</h1>
+      <p class="hero-sub">Corte, asesoría y precisión 1 a 1. Sin filas, sin prisas y únicamente con cita previa.</p>
+      <a href="agenda.html" class="cta-btn">
+        Ver horarios disponibles
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+      </a>
+    </header>
 
-    <span class="badge">Style with Purpose · Solo Cita</span>
-    <h1>Agenda tu Espacio</h1>
-    <p class="subtitle">Elige el día para ver los últimos horarios libres. Tu lugar se aparta al instante.</p>
-
-    <form id="bookingForm">
-      <label for="fecha">1. Elige el día</label>
-      <input type="date" id="fecha" required />
-
-      <div id="modePill" class="mode-pill"></div>
-
-      <label>2. Últimos horarios disponibles</label>
-      <div id="slotsMsg" class="status-msg">Selecciona una fecha arriba para consultar disponibilidad.</div>
-      <div id="slotsGrid" class="slots-grid"></div>
-
-      <label for="nombre">3. Tu nombre</label>
-      <input type="text" id="nombre" placeholder="Ej. Carlos Mendoza" required />
-
-      <label for="telefono">4. Tu WhatsApp (10 dígitos)</label>
-      <input type="tel" id="telefono" placeholder="55 1234 5678" pattern="[0-9\s\-]{10,15}" required />
-
-      <div class="info-box">
-        <strong>Política de agenda:</strong> Tu horario queda reservado temporalmente y se confirma de forma definitiva con <strong>$100 MXN de anticipo</strong> (se descuenta de tu total).
+    <section>
+      <div class="section-head">
+        <svg viewBox="0 0 24 24" fill="none" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+          <path d="M12 2L2 7l10 5 10-5-10-5z"/><path d="M2 17l10 5 10-5"/><path d="M2 12l10 5 10-5"/>
+        </svg>
+        <h2>Experiencias y Tarifas</h2>
       </div>
 
-      <button type="submit" id="submitBtn" class="cta-btn" disabled>Apartar cita por WhatsApp</button>
-    </form>
+      <div class="service-card">
+        <div class="service-top">
+          <span class="service-title">Agenda Entre Semana (Lun – Vie)</span>
+          <span class="price">$480</span>
+        </div>
+        <p class="service-desc">Atención puntual en horario reservado sin esperas. Incluye asesoría de corte, perfilado y acabado limpio.</p>
+      </div>
 
-    <p class="footer-note">Style with Purpose · Cupo limitado por día</p>
+      <div class="service-card">
+        <div class="service-top">
+          <span class="service-title">Domingo Privado · Condesa</span>
+          <span class="price">$380</span>
+        </div>
+        <p class="service-desc">Sesión privada en estudio (3er piso) en la Condesa. Cupo estrictamente limitado por domingo.</p>
+      </div>
+    </section>
+
+    <section>
+      <div class="section-head">
+        <svg viewBox="0 0 24 24" fill="none" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+          <rect x="3" y="4" width="18" height="18" rx="2" ry="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/>
+        </svg>
+        <h2>¿Cómo funciona tu reserva?</h2>
+      </div>
+      <ul class="steps">
+        <li><span class="step-num">1</span><span><strong>Elige día y hora:</strong> Consulta los últimos espacios libres en tiempo real.</span></li>
+        <li><span class="step-num">2</span><span><strong>Genera tu folio:</strong> Recibe tu clave única de registro al instante.</span></li>
+        <li><span class="step-num">3</span><span><strong>Bloquea con $100 MXN:</strong> Confirmas por WhatsApp con $100 de anticipo (se descuenta de tu total).</span></li>
+      </ul>
+    </section>
+
+    <section>
+      <div class="trust-grid">
+        <div class="trust-item">
+          <span class="trust-num">100%</span>
+          <span class="trust-label">Cita previa</span>
+        </div>
+        <div class="trust-item">
+          <span class="trust-num">60 min</span>
+          <span class="trust-label">Sesión 1 a 1</span>
+        </div>
+        <div class="trust-item">
+          <span class="trust-num">0 min</span>
+          <span class="trust-label">De espera</span>
+        </div>
+      </div>
+    </section>
+
+    <div class="final-cta">
+      <h2>¿Listo para tu siguiente corte?</h2>
+      <p>Los espacios de fin de semana y horarios de tarde se llenan rápido.</p>
+      <a href="agenda.html" class="cta-btn">Apartar mi cita ahora</a>
+    </div>
+
+    <footer>
+      © 2026 Style with Purpose · Ciudad de México
+    </footer>
   </div>
-
-  <script>
-    // === CONFIGURACIÓN (CAMBIA ESTOS 2 DATOS) ===
-    const SCRIPT_URL = "PEGA_AQUI_TU_URL_DE_GOOGLE_APPS_SCRIPT";
-    const WHATSAPP_DESTINO = "5215512345678"; // 521 + 10 dígitos
-
-    const fechaInput = document.getElementById("fecha");
-    const slotsGrid = document.getElementById("slotsGrid");
-    const slotsMsg = document.getElementById("slotsMsg");
-    const modePill = document.getElementById("modePill");
-    const submitBtn = document.getElementById("submitBtn");
-    const form = document.getElementById("bookingForm");
-
-    let horaSeleccionada = "";
-    let modalidadActual = "";
-    let precioActual = 0;
-
-    const hoy = new Date();
-    fechaInput.min = hoy.toISOString().split("T")[0];
-
-    fechaInput.addEventListener("change", async () => {
-      const fecha = fechaInput.value;
-      if (!fecha) return;
-
-      horaSeleccionada = "";
-      submitBtn.disabled = true;
-      slotsGrid.innerHTML = "";
-      modePill.style.display = "none";
-      slotsMsg.textContent = "Consultando horarios disponibles...";
-
-      try {
-        const res = await fetch(`${SCRIPT_URL}?fecha=${encodeURIComponent(fecha)}`);
-        const data = await res.json();
-
-        if (data.cerrado) {
-          slotsMsg.textContent = "Sábados cerrado. Elige Lunes–Viernes o Domingo en Condesa.";
-          return;
-        }
-
-        modalidadActual = data.modalidad;
-        precioActual = data.precio;
-        modePill.textContent = `${modalidadActual} — $${precioActual} MXN`;
-        modePill.style.display = "block";
-
-        if (!data.slots || data.slots.length === 0) {
-          slotsMsg.textContent = "Agenda llena para este día. Prueba con otra fecha.";
-          return;
-        }
-
-        slotsMsg.textContent = `Quedan ${data.slots.length} espacios disponibles:`;
-        data.slots.forEach(hora => {
-          const btn = document.createElement("button");
-          btn.type = "button";
-          btn.className = "slot-btn";
-          btn.textContent = hora + " hrs";
-          btn.onclick = () => {
-            document.querySelectorAll(".slot-btn").forEach(b => b.classList.remove("active"));
-            btn.classList.add("active");
-            horaSeleccionada = hora;
-            submitBtn.disabled = false;
-          };
-          slotsGrid.appendChild(btn);
-        });
-
-      } catch (err) {
-        slotsMsg.textContent = "Error al consultar agenda. Intenta de nuevo.";
-      }
-    });
-
-    form.addEventListener("submit", async (e) => {
-      e.preventDefault();
-      if (!horaSeleccionada) return;
-
-      submitBtn.disabled = true;
-      submitBtn.textContent = "Bloqueando tu horario...";
-
-      const payload = {
-        fecha: fechaInput.value,
-        hora: horaSeleccionada,
-        modalidad: modalidadActual,
-        precio: precioActual,
-        nombre: document.getElementById("nombre").value.trim(),
-        telefono: document.getElementById("telefono").value.trim()
-      };
-
-      try {
-        const res = await fetch(SCRIPT_URL, {
-          method: "POST",
-          headers: { "Content-Type": "text/plain;charset=utf-8" },
-          body: JSON.stringify(payload)
-        });
-        const data = await res.json();
-
-        if (data.status === "ocupado") {
-          alert("Alguien acaba de apartar ese horario. Elige otro disponible.");
-          fechaInput.dispatchEvent(new Event("change"));
-          submitBtn.textContent = "Apartar cita por WhatsApp";
-          return;
-        }
-
-        const folio = data.folio || "SWP-000";
-
-        if (typeof fbq === "function") {
-          fbq("track", "Lead", {
-            content_name: payload.modalidad,
-            value: payload.precio,
-            currency: "MXN"
-          });
-        }
-
-        const mensaje = `Hola, soy ${payload.nombre}. Acabo de pre-reservar en Style with Purpose (Folio ${folio}) para el ${payload.fecha} a las ${payload.hora} hrs (${payload.modalidad} - $${payload.precio}). ¿Me compartes los datos para el anticipo de $100?`;
-        window.location.href = `https://wa.me/${WHATSAPP_DESTINO}?text=${encodeURIComponent(mensaje)}`;
-
-      } catch (err) {
-        alert("Hubo un problema al guardar tu reserva. Intenta de nuevo.");
-        submitBtn.disabled = false;
-        submitBtn.textContent = "Apartar cita por WhatsApp";
-      }
-    });
-  </script>
 </body>
 </html>
