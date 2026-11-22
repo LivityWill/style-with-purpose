@@ -4,9 +4,12 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Style with Purpose | Experiencia y Diseño a tu Medida</title>
+  <meta name="description" content="Barbería de autor en CDMX. Experiencia y diseño a tu medida con atención 1 a 1. Condesa." />
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <!-- Respaldo vectorial profesional mientras subes tus PNGs HD del Pack 3 -->
+  <script src="https://unpkg.com/lucide@0.460.0/dist/umd/lucide.min.js" defer></script>
 
   <!-- META PIXEL: Reemplaza TU_PIXEL_ID -->
   <script>
@@ -30,49 +33,92 @@
   <style>
     :root {
       --bg-black: #000000;
-      --obsidian: #0a0d12;
-      --obsidian-light: #131822;
-      --border-steel: #1f2937;
+      --obsidian: #090c12;
+      --obsidian-hover: #101622;
+      --border-steel: #1e293b;
       --silver-bright: #e2e8f0;
       --silver-mid: #94a3b8;
       --silver-dim: #64748b;
       --sapphire: #2563eb;
       --sapphire-glow: #38bdf8;
     }
-    * { box-sizing: border-box; margin: 0; padding: 0; font-family: 'Plus Jakarta Sans', -apple-system, sans-serif; }
+
+    * { box-sizing: border-box; margin: 0; padding: 0; font-family: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, sans-serif; }
+
     body {
       background: var(--bg-black);
       color: var(--silver-bright);
       line-height: 1.5;
       -webkit-font-smoothing: antialiased;
+      text-rendering: optimizeLegibility;
     }
+
     .container {
-      max-width: 520px;
+      max-width: 540px;
       margin: 0 auto;
-      padding: 32px 18px 64px;
+      padding: 20px 18px 68px;
     }
+
+    /* Barra superior con selector ES / EN */
+    .topbar {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 18px;
+    }
+    .brand-mini {
+      font-size: 12px;
+      font-weight: 700;
+      letter-spacing: 1.8px;
+      text-transform: uppercase;
+      color: var(--silver-mid);
+    }
+    .lang-switch {
+      display: inline-flex;
+      background: var(--obsidian);
+      border: 1px solid var(--border-steel);
+      border-radius: 99px;
+      padding: 3px;
+      gap: 2px;
+    }
+    .lang-btn {
+      border: none;
+      background: transparent;
+      color: var(--silver-mid);
+      font-size: 11px;
+      font-weight: 700;
+      padding: 5px 11px;
+      border-radius: 99px;
+      cursor: pointer;
+      transition: all 0.18s ease;
+    }
+    .lang-btn.active {
+      background: var(--sapphire);
+      color: #ffffff;
+    }
+
+    /* Hero */
     header {
       text-align: center;
       padding: 12px 0 34px;
-      border-bottom: 1px solid #141923;
+      border-bottom: 1px solid #131924;
     }
     .hero-emblem {
-      width: 64px;
-      height: 64px;
+      width: 68px;
+      height: 68px;
       margin: 0 auto 18px;
-      border-radius: 16px;
-      background: linear-gradient(145deg, #161d29 0%, #090c10 100%);
-      border: 1px solid #2a3444;
-      box-shadow: inset 0 1px 0 rgba(255,255,255,0.08), 0 8px 24px rgba(0,0,0,0.8);
+      border-radius: 18px;
+      background: linear-gradient(145deg, #171f2e 0%, #090c11 100%);
+      border: 1px solid #2d384a;
+      box-shadow: inset 0 1px 0 rgba(255,255,255,0.09), 0 10px 28px rgba(0,0,0,0.85);
       display: flex;
       align-items: center;
       justify-content: center;
+      overflow: hidden;
     }
-    .hero-emblem svg {
-      width: 30px;
-      height: 30px;
-      filter: drop-shadow(0 2px 6px rgba(56, 189, 248, 0.2));
-    }
+    .hero-emblem img { width: 100%; height: 100%; object-fit: cover; }
+    .hero-emblem i { width: 28px; height: 28px; color: var(--silver-bright); }
+
     .badge {
       display: inline-block;
       font-size: 11px;
@@ -81,18 +127,18 @@
       text-transform: uppercase;
       color: var(--sapphire-glow);
       background: rgba(37, 99, 235, 0.1);
-      border: 1px solid rgba(56, 189, 248, 0.28);
+      border: 1px solid rgba(56, 189, 248, 0.3);
       padding: 5px 14px;
       border-radius: 99px;
       margin-bottom: 16px;
     }
     h1 {
-      font-size: 31px;
+      font-size: 32px;
       font-weight: 800;
-      letter-spacing: -0.7px;
+      letter-spacing: -0.8px;
       margin-bottom: 12px;
-      line-height: 1.15;
-      background: linear-gradient(180deg, #ffffff 0%, #cbd5e1 60%, #94a3b8 100%);
+      line-height: 1.14;
+      background: linear-gradient(180deg, #ffffff 0%, #cbd5e1 62%, #94a3b8 100%);
       -webkit-background-clip: text;
       -webkit-text-fill-color: transparent;
     }
@@ -100,6 +146,8 @@
       font-size: 15px;
       color: var(--silver-mid);
       margin-bottom: 24px;
+      max-width: 440px;
+      margin-inline: auto;
     }
     .cta-btn {
       display: flex;
@@ -109,34 +157,70 @@
       width: 100%;
       text-decoration: none;
       padding: 15px 20px;
-      border-radius: 12px;
+      border-radius: 13px;
       background: linear-gradient(135deg, #2563eb 0%, #1d4ed8 100%);
       color: #f8fafc;
       font-size: 15px;
       font-weight: 700;
       border: 1px solid rgba(96, 165, 250, 0.35);
-      box-shadow: 0 8px 24px rgba(37, 99, 235, 0.25);
+      box-shadow: 0 8px 24px rgba(37, 99, 235, 0.28);
       transition: transform 0.15s, box-shadow 0.2s, background 0.2s;
     }
     .cta-btn:hover {
       background: linear-gradient(135deg, #3b82f6 0%, #2563eb 100%);
-      box-shadow: 0 10px 28px rgba(56, 189, 248, 0.35);
+      box-shadow: 0 10px 28px rgba(56, 189, 248, 0.38);
       transform: translateY(-1px);
     }
+
+    /* Banner Modelo Híbrido (L-V + Domingo Privado Condesa) */
+    .schedule-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 10px;
+      margin-top: 24px;
+    }
+    .schedule-card {
+      background: var(--obsidian);
+      border: 1px solid var(--border-steel);
+      border-radius: 13px;
+      padding: 14px;
+      text-align: left;
+    }
+    .schedule-card.sunday {
+      border-color: rgba(56, 189, 248, 0.35);
+      background: linear-gradient(145deg, #0d1626 0%, #080b10 100%);
+    }
+    .sch-tag {
+      font-size: 10.5px;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.8px;
+      color: var(--sapphire-glow);
+      display: block;
+      margin-bottom: 4px;
+    }
+    .sch-title {
+      font-size: 13.5px;
+      font-weight: 700;
+      color: var(--silver-bright);
+      margin-bottom: 3px;
+    }
+    .sch-desc {
+      font-size: 11.5px;
+      color: var(--silver-mid);
+      line-height: 1.4;
+    }
+
     section {
       padding: 28px 0;
-      border-bottom: 1px solid #141923;
+      border-bottom: 1px solid #131924;
     }
     .section-head {
       display: flex;
       align-items: center;
       justify-content: space-between;
-      margin-bottom: 12px;
-    }
-    .section-title-wrap {
-      display: flex;
-      align-items: center;
-      gap: 9px;
+      margin-bottom: 10px;
+      gap: 10px;
     }
     h2 {
       font-size: 17px;
@@ -145,11 +229,12 @@
       letter-spacing: -0.2px;
     }
     .section-tag {
-      font-size: 11px;
+      font-size: 10.5px;
       color: var(--sapphire-glow);
-      font-weight: 600;
+      font-weight: 700;
       text-transform: uppercase;
       letter-spacing: 0.8px;
+      white-space: nowrap;
     }
     .section-note {
       font-size: 12.5px;
@@ -158,7 +243,7 @@
       line-height: 1.45;
     }
 
-    /* Botones Steel Monogram */
+    /* Botones de Servicios Pack 3 HD */
     .btn-list {
       display: flex;
       flex-direction: column;
@@ -173,20 +258,20 @@
       text-decoration: none;
       background: linear-gradient(180deg, #0d1118 0%, #080a0f 100%);
       border: 1px solid var(--border-steel);
-      border-radius: 14px;
-      padding: 13px 15px;
+      border-radius: 15px;
+      padding: 12px 14px;
       color: var(--silver-bright);
       transition: border-color 0.2s, background 0.2s, transform 0.12s, box-shadow 0.2s;
     }
     .service-btn:hover {
       border-color: var(--sapphire-glow);
-      background: linear-gradient(180deg, #121824 0%, #0b0f17 100%);
-      box-shadow: 0 0 18px rgba(56, 189, 248, 0.12);
+      background: var(--obsidian-hover);
+      box-shadow: 0 0 20px rgba(56, 189, 248, 0.14);
       transform: translateY(-1px);
     }
     .service-btn.featured {
-      border-color: rgba(56, 189, 248, 0.35);
-      background: linear-gradient(145deg, #101726 0%, #080b10 100%);
+      border-color: rgba(56, 189, 248, 0.38);
+      background: linear-gradient(145deg, #0f1727 0%, #080b10 100%);
     }
     .service-left {
       display: flex;
@@ -194,23 +279,38 @@
       gap: 14px;
       min-width: 0;
     }
-    /* Caja cuadrada obsidiana mate estilo Pack 3 */
+
+    /* Contenedor de ícono HD Pack 3 */
     .svc-icon {
-      width: 46px;
-      height: 46px;
-      border-radius: 12px;
-      background: linear-gradient(145deg, #181f2c 0%, #0b0e14 100%);
-      border: 1px solid #2b3545;
-      box-shadow: inset 0 1px 0 rgba(255,255,255,0.07);
+      width: 52px;
+      height: 52px;
+      border-radius: 13px;
+      background: linear-gradient(145deg, #1a2232 0%, #0b0e14 100%);
+      border: 1px solid #2e394b;
+      box-shadow: inset 0 1px 0 rgba(255,255,255,0.08);
       display: flex;
       align-items: center;
       justify-content: center;
       flex-shrink: 0;
+      overflow: hidden;
+      position: relative;
     }
-    .svc-icon svg {
-      width: 24px;
-      height: 24px;
+    .svc-icon img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
     }
+    .svc-icon .fallback-icon {
+      display: none;
+      width: 22px;
+      height: 22px;
+      color: var(--silver-bright);
+    }
+    .svc-icon.use-fallback .fallback-icon {
+      display: block;
+    }
+
     .svc-info {
       display: flex;
       flex-direction: column;
@@ -242,15 +342,43 @@
     .chevron {
       width: 16px;
       height: 16px;
-      stroke: var(--silver-dim);
-      transition: transform 0.15s, stroke 0.15s;
+      color: var(--silver-dim);
+      transition: transform 0.15s, color 0.15s;
     }
     .service-btn:hover .chevron {
-      stroke: var(--silver-bright);
+      color: var(--silver-bright);
       transform: translateX(2px);
     }
 
-    /* Pilares */
+    /* Pasos y pilares */
+    .steps { list-style: none; display: flex; flex-direction: column; gap: 10px; }
+    .steps li {
+      display: flex;
+      align-items: flex-start;
+      gap: 12px;
+      background: var(--obsidian);
+      border: 1px solid var(--border-steel);
+      padding: 14px;
+      border-radius: 13px;
+      font-size: 13.5px;
+      color: var(--silver-mid);
+    }
+    .steps strong { color: var(--silver-bright); }
+    .step-num {
+      width: 24px;
+      height: 24px;
+      border-radius: 50%;
+      background: rgba(37, 99, 235, 0.18);
+      border: 1px solid rgba(56, 189, 248, 0.35);
+      color: var(--sapphire-glow);
+      font-size: 12px;
+      font-weight: 800;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+    }
+
     .trust-grid {
       display: grid;
       grid-template-columns: repeat(3, 1fr);
@@ -302,378 +430,299 @@
       color: var(--silver-dim);
       margin-top: 36px;
     }
+
+    @media (max-width: 420px) {
+      .schedule-grid { grid-template-columns: 1fr; }
+      h1 { font-size: 28px; }
+    }
   </style>
 </head>
 <body>
-  <!-- Degradado metálico de acero compartido para todos los íconos Pack 3 -->
-  <svg style="position:absolute;width:0;height:0;overflow:hidden;" aria-hidden="true">
-    <defs>
-      <linearGradient id="steel" x1="0%" y1="0%" x2="100%" y2="100%">
-        <stop offset="0%" stop-color="#ffffff"/>
-        <stop offset="50%" stop-color="#cbd5e1"/>
-        <stop offset="100%" stop-color="#64748b"/>
-      </linearGradient>
-    </defs>
-  </svg>
-
   <div class="container">
-    <header>
-      <div class="hero-emblem">
-        <!-- Tijeras sólidas de acero -->
-        <svg viewBox="0 0 24 24" fill="url(#steel)">
-          <path d="M9.64 7.64c.23-.5.36-1.05.36-1.64 0-2.21-1.79-4-4-4S2 3.79 2 6s1.79 4 4 4c.59 0 1.14-.13 1.64-.36L10 12l-2.36 2.36C7.14 14.13 6.59 14 6 14c-2.21 0-4 1.79-4 4s1.79 4 4 4 4-1.79 4-4c0-.59-.13-1.14-.36-1.64L12 14l7 7h3v-1L9.64 7.64zM6 8c-1.1 0-2-.89-2-2s.9-2 2-2 2 .89 2 2-.9 2-2 2zm0 12c-1.1 0-2-.89-2-2s.9-2 2-2 2 .89 2 2-.9 2-2 2zm6-7.5c-.28 0-.5-.22-.5-.5s.22-.5.5-.5.5.22.5.5-.22.5-.5.5zM19 3l-6 6 2 2 7-7V3h-3z"/>
-          <circle cx="12" cy="12" r="1.1" fill="#38bdf8"/>
-        </svg>
+    <!-- Topbar + Selector automático de idioma -->
+    <div class="topbar">
+      <span class="brand-mini">Style with Purpose</span>
+      <div class="lang-switch" role="group" aria-label="Language">
+        <button type="button" class="lang-btn" id="btn-es" onclick="setLanguage('es')">ES</button>
+        <button type="button" class="lang-btn" id="btn-en" onclick="setLanguage('en')">EN</button>
       </div>
-      <span class="badge">Style with Purpose · CDMX</span>
-      <h1>Experiencia y diseño a tu medida.</h1>
-      <p class="hero-sub">Asesoría de imagen, técnica precisa y atención 1 a 1 pensada para tu estilo, facciones y ritmo de vida.</p>
-      <a href="agenda.html" class="cta-btn">
-        Diseñar mi cita ahora
-        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+    </div>
+
+    <header>
+      <div class="hero-emblem" id="heroEmblem">
+        <img src="icons/corte.png" alt="Style with Purpose" onerror="this.remove(); document.getElementById('heroEmblem').innerHTML='<i data-lucide=&quot;scissors&quot;></i>'; if(window.lucide) lucide.createIcons();" />
+      </div>
+      <span class="badge" data-i18n="badge">Style with Purpose · CDMX</span>
+      <h1 data-i18n="heroTitle">Experiencia y diseño a tu medida.</h1>
+      <p class="hero-sub" data-i18n="heroSub">Asesoría de imagen, técnica precisa y atención 1 a 1 pensada para tu estilo, facciones y ritmo de vida.</p>
+      <a href="agenda.html" class="cta-btn" id="heroCta">
+        <span data-i18n="heroCta">Diseñar mi cita ahora</span>
+        <i data-lucide="arrow-right" style="width:18px;height:18px;"></i>
       </a>
+
+      <!-- Modalidad Híbrida (Propuesta integrada) -->
+      <div class="schedule-grid">
+        <div class="schedule-card">
+          <span class="sch-tag" data-i18n="monFriTag">Lunes a Viernes</span>
+          <div class="sch-title" data-i18n="monFriTitle">Carta Completa</div>
+          <p class="sch-desc" data-i18n="monFriDesc">Reserva prioritaria ($100) + liquidación del servicio base en caja.</p>
+        </div>
+        <div class="schedule-card sunday">
+          <span class="sch-tag" data-i18n="sunTag">Domingos Privados</span>
+          <div class="sch-title" data-i18n="sunTitle">Estudio Condesa · $380</div>
+          <p class="sch-desc" data-i18n="sunDesc">Sesión privada 1 a 1 en 3er piso (Condesa). Cupo estrictamente limitado.</p>
+        </div>
+      </div>
     </header>
 
-    <!-- SECCIÓN 1: COMBOS EXCLUSIVOS -->
+    <!-- Contenedor dinámico de la carta completa -->
+    <div id="catalogRoot"></div>
+
+    <!-- Cómo funciona -->
     <section>
       <div class="section-head">
-        <div class="section-title-wrap">
-          <h2>Combos Exclusivos</h2>
-        </div>
-        <span class="section-tag">Toca para agendar</span>
+        <h2 data-i18n="howTitle">¿Cómo funciona tu reserva?</h2>
       </div>
-      <p class="section-note">Incluye $100 de reserva prioritaria para bloquear tu espacio. El costo base del servicio se liquida en caja.</p>
-
-      <div class="btn-list">
-        <!-- Experiencia Condesa: Corona sólida de acero -->
-        <a href="agenda.html?servicio=Experiencia+Condesa" class="service-btn featured">
-          <div class="service-left">
-            <div class="svc-icon">
-              <svg viewBox="0 0 24 24" fill="url(#steel)">
-                <path d="M5 16L3 6l5.5 4.5L12 4l3.5 6.5L21 6l-2 10H5zm0 2h14v2H5v-2z"/>
-                <circle cx="12" cy="12" r="1.4" fill="#38bdf8"/>
-              </svg>
-            </div>
-            <div class="svc-info">
-              <span class="svc-name">Experiencia Condesa</span>
-              <span class="svc-sub">Corte + Barba Spa Condesa ($880 caja + $100 reserva)</span>
-            </div>
-          </div>
-          <div class="service-right">
-            <span class="svc-price">$980</span>
-            <svg class="chevron" viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 18 15 12 9 6"/></svg>
-          </div>
-        </a>
-
-        <!-- Combo Condesa: Peine + Tijera sólidos -->
-        <a href="agenda.html?servicio=Combo+Condesa" class="service-btn featured">
-          <div class="service-left">
-            <div class="svc-icon">
-              <svg viewBox="0 0 24 24" fill="url(#steel)">
-                <path d="M4 3h4v18H4a1 1 0 0 1-1-1V4a1 1 0 0 1 1-1zm5 2h2v1.5H9V5zm0 3h2v1.5H9V8zm0 3h2v1.5H9V11zm0 3h2v1.5H9V14zm0 3h2v1.5H9V17z"/>
-                <path d="M18.5 4l-3.2 8.5 3.2 3.5a2 2 0 1 1-1.5 1.3L14.5 14l-1.5 3.3a2 2 0 1 1-1.6-1.1L14 11l3-7h1.5z"/>
-                <circle cx="15.3" cy="12.2" r="1" fill="#38bdf8"/>
-              </svg>
-            </div>
-            <div class="svc-info">
-              <span class="svc-name">Combo Condesa</span>
-              <span class="svc-sub">Corte + Barba ($680 caja + $100 reserva)</span>
-            </div>
-          </div>
-          <div class="service-right">
-            <span class="svc-price">$780</span>
-            <svg class="chevron" viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 18 15 12 9 6"/></svg>
-          </div>
-        </a>
-      </div>
+      <ul class="steps">
+        <li><span class="step-num">1</span><span data-i18n="step1"><strong>Elige tu servicio y horario:</strong> Selecciona tu experiencia y consulta espacios libres en tiempo real.</span></li>
+        <li><span class="step-num">2</span><span data-i18n="step2"><strong>Genera tu folio único:</strong> Recibe al instante tu clave de reserva vinculada a la agenda.</span></li>
+        <li><span class="step-num">3</span><span data-i18n="step3"><strong>Bloquea tu espacio:</strong> Confirma con tu cuota de reserva prioritaria de $100 MXN vía WhatsApp.</span></li>
+      </ul>
     </section>
 
-    <!-- SECCIÓN 2: SERVICIOS PRINCIPALES -->
-    <section>
-      <div class="section-head">
-        <div class="section-title-wrap">
-          <h2>Servicios Principales</h2>
-        </div>
-        <span class="section-tag">Reserva +$100</span>
-      </div>
-
-      <div class="btn-list">
-        <!-- Corte: Tijeras sólidas -->
-        <a href="agenda.html?servicio=Corte" class="service-btn">
-          <div class="service-left">
-            <div class="svc-icon">
-              <svg viewBox="0 0 24 24" fill="url(#steel)">
-                <path d="M9.64 7.64c.23-.5.36-1.05.36-1.64 0-2.21-1.79-4-4-4S2 3.79 2 6s1.79 4 4 4c.59 0 1.14-.13 1.64-.36L10 12l-2.36 2.36C7.14 14.13 6.59 14 6 14c-2.21 0-4 1.79-4 4s1.79 4 4 4 4-1.79 4-4c0-.59-.13-1.14-.36-1.64L12 14l7 7h3v-1L9.64 7.64zM6 8c-1.1 0-2-.89-2-2s.9-2 2-2 2 .89 2 2-.9 2-2 2zm0 12c-1.1 0-2-.89-2-2s.9-2 2-2 2 .89 2 2-.9 2-2 2zM19 3l-6 6 2 2 7-7V3h-3z"/>
-                <circle cx="12" cy="12" r="1.1" fill="#38bdf8"/>
-              </svg>
-            </div>
-            <div class="svc-info">
-              <span class="svc-name">Corte a tu Medida</span>
-              <span class="svc-sub">Asesoría y diseño ($380 caja + $100 reserva)</span>
-            </div>
-          </div>
-          <div class="service-right">
-            <span class="svc-price">$480</span>
-            <svg class="chevron" viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 18 15 12 9 6"/></svg>
-          </div>
-        </a>
-
-        <!-- Barba: Silueta sólida de barba -->
-        <a href="agenda.html?servicio=Barba" class="service-btn">
-          <div class="service-left">
-            <div class="svc-icon">
-              <svg viewBox="0 0 24 24" fill="url(#steel)">
-                <path d="M4 7.5c0-.8.6-1.5 1.4-1.5 1.2 0 1.8 1.6 3.6 2.2 1.2.4 2.2.3 3 .3s1.8.1 3-.3c1.8-.6 2.4-2.2 3.6-2.2.8 0 1.4.7 1.4 1.5 0 6.5-3.2 12.5-8 12.5S4 14 4 7.5zm5 4.3c.6 1 1.7 1.4 3 1.4s2.4-.4 3-1.4c-.8-.3-1.8-.5-3-.5s-2.2.2-3 .5z"/>
-                <path d="M9.5 11.8c.8-.3 1.6-.4 2.5-.4s1.7.1 2.5.4" stroke="#38bdf8" stroke-width="1.2" fill="none" stroke-linecap="round"/>
-              </svg>
-            </div>
-            <div class="svc-info">
-              <span class="svc-name">Diseño de Barba</span>
-              <span class="svc-sub">Perfilado y acabado ($360 caja + $100 reserva)</span>
-            </div>
-          </div>
-          <div class="service-right">
-            <span class="svc-price">$460</span>
-            <svg class="chevron" viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 18 15 12 9 6"/></svg>
-          </div>
-        </a>
-
-        <!-- Barba Spa Condesa: Toalla caliente + vapor azul -->
-        <a href="agenda.html?servicio=Barba+Spa+Condesa" class="service-btn">
-          <div class="service-left">
-            <div class="svc-icon">
-              <svg viewBox="0 0 24 24">
-                <path d="M8 10c0-1.8 1.2-2.2 1.2-4S8 3.5 8 3.5M12 10c0-1.8 1.2-2.2 1.2-4S12 3.5 12 3.5M16 10c0-1.8 1.2-2.2 1.2-4S16 3.5 16 3.5" stroke="#38bdf8" stroke-width="1.8" stroke-linecap="round" fill="none"/>
-                <rect x="3.5" y="13" width="17" height="7" rx="3.5" fill="url(#steel)"/>
-                <circle cx="17" cy="16.5" r="1.5" fill="#0b0e14"/>
-              </svg>
-            </div>
-            <div class="svc-info">
-              <span class="svc-name">Barba Spa Condesa</span>
-              <span class="svc-sub">Ritual completo ($560 caja + $100 reserva)</span>
-            </div>
-          </div>
-          <div class="service-right">
-            <span class="svc-price">$660</span>
-            <svg class="chevron" viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 18 15 12 9 6"/></svg>
-          </div>
-        </a>
-      </div>
-    </section>
-
-    <!-- SECCIÓN 3: COMPLEMENTOS Y CUIDADO PERSONAL -->
-    <section>
-      <div class="section-head">
-        <div class="section-title-wrap">
-          <h2>Complementos y Cuidado</h2>
-        </div>
-        <span class="section-tag">Precio directo</span>
-      </div>
-      <p class="section-note">Agrégalos a tu experiencia o agéndalos directo. Se liquidan íntegros en caja.</p>
-
-      <div class="btn-list">
-        <!-- Corte Niño: Máquina / Clipper sólida de acero -->
-        <a href="agenda.html?servicio=Corte+Nino" class="service-btn">
-          <div class="service-left">
-            <div class="svc-icon">
-              <svg viewBox="0 0 24 24" fill="url(#steel)">
-                <path d="M8 3h8v2.5H8V3zm1 3.5h6l1 3v9.5a2 2 0 0 1-2 2h-4a2 2 0 0 1-2-2V9.5l1-3z"/>
-                <rect x="11" y="10" width="2" height="4" rx="1" fill="#38bdf8"/>
-              </svg>
-            </div>
-            <div class="svc-info">
-              <span class="svc-name">Corte Niño</span>
-              <span class="svc-sub">Estilo y comodidad a su medida</span>
-            </div>
-          </div>
-          <div class="service-right">
-            <span class="svc-price">$320</span>
-            <svg class="chevron" viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 18 15 12 9 6"/></svg>
-          </div>
-        </a>
-
-        <!-- Facial: Perfil masculino minimalista + destello azul -->
-        <a href="agenda.html?servicio=Facial" class="service-btn">
-          <div class="service-left">
-            <div class="svc-icon">
-              <svg viewBox="0 0 24 24">
-                <path d="M11 4c-3.8 0-6.5 2.8-6.5 7 0 4.5 2.8 8.5 6.5 8.5s6.5-4 6.5-8.5c0-4.2-2.7-7-6.5-7z" fill="none" stroke="url(#steel)" stroke-width="2"/>
-                <path d="M8.5 11h1.5M12 11h1.5M9.5 15c.9.7 2.1.7 3 0" stroke="url(#steel)" stroke-width="1.6" stroke-linecap="round" fill="none"/>
-                <path d="M19 3l.8 2.2L22 6l-2.2.8L19 9l-.8-2.2L16 6l2.2-.8L19 3z" fill="#38bdf8"/>
-              </svg>
-            </div>
-            <div class="svc-info">
-              <span class="svc-name">Facial</span>
-              <span class="svc-sub">Limpieza y cuidado de piel</span>
-            </div>
-          </div>
-          <div class="service-right">
-            <span class="svc-price">$280</span>
-            <svg class="chevron" viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 18 15 12 9 6"/></svg>
-          </div>
-        </a>
-
-        <!-- Tintura Barba: Barba sólida + brocha de tinte -->
-        <a href="agenda.html?servicio=Tintura+Barba" class="service-btn">
-          <div class="service-left">
-            <div class="svc-icon">
-              <svg viewBox="0 0 24 24">
-                <path d="M3 8c0 5 2.4 9.5 6.2 9.5S15.5 13 15.5 8c0-.6-.4-1-1-1-.9 0-1.4 1.2-2.7 1.6-.9.3-1.8.3-2.6.3s-1.7 0-2.6-.3C5.4 8.2 4.9 7 4 7c-.6 0-1 .4-1 1z" fill="url(#steel)"/>
-                <path d="M17.5 6h3v4.5l-1 1.5v5.5a1 1 0 0 1-1 1h0a1 1 0 0 1-1-1V12l-1-1.5V6h1z" fill="url(#steel)"/>
-                <rect x="17" y="6" width="3.5" height="2.2" rx="0.5" fill="#38bdf8"/>
-              </svg>
-            </div>
-            <div class="svc-info">
-              <span class="svc-name">Tintura Barba</span>
-              <span class="svc-sub">Tono uniforme y natural</span>
-            </div>
-          </div>
-          <div class="service-right">
-            <span class="svc-price">$250</span>
-            <svg class="chevron" viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 18 15 12 9 6"/></svg>
-          </div>
-        </a>
-
-        <!-- Contorno: Navaja de barbero sólida -->
-        <a href="agenda.html?servicio=Contorno" class="service-btn">
-          <div class="service-left">
-            <div class="svc-icon">
-              <svg viewBox="0 0 24 24">
-                <path d="M4 7.5L15.5 11l1.2-2.8L5.2 4.8A1.2 1.2 0 0 0 4 7.5z" fill="url(#steel)"/>
-                <path d="M17.5 8.5l2.8-.6c.5-.1.9.3.8.8l-.5 1.2-3.5.7-9.6 9.8a1.5 1.5 0 0 1-2.1-2.1l9.8-9.6 2.3-.2z" fill="url(#steel)"/>
-                <circle cx="16.8" cy="10" r="1.1" fill="#38bdf8"/>
-              </svg>
-            </div>
-            <div class="svc-info">
-              <span class="svc-name">Contorno</span>
-              <span class="svc-sub">Definición limpia con navaja</span>
-            </div>
-          </div>
-          <div class="service-right">
-            <span class="svc-price">$200</span>
-            <svg class="chevron" viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 18 15 12 9 6"/></svg>
-          </div>
-        </a>
-
-        <!-- Diseño de Cejas: Arco de ceja esculpido sólido -->
-        <a href="agenda.html?servicio=Diseno+de+Cejas" class="service-btn">
-          <div class="service-left">
-            <div class="svc-icon">
-              <svg viewBox="0 0 24 24">
-                <path d="M3 14.5C5.5 10.5 10.5 8.5 15.5 9.5c2.2.4 4.2 1.8 5.5 3.5-2.2-.8-4.5-1.2-6.8-1.1-3.8.2-7.2 1.6-10.2 3.8-.5.3-1.3-.4-1-1.2z" fill="url(#steel)"/>
-                <path d="M4.5 16.5c3.5-1.8 7.5-2.6 11.5-2" stroke="#38bdf8" stroke-width="1.3" stroke-linecap="round" fill="none"/>
-              </svg>
-            </div>
-            <div class="svc-info">
-              <span class="svc-name">Diseño de Cejas</span>
-              <span class="svc-sub">Armonía natural para tu rostro</span>
-            </div>
-          </div>
-          <div class="service-right">
-            <span class="svc-price">$150</span>
-            <svg class="chevron" viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 18 15 12 9 6"/></svg>
-          </div>
-        </a>
-
-        <!-- Depilación Nariz y Oídos: Pinzas de precisión sólidas -->
-        <a href="agenda.html?servicio=Depilacion+Nariz+y+Oidos" class="service-btn">
-          <div class="service-left">
-            <div class="svc-icon">
-              <svg viewBox="0 0 24 24">
-                <path d="M5.2 19.8a1.5 1.5 0 0 1 0-2.1L16.5 4.5l1.8 1.2-9.2 11.8 10.2-9.2 1.2 1.8L7.3 19.8a1.5 1.5 0 0 1-2.1 0z" fill="url(#steel)"/>
-                <circle cx="6.3" cy="18.7" r="1" fill="#38bdf8"/>
-              </svg>
-            </div>
-            <div class="svc-info">
-              <span class="svc-name">Depilación Nariz y Oídos</span>
-              <span class="svc-sub">Paquete completo de higiene</span>
-            </div>
-          </div>
-          <div class="service-right">
-            <span class="svc-price">$150</span>
-            <svg class="chevron" viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 18 15 12 9 6"/></svg>
-          </div>
-        </a>
-
-        <!-- Depilación Nariz: Silueta sólida de nariz -->
-        <a href="agenda.html?servicio=Depilacion+Nariz" class="service-btn">
-          <div class="service-left">
-            <div class="svc-icon">
-              <svg viewBox="0 0 24 24">
-                <path d="M10.2 4.5h3.6l1.4 8.2c.8.6 1.8 1.6 1.8 3.1 0 1.8-1.4 3.2-3.2 3.2-.8 0-1.4-.3-1.8-.7-.4.4-1 .7-1.8.7-1.8 0-3.2-1.4-3.2-3.2 0-1.5 1-2.5 1.8-3.1l1.4-8.2z" fill="url(#steel)"/>
-                <ellipse cx="9.6" cy="16.6" rx="1.1" ry="0.6" fill="#0b0e14"/>
-                <ellipse cx="14.4" cy="16.6" rx="1.1" ry="0.6" fill="#0b0e14"/>
-                <line x1="12" y1="6.5" x2="12" y2="12.5" stroke="#38bdf8" stroke-width="1.3" stroke-linecap="round"/>
-              </svg>
-            </div>
-            <div class="svc-info">
-              <span class="svc-name">Depilación Nariz</span>
-              <span class="svc-sub">Acabado limpio y rápido</span>
-            </div>
-          </div>
-          <div class="service-right">
-            <span class="svc-price">$100</span>
-            <svg class="chevron" viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 18 15 12 9 6"/></svg>
-          </div>
-        </a>
-
-        <!-- Depilación Oído: Silueta limpia de oído en acero -->
-        <a href="agenda.html?servicio=Depilacion+Oido" class="service-btn">
-          <div class="service-left">
-            <div class="svc-icon">
-              <svg viewBox="0 0 24 24" fill="none">
-                <path d="M6.5 9.5a5.8 5.8 0 1 1 11.6 0c0 4.6-4.5 5.2-4.8 8.4a2.8 2.8 0 0 1-5.5.4" stroke="url(#steel)" stroke-width="2.3" stroke-linecap="round"/>
-                <path d="M14.5 9.5a2.3 2.3 0 0 0-4.5 0c0 1.3 1.2 1.8 1.2 3.2" stroke="#38bdf8" stroke-width="1.7" stroke-linecap="round"/>
-              </svg>
-            </div>
-            <div class="svc-info">
-              <span class="svc-name">Depilación Oído</span>
-              <span class="svc-sub">Detalle y pulcritud</span>
-            </div>
-          </div>
-          <div class="service-right">
-            <span class="svc-price">$100</span>
-            <svg class="chevron" viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 18 15 12 9 6"/></svg>
-          </div>
-        </a>
-      </div>
-    </section>
-
-    <!-- PILARES -->
+    <!-- Pilares -->
     <section>
       <div class="trust-grid">
         <div class="trust-item">
-          <span class="trust-num">1 a 1</span>
-          <span class="trust-label">Diseño personalizado</span>
+          <span class="trust-num">1 : 1</span>
+          <span class="trust-label" data-i18n="pillar1">Diseño a medida</span>
         </div>
         <div class="trust-item">
-          <span class="trust-num">Especialista</span>
-          <span class="trust-label">Asesoría de imagen</span>
+          <span class="trust-num" data-i18n="pillar2Num">Autor</span>
+          <span class="trust-label" data-i18n="pillar2">Asesoría de imagen</span>
         </div>
         <div class="trust-item">
-          <span class="trust-num">100% Seguro</span>
-          <span class="trust-label">Cita exclusiva</span>
+          <span class="trust-num">100%</span>
+          <span class="trust-label" data-i18n="pillar3">Cita exclusiva</span>
         </div>
       </div>
     </section>
 
-    <!-- POLÍTICA TRANSPARENTE -->
+    <!-- Política transparente -->
     <section>
-      <div class="policy-box">
-        <strong>¿Cómo funciona tu reserva?</strong><br>
-        En servicios principales y combos tu cita se bloquea con una <strong>cuota de reserva prioritaria de $100 MXN</strong>. El día de tu cita liquidas el costo base de tu servicio directamente en caja.
+      <div class="policy-box" data-i18n="policyHtml">
+        <strong>Política transparente de reserva:</strong><br>
+        En servicios principales y combos (Lun–Vie), tu espacio se bloquea con una <strong>cuota de reserva prioritaria de $100 MXN</strong> y liquidas el costo base íntegro en caja. En <strong>Domingos Privados (Condesa)</strong>, el servicio es de $380 MXN con anticipo de $100 MXN.
       </div>
     </section>
 
     <div class="final-cta">
-      <h2>¿Listo para tu siguiente experiencia?</h2>
-      <p>Elige tu servicio, selecciona tu horario y asegura tu espacio.</p>
-      <a href="agenda.html" class="cta-btn">Apartar mi espacio ahora</a>
+      <h2 data-i18n="finalTitle">¿Listo para tu siguiente experiencia?</h2>
+      <p data-i18n="finalSub">Elige tu servicio, selecciona tu horario y asegura tu espacio hoy.</p>
+      <a href="agenda.html" class="cta-btn" id="finalCtaBtn" data-i18n="finalCta">Apartar mi espacio ahora</a>
     </div>
 
-    <footer>
-      © 2026 Style with Purpose · Ciudad de México
-    </footer>
+    <footer data-i18n="footer">© 2026 Style with Purpose · Ciudad de México</footer>
   </div>
+
+  <script>
+    // === DICCIONARIO BILINGÜE (ESPAÑOL / INGLÉS) ===
+    const I18N = {
+      es: {
+        title: "Style with Purpose | Experiencia y Diseño a tu Medida",
+        badge: "Style with Purpose · CDMX",
+        heroTitle: "Experiencia y diseño a tu medida.",
+        heroSub: "Asesoría de imagen, técnica precisa y atención 1 a 1 pensada para tu estilo, facciones y ritmo de vida.",
+        heroCta: "Diseñar mi cita ahora",
+        monFriTag: "Lunes a Viernes",
+        monFriTitle: "Carta Completa",
+        monFriDesc: "Reserva prioritaria ($100) + liquidación del servicio base en caja.",
+        sunTag: "Domingos Privados",
+        sunTitle: "Estudio Condesa · $380",
+        sunDesc: "Sesión privada 1 a 1 en 3er piso (Condesa). Cupo estrictamente limitado.",
+        howTitle: "¿Cómo funciona tu reserva?",
+        step1: "<strong>Elige tu servicio y horario:</strong> Selecciona tu experiencia y consulta espacios libres en tiempo real.",
+        step2: "<strong>Genera tu folio único:</strong> Recibe al instante tu clave de reserva vinculada a la agenda.",
+        step3: "<strong>Bloquea tu espacio:</strong> Confirma con tu cuota de reserva prioritaria de $100 MXN vía WhatsApp.",
+        pillar1: "Diseño a medida",
+        pillar2Num: "Autor",
+        pillar2: "Asesoría de imagen",
+        pillar3: "Cita exclusiva",
+        policyHtml: "<strong>Política transparente de reserva:</strong><br>En servicios principales y combos (Lun–Vie), tu espacio se bloquea con una <strong>cuota de reserva prioritaria de $100 MXN</strong> y liquidas el costo base íntegro en caja. En <strong>Domingos Privados (Condesa)</strong>, el servicio es de $380 MXN con anticipo de $100 MXN.",
+        finalTitle: "¿Listo para tu siguiente experiencia?",
+        finalSub: "Elige tu servicio, selecciona tu horario y asegura tu espacio hoy.",
+        finalCta: "Apartar mi espacio ahora",
+        footer: "© 2026 Style with Purpose · Ciudad de México",
+        sections: [
+          {
+            title: "Combos Exclusivos",
+            tag: "Toca para agendar",
+            note: "Incluye $100 de reserva prioritaria para bloquear tu espacio. El costo base se liquida en caja.",
+            items: [
+              { id: "Experiencia Condesa", img: "icons/experiencia-condesa.png", fallback: "crown", featured: true, name: "Experiencia Condesa", sub: "Corte + Barba Spa Condesa ($880 caja + $100 reserva)", price: "$980" },
+              { id: "Combo Condesa", img: "icons/combo-condesa.png", fallback: "sparkles", featured: true, name: "Combo Condesa", sub: "Corte + Barba ($680 caja + $100 reserva)", price: "$780" }
+            ]
+          },
+          {
+            title: "Servicios Principales",
+            tag: "Reserva +$100",
+            note: "",
+            items: [
+              { id: "Corte", img: "icons/corte.png", fallback: "scissors", name: "Corte a tu Medida", sub: "Asesoría y diseño ($380 caja + $100 reserva)", price: "$480" },
+              { id: "Barba", img: "icons/barba.png", fallback: "user-round-check", name: "Diseño de Barba", sub: "Perfilado y acabado ($360 caja + $100 reserva)", price: "$460" },
+              { id: "Barba Spa Condesa", img: "icons/barba-spa.png", fallback: "droplets", name: "Barba Spa Condesa", sub: "Ritual completo ($560 caja + $100 reserva)", price: "$660" }
+            ]
+          },
+          {
+            title: "Complementos y Cuidado",
+            tag: "Precio directo",
+            note: "Agrégalos a tu experiencia o agéndalos directo. Se liquidan íntegros en caja.",
+            items: [
+              { id: "Corte Nino", img: "icons/corte-nino.png", fallback: "scissors", name: "Corte Niño", sub: "Estilo y comodidad a su medida", price: "$320" },
+              { id: "Facial", img: "icons/facial.png", fallback: "sparkles", name: "Facial", sub: "Limpieza y cuidado de piel", price: "$280" },
+              { id: "Tintura Barba", img: "icons/tintura-barba.png", fallback: "paintbrush", name: "Tintura Barba", sub: "Tono uniforme y natural", price: "$250" },
+              { id: "Contorno", img: "icons/contorno.png", fallback: "pen-tool", name: "Contorno", sub: "Definición limpia con navaja", price: "$200" },
+              { id: "Diseno de Cejas", img: "icons/cejas.png", fallback: "eye", name: "Diseño de Cejas", sub: "Armonía natural para tu rostro", price: "$150" },
+              { id: "Depilacion Nariz y Oidos", img: "icons/nariz-oidos.png", fallback: "shield-check", name: "Depilación Nariz y Oídos", sub: "Paquete completo de higiene", price: "$150" },
+              { id: "Depilacion Nariz", img: "icons/nariz.png", fallback: "wind", name: "Depilación Nariz", sub: "Acabado limpio y rápido", price: "$100" },
+              { id: "Depilacion Oido", img: "icons/oido.png", fallback: "ear", name: "Depilación Oído", sub: "Detalle y pulcritud", price: "$100" }
+            ]
+          }
+        ]
+      },
+      en: {
+        title: "Style with Purpose | Tailored Grooming Experience CDMX",
+        badge: "Style with Purpose · CDMX",
+        heroTitle: "Tailored experience & bespoke design.",
+        heroSub: "Personal image consulting, precision craft, and 1-on-1 grooming designed for your features and lifestyle.",
+        heroCta: "Design my appointment",
+        monFriTag: "Monday – Friday",
+        monFriTitle: "Full Service Menu",
+        monFriDesc: "$100 MXN priority booking fee + base service balance paid at checkout.",
+        sunTag: "Private Sundays",
+        sunTitle: "Condesa Studio · $380",
+        sunDesc: "Private 1-on-1 session (3rd floor, Condesa). Strictly limited spots.",
+        howTitle: "How booking works",
+        step1: "<strong>Choose service & time:</strong> Pick your experience and view real-time available slots.",
+        step2: "<strong>Get your unique ID:</strong> Receive an instant booking code synced with our calendar.",
+        step3: "<strong>Lock your spot:</strong> Confirm with a $100 MXN priority booking fee via WhatsApp.",
+        pillar1: "Bespoke design",
+        pillar2Num: "Craft",
+        pillar2: "Image consulting",
+        pillar3: "Appointment only",
+        policyHtml: "<strong>Transparent Booking Policy:</strong><br>For main services and combos (Mon–Fri), your slot is locked with a <strong>$100 MXN priority reservation fee</strong>, and the base service price is paid in full at checkout. For <strong>Private Sundays (Condesa)</strong>, total service is $380 MXN ($100 deposit).",
+        finalTitle: "Ready for your next experience?",
+        finalSub: "Select your service, pick your time, and secure your chair today.",
+        finalCta: "Book my session now",
+        footer: "© 2026 Style with Purpose · Mexico City",
+        sections: [
+          {
+            title: "Signature Combos",
+            tag: "Tap to book",
+            note: "Includes $100 MXN priority booking fee to lock your slot. Base balance is paid at checkout.",
+            items: [
+              { id: "Experiencia Condesa", img: "icons/experiencia-condesa.png", fallback: "crown", featured: true, name: "Condesa Experience", sub: "Haircut + Condesa Spa Beard ($880 checkout + $100 booking)", price: "$980" },
+              { id: "Combo Condesa", img: "icons/combo-condesa.png", fallback: "sparkles", featured: true, name: "Condesa Combo", sub: "Haircut + Beard ($680 checkout + $100 booking)", price: "$780" }
+            ]
+          },
+          {
+            title: "Core Services",
+            tag: "+$100 Booking",
+            note: "",
+            items: [
+              { id: "Corte", img: "icons/corte.png", fallback: "scissors", name: "Bespoke Haircut", sub: "Style consulting & tailored cut ($380 checkout + $100 booking)", price: "$480" },
+              { id: "Barba", img: "icons/barba.png", fallback: "user-round-check", name: "Beard Sculpting", sub: "Precision lining & finish ($360 checkout + $100 booking)", price: "$460" },
+              { id: "Barba Spa Condesa", img: "icons/barba-spa.png", fallback: "droplets", name: "Condesa Beard Spa", sub: "Full hot-towel ritual ($560 checkout + $100 booking)", price: "$660" }
+            ]
+          },
+          {
+            title: "Add-ons & Grooming",
+            tag: "Direct price",
+            note: "Add to your session or book directly. Paid in full at checkout.",
+            items: [
+              { id: "Corte Nino", img: "icons/corte-nino.png", fallback: "scissors", name: "Kids Haircut", sub: "Tailored style & comfort", price: "$320" },
+              { id: "Facial", img: "icons/facial.png", fallback: "sparkles", name: "Facial Treatment", sub: "Deep cleansing & skin care", price: "$280" },
+              { id: "Tintura Barba", img: "icons/tintura-barba.png", fallback: "paintbrush", name: "Beard Tint", sub: "Even, natural tone", price: "$250" },
+              { id: "Contorno", img: "icons/contorno.png", fallback: "pen-tool", name: "Razor Line-Up", sub: "Crisp straight-razor definition", price: "$200" },
+              { id: "Diseno de Cejas", img: "icons/cejas.png", fallback: "eye", name: "Eyebrow Design", sub: "Natural facial balance", price: "$150" },
+              { id: "Depilacion Nariz y Oidos", img: "icons/nariz-oidos.png", fallback: "shield-check", name: "Nose & Ear Waxing", sub: "Complete grooming pack", price: "$150" },
+              { id: "Depilacion Nariz", img: "icons/nariz.png", fallback: "wind", name: "Nose Waxing", sub: "Clean & quick finish", price: "$100" },
+              { id: "Depilacion Oido", img: "icons/oido.png", fallback: "ear", name: "Ear Waxing", sub: "Clean precision detail", price: "$100" }
+            ]
+          }
+        ]
+      }
+    };
+
+    function detectSystemLanguage() {
+      const saved = localStorage.getItem("swp_lang");
+      if (saved === "es" || saved === "en") return saved;
+      const sysLang = (navigator.languages && navigator.languages[0]) || navigator.language || "es";
+      return sysLang.toLowerCase().startsWith("en") ? "en" : "es";
+    }
+
+    function renderCatalog(lang) {
+      const dict = I18N[lang];
+      const root = document.getElementById("catalogRoot");
+      root.innerHTML = dict.sections.map(sec => `
+        <section>
+          <div class="section-head">
+            <h2>${sec.title}</h2>
+            <span class="section-tag">${sec.tag}</span>
+          </div>
+          ${sec.note ? `<p class="section-note">${sec.note}</p>` : ""}
+          <div class="btn-list">
+            ${sec.items.map(item => `
+              <a href="agenda.html?servicio=${encodeURIComponent(item.id)}&lang=${lang}"
+                 class="service-btn ${item.featured ? "featured" : ""}"
+                 onclick="if(typeof fbq==='function'){fbq('trackCustom','SelectService',{service:'${item.id}'});}">
+                <div class="service-left">
+                  <div class="svc-icon">
+                    <img src="${item.img}" alt="${item.name}" loading="lazy"
+                         onerror="this.style.display='none'; this.parentElement.classList.add('use-fallback');" />
+                    <i data-lucide="${item.fallback}" class="fallback-icon"></i>
+                  </div>
+                  <div class="svc-info">
+                    <span class="svc-name">${item.name}</span>
+                    <span class="svc-sub">${item.sub}</span>
+                  </div>
+                </div>
+                <div class="service-right">
+                  <span class="svc-price">${item.price}</span>
+                  <i data-lucide="chevron-right" class="chevron"></i>
+                </div>
+              </a>
+            `).join("")}
+          </div>
+        </section>
+      `).join("");
+
+      if (window.lucide) lucide.createIcons();
+    }
+
+    function setLanguage(lang, persist = true) {
+      if (persist) localStorage.setItem("swp_lang", lang);
+      const dict = I18N[lang];
+      document.documentElement.lang = lang;
+      document.title = dict.title;
+
+      document.getElementById("btn-es").classList.toggle("active", lang === "es");
+      document.getElementById("btn-en").classList.toggle("active", lang === "en");
+
+      document.querySelectorAll("[data-i18n]").forEach(el => {
+        const key = el.getAttribute("data-i18n");
+        if (dict[key]) el.innerHTML = dict[key];
+      });
+
+      document.getElementById("heroCta").href = `agenda.html?lang=${lang}`;
+      document.getElementById("finalCtaBtn").href = `agenda.html?lang=${lang}`;
+
+      renderCatalog(lang);
+    }
+
+    window.addEventListener("DOMContentLoaded", () => {
+      setLanguage(detectSystemLanguage(), false);
+    });
+  </script>
 </body>
 </html>
