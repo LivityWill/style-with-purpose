@@ -28,10 +28,21 @@
   </noscript>
 
   <style>
+    :root {
+      --bg-black: #000000;
+      --card-bg: #080b12;
+      --card-border: #172033;
+      --silver-bright: #e2e8f0;
+      --silver-mid: #94a3b8;
+      --silver-dim: #64748b;
+      --blue-primary: #2563eb;
+      --blue-accent: #38bdf8;
+      --blue-glow: rgba(56, 189, 248, 0.14);
+    }
     * { box-sizing: border-box; margin: 0; padding: 0; font-family: 'Plus Jakarta Sans', -apple-system, sans-serif; }
     body {
-      background: #000000;
-      color: #ffffff;
+      background: var(--bg-black);
+      color: var(--silver-bright);
       line-height: 1.5;
       -webkit-font-smoothing: antialiased;
     }
@@ -43,15 +54,16 @@
     header {
       text-align: center;
       padding: 12px 0 34px;
-      border-bottom: 1px solid #1a1a1a;
+      border-bottom: 1px solid #111827;
     }
     .icon-wrap {
-      width: 58px;
-      height: 58px;
+      width: 60px;
+      height: 60px;
       margin: 0 auto 16px;
       border-radius: 16px;
-      background: #0a0a0a;
-      border: 1px solid #222222;
+      background: var(--card-bg);
+      border: 1px solid var(--card-border);
+      box-shadow: 0 0 24px rgba(37, 99, 235, 0.18);
       display: flex;
       align-items: center;
       justify-content: center;
@@ -59,7 +71,7 @@
     .barber-icon {
       width: 28px;
       height: 28px;
-      stroke: #d4af37;
+      stroke: var(--blue-accent);
       animation: subtleFloat 3s ease-in-out infinite;
     }
     @keyframes subtleFloat {
@@ -72,23 +84,26 @@
       font-weight: 600;
       letter-spacing: 2px;
       text-transform: uppercase;
-      color: #d4af37;
-      border: 1px solid rgba(212, 175, 55, 0.35);
+      color: var(--blue-accent);
+      background: rgba(56, 189, 248, 0.08);
+      border: 1px solid rgba(56, 189, 248, 0.3);
       padding: 5px 14px;
       border-radius: 99px;
       margin-bottom: 16px;
     }
     h1 {
-      font-size: 30px;
+      font-size: 31px;
       font-weight: 800;
       letter-spacing: -0.7px;
-      color: #ffffff;
       margin-bottom: 12px;
       line-height: 1.15;
+      background: linear-gradient(180deg, #ffffff 0%, #cbd5e1 65%, #94a3b8 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
     }
     .hero-sub {
       font-size: 15px;
-      color: #d4d4d8;
+      color: var(--silver-mid);
       margin-bottom: 24px;
     }
     .cta-btn {
@@ -100,45 +115,51 @@
       text-decoration: none;
       padding: 15px 20px;
       border-radius: 12px;
-      background: #ffffff;
-      color: #000000;
+      background: linear-gradient(135deg, #2563eb 0%, #1d4ed8 100%);
+      color: #f8fafc;
       font-size: 15px;
       font-weight: 700;
-      transition: transform 0.15s, background 0.2s;
+      border: 1px solid rgba(96, 165, 250, 0.35);
+      box-shadow: 0 8px 24px rgba(37, 99, 235, 0.28);
+      transition: transform 0.15s, box-shadow 0.2s, background 0.2s;
     }
-    .cta-btn:hover { background: #d4af37; transform: translateY(-1px); }
+    .cta-btn:hover {
+      background: linear-gradient(135deg, #3b82f6 0%, #2563eb 100%);
+      box-shadow: 0 10px 28px rgba(56, 189, 248, 0.35);
+      transform: translateY(-1px);
+    }
     section {
       padding: 28px 0;
-      border-bottom: 1px solid #1a1a1a;
+      border-bottom: 1px solid #111827;
     }
     .section-head {
       display: flex;
       align-items: center;
       justify-content: space-between;
-      margin-bottom: 14px;
+      margin-bottom: 12px;
     }
     .section-title-wrap {
       display: flex;
       align-items: center;
       gap: 9px;
     }
-    .section-title-wrap svg { width: 18px; height: 18px; stroke: #d4af37; flex-shrink: 0; }
+    .section-title-wrap svg { width: 18px; height: 18px; stroke: var(--blue-accent); flex-shrink: 0; }
     h2 {
       font-size: 17px;
       font-weight: 700;
-      color: #ffffff;
+      color: var(--silver-bright);
       letter-spacing: -0.2px;
     }
     .section-tag {
       font-size: 11px;
-      color: #d4af37;
+      color: var(--blue-accent);
       font-weight: 600;
       text-transform: uppercase;
       letter-spacing: 0.8px;
     }
     .section-note {
       font-size: 12.5px;
-      color: #a1a1aa;
+      color: var(--silver-mid);
       margin-bottom: 16px;
       line-height: 1.45;
     }
@@ -156,21 +177,22 @@
       gap: 12px;
       width: 100%;
       text-decoration: none;
-      background: #0a0a0a;
-      border: 1px solid #1f1f1f;
+      background: var(--card-bg);
+      border: 1px solid var(--card-border);
       border-radius: 14px;
       padding: 14px 16px;
-      color: #ffffff;
-      transition: border-color 0.2s, background 0.2s, transform 0.12s;
+      color: var(--silver-bright);
+      transition: border-color 0.2s, background 0.2s, transform 0.12s, box-shadow 0.2s;
     }
     .service-btn:hover {
-      border-color: #d4af37;
-      background: #111111;
+      border-color: var(--blue-accent);
+      background: #0c1220;
+      box-shadow: 0 0 18px rgba(56, 189, 248, 0.12);
       transform: translateY(-1px);
     }
     .service-btn.featured {
-      border-color: rgba(212, 175, 55, 0.4);
-      background: linear-gradient(145deg, #0d0c08 0%, #0a0a0a 100%);
+      border-color: rgba(56, 189, 248, 0.35);
+      background: linear-gradient(145deg, #0b1324 0%, #070a10 100%);
     }
     .service-left {
       display: flex;
@@ -179,20 +201,20 @@
       min-width: 0;
     }
     .svc-icon {
-      width: 40px;
-      height: 40px;
-      border-radius: 10px;
-      background: #141414;
-      border: 1px solid #262626;
+      width: 42px;
+      height: 42px;
+      border-radius: 11px;
+      background: #0d1424;
+      border: 1px solid #1e293b;
       display: flex;
       align-items: center;
       justify-content: center;
       flex-shrink: 0;
     }
     .svc-icon svg {
-      width: 19px;
-      height: 19px;
-      stroke: #d4af37;
+      width: 21px;
+      height: 21px;
+      stroke: var(--blue-accent);
     }
     .svc-info {
       display: flex;
@@ -202,12 +224,12 @@
     .svc-name {
       font-size: 14.5px;
       font-weight: 700;
-      color: #ffffff;
+      color: var(--silver-bright);
       line-height: 1.25;
     }
     .svc-sub {
       font-size: 12px;
-      color: #a1a1aa;
+      color: var(--silver-mid);
       margin-top: 2px;
     }
     .service-right {
@@ -219,17 +241,17 @@
     .svc-price {
       font-size: 16px;
       font-weight: 800;
-      color: #d4af37;
+      color: var(--blue-accent);
       white-space: nowrap;
     }
     .chevron {
       width: 16px;
       height: 16px;
-      stroke: #71717a;
+      stroke: var(--silver-dim);
       transition: transform 0.15s, stroke 0.15s;
     }
     .service-btn:hover .chevron {
-      stroke: #ffffff;
+      stroke: var(--silver-bright);
       transform: translateX(2px);
     }
 
@@ -241,34 +263,34 @@
       text-align: center;
     }
     .trust-item {
-      background: #0a0a0a;
-      border: 1px solid #1f1f1f;
+      background: var(--card-bg);
+      border: 1px solid var(--card-border);
       border-radius: 12px;
       padding: 16px 8px;
     }
     .trust-num {
       font-size: 15px;
       font-weight: 800;
-      color: #ffffff;
+      color: var(--silver-bright);
       display: block;
       margin-bottom: 3px;
     }
     .trust-label {
       font-size: 11.5px;
-      color: #a1a1aa;
+      color: var(--silver-mid);
     }
 
     .policy-box {
-      background: #0a0a0a;
-      border: 1px solid #1f1f1f;
-      border-left: 3px solid #d4af37;
+      background: var(--card-bg);
+      border: 1px solid var(--card-border);
+      border-left: 3px solid var(--blue-accent);
       border-radius: 12px;
       padding: 16px;
       font-size: 13.5px;
-      color: #e4e4e7;
+      color: var(--silver-mid);
       line-height: 1.55;
     }
-    .policy-box strong { color: #ffffff; }
+    .policy-box strong { color: var(--silver-bright); }
 
     .final-cta {
       text-align: center;
@@ -276,13 +298,13 @@
     }
     .final-cta p {
       font-size: 14px;
-      color: #d4d4d8;
+      color: var(--silver-mid);
       margin: 8px 0 20px;
     }
     footer {
       text-align: center;
       font-size: 12px;
-      color: #71717a;
+      color: var(--silver-dim);
       margin-top: 36px;
     }
   </style>
@@ -291,6 +313,7 @@
   <div class="container">
     <header>
       <div class="icon-wrap">
+        <!-- Tijeras de barbería -->
         <svg class="barber-icon" viewBox="0 0 24 24" fill="none" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round">
           <circle cx="6" cy="6" r="3"/><circle cx="6" cy="18" r="3"/>
           <line x1="20" y1="4" x2="8.12" y2="15.88"/><line x1="14.47" y1="14.48" x2="20" y2="20"/>
@@ -306,11 +329,11 @@
       </a>
     </header>
 
-    <!-- SECCIÓN 1: EXPERIENCIAS Y COMBOS -->
+    <!-- SECCIÓN 1: COMBOS EXCLUSIVOS -->
     <section>
       <div class="section-head">
         <div class="section-title-wrap">
-          <svg viewBox="0 0 24 24" fill="none" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+          <svg viewBox="0 0 24 24" fill="none" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M2 4l3 12h14l3-12-6 7-4-7-4 7-6-7z"/><line x1="5" y1="20" x2="19" y2="20"/></svg>
           <h2>Combos Exclusivos</h2>
         </div>
         <span class="section-tag">Toca para agendar</span>
@@ -318,10 +341,11 @@
       <p class="section-note">Incluye $100 de reserva prioritaria para bloquear tu espacio. El costo base del servicio se liquida en caja.</p>
 
       <div class="btn-list">
+        <!-- Experiencia Condesa: Corona -->
         <a href="agenda.html?servicio=Experiencia+Condesa" class="service-btn featured">
           <div class="service-left">
             <div class="svc-icon">
-              <svg viewBox="0 0 24 24" fill="none" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M2 4l3 12h14l3-12-6 7-4-7-4 7-6-7z"/><line x1="5" y1="20" x2="19" y2="20"/></svg>
+              <svg viewBox="0 0 24 24" fill="none" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><path d="M2 4l3 12h14l3-12-6 7-4-7-4 7-6-7z"/><line x1="5" y1="20" x2="19" y2="20"/></svg>
             </div>
             <div class="svc-info">
               <span class="svc-name">Experiencia Condesa</span>
@@ -334,10 +358,14 @@
           </div>
         </a>
 
+        <!-- Combo Condesa: Peine + Tijera -->
         <a href="agenda.html?servicio=Combo+Condesa" class="service-btn featured">
           <div class="service-left">
             <div class="svc-icon">
-              <svg viewBox="0 0 24 24" fill="none" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2L2 7l10 5 10-5-10-5z"/><path d="M2 17l10 5 10-5"/><path d="M2 12l10 5 10-5"/></svg>
+              <svg viewBox="0 0 24 24" fill="none" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round">
+                <rect x="3" y="4" width="6" height="16" rx="1"/><line x1="6" y1="7" x2="9" y2="7"/><line x1="6" y1="10" x2="9" y2="10"/><line x1="6" y1="13" x2="9" y2="13"/><line x1="6" y1="16" x2="9" y2="16"/>
+                <circle cx="15" cy="18" r="2"/><circle cx="19" cy="18" r="2"/><line x1="15" y1="16" x2="19" y2="5"/><line x1="19" y1="16" x2="15" y2="5"/>
+              </svg>
             </div>
             <div class="svc-info">
               <span class="svc-name">Combo Condesa</span>
@@ -363,10 +391,11 @@
       </div>
 
       <div class="btn-list">
+        <!-- Corte: Tijeras -->
         <a href="agenda.html?servicio=Corte" class="service-btn">
           <div class="service-left">
             <div class="svc-icon">
-              <svg viewBox="0 0 24 24" fill="none" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="6" cy="6" r="3"/><circle cx="6" cy="18" r="3"/><line x1="20" y1="4" x2="8.12" y2="15.88"/><line x1="14.47" y1="14.48" x2="20" y2="20"/><line x1="8.12" y1="8.12" x2="12" y2="12"/></svg>
+              <svg viewBox="0 0 24 24" fill="none" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><circle cx="6" cy="6" r="3"/><circle cx="6" cy="18" r="3"/><line x1="20" y1="4" x2="8.12" y2="15.88"/><line x1="14.47" y1="14.48" x2="20" y2="20"/><line x1="8.12" y1="8.12" x2="12" y2="12"/></svg>
             </div>
             <div class="svc-info">
               <span class="svc-name">Corte a tu Medida</span>
@@ -379,10 +408,14 @@
           </div>
         </a>
 
+        <!-- Barba: Silueta de barba y bigote -->
         <a href="agenda.html?servicio=Barba" class="service-btn">
           <div class="service-left">
             <div class="svc-icon">
-              <svg viewBox="0 0 24 24" fill="none" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 20c4.4 0 8-3.2 8-8V7l-8-3-8 3v5c0 4.8 3.6 8 8 8z"/><path d="M9 12h6"/></svg>
+              <svg viewBox="0 0 24 24" fill="none" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M4 9c0 6 3 11 8 11s8-5 8-11c0-1.5-.8-2-2-2-1.5 0-2 1.5-3.5 1.5h-5C8 8.5 7.5 7 6 7c-1.2 0-2 .5-2 2z"/>
+                <path d="M9 12c1.2-.8 2.2-.8 3 0 .8-.8 1.8-.8 3 0"/>
+              </svg>
             </div>
             <div class="svc-info">
               <span class="svc-name">Diseño de Barba</span>
@@ -395,10 +428,14 @@
           </div>
         </a>
 
+        <!-- Barba Spa Condesa: Vapor / Toalla caliente Spa -->
         <a href="agenda.html?servicio=Barba+Spa+Condesa" class="service-btn">
           <div class="service-left">
             <div class="svc-icon">
-              <svg viewBox="0 0 24 24" fill="none" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2.69l5.66 5.66a8 8 0 1 1-11.31 0z"/></svg>
+              <svg viewBox="0 0 24 24" fill="none" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M8 10c0-2 1.5-2.5 1.5-4.5S8 3 8 3"/><path d="M12 10c0-2 1.5-2.5 1.5-4.5S12 3 12 3"/><path d="M16 10c0-2 1.5-2.5 1.5-4.5S16 3 16 3"/>
+                <rect x="4" y="13" width="16" height="7" rx="3.5"/>
+              </svg>
             </div>
             <div class="svc-info">
               <span class="svc-name">Barba Spa Condesa</span>
@@ -417,18 +454,21 @@
     <section>
       <div class="section-head">
         <div class="section-title-wrap">
-          <svg viewBox="0 0 24 24" fill="none" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3l1.9 5.8L20 11l-6.1 2.2L12 19l-1.9-5.8L4 11l6.1-2.2L12 3z"/></svg>
+          <svg viewBox="0 0 24 24" fill="none" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3l1.8 5.2L19 10l-5.2 1.8L12 17l-1.8-5.2L5 10l5.2-1.8L12 3z"/></svg>
           <h2>Complementos y Cuidado</h2>
         </div>
         <span class="section-tag">Precio directo</span>
       </div>
-      <p class="section-note">Agrégales a tu experiencia o agéndalos directo. Se liquidan íntegros en caja.</p>
+      <p class="section-note">Agrégalos a tu experiencia o agéndalos directo. Se liquidan íntegros en caja.</p>
 
       <div class="btn-list">
+        <!-- Corte Niño: Rostro infantil -->
         <a href="agenda.html?servicio=Corte+Nino" class="service-btn">
           <div class="service-left">
             <div class="svc-icon">
-              <svg viewBox="0 0 24 24" fill="none" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>
+              <svg viewBox="0 0 24 24" fill="none" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round">
+                <circle cx="12" cy="13" r="7"/><path d="M9 6.5c1.5-2 4.5-2 6 0"/><path d="M9.5 12h.01"/><path d="M14.5 12h.01"/><path d="M9.5 15.5c1.2 1 3.8 1 5 0"/>
+              </svg>
             </div>
             <div class="svc-info">
               <span class="svc-name">Corte Niño</span>
@@ -441,10 +481,15 @@
           </div>
         </a>
 
+        <!-- Facial: Rostro con destellos de limpieza -->
         <a href="agenda.html?servicio=Facial" class="service-btn">
           <div class="service-left">
             <div class="svc-icon">
-              <svg viewBox="0 0 24 24" fill="none" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M8 14s1.5 2 4 2 4-2 4-2"/><line x1="9" y1="9" x2="9.01" y2="9"/><line x1="15" y1="9" x2="15.01" y2="9"/></svg>
+              <svg viewBox="0 0 24 24" fill="none" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M12 20c4.4 0 7-3.5 7-8.5S16.4 4 12 4 5 6.5 5 11.5 7.6 20 12 20z"/>
+                <path d="M9 11h.01"/><path d="M15 11h.01"/><path d="M10 15.5c.8.6 3.2.6 4 0"/>
+                <path d="M19 3l.6 1.4L21 5l-1.4.6L19 7l-.6-1.4L17 5l1.4-.6L19 3z"/>
+              </svg>
             </div>
             <div class="svc-info">
               <span class="svc-name">Facial</span>
@@ -457,10 +502,14 @@
           </div>
         </a>
 
+        <!-- Tintura Barba: Brocha de tinte / gota -->
         <a href="agenda.html?servicio=Tintura+Barba" class="service-btn">
           <div class="service-left">
             <div class="svc-icon">
-              <svg viewBox="0 0 24 24" fill="none" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M18.37 2.63L14 7l-1.59-1.59a2 2 0 0 0-2.82 0L8 7l9 9 1.59-1.59a2 2 0 0 0 0-2.82L17 10l4.37-4.37a2.12 2.12 0 1 0-3-3z"/><path d="M9 8c-2 3-4 3.5-7 4l8 10c2-1 6-5 6-7"/></svg>
+              <svg viewBox="0 0 24 24" fill="none" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M12 2.7l4.6 4.6a6.5 6.5 0 1 1-9.2 0L12 2.7z"/>
+                <path d="M9.5 14a2.5 2.5 0 0 0 2.5 2.5"/>
+              </svg>
             </div>
             <div class="svc-info">
               <span class="svc-name">Tintura Barba</span>
@@ -473,14 +522,17 @@
           </div>
         </a>
 
+        <!-- Contorno: Navaja de barbero -->
         <a href="agenda.html?servicio=Contorno" class="service-btn">
           <div class="service-left">
             <div class="svc-icon">
-              <svg viewBox="0 0 24 24" fill="none" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M3 17l6-6 4 4 8-8"/><polyline points="14 7 21 7 21 14"/></svg>
+              <svg viewBox="0 0 24 24" fill="none" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M4 18L16 6l3 3-9 9H4z"/><path d="M16 6l2-2 3 3-2 2"/><line x1="4" y1="20" x2="20" y2="20"/>
+              </svg>
             </div>
             <div class="svc-info">
               <span class="svc-name">Contorno</span>
-              <span class="svc-sub">Definición limpia y precisa</span>
+              <span class="svc-sub">Definición limpia con navaja</span>
             </div>
           </div>
           <div class="service-right">
@@ -489,10 +541,15 @@
           </div>
         </a>
 
+        <!-- Diseño de Cejas: Ceja definida sobre ojo -->
         <a href="agenda.html?servicio=Diseno+de+Cejas" class="service-btn">
           <div class="service-left">
             <div class="svc-icon">
-              <svg viewBox="0 0 24 24" fill="none" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M1 12s4-7 11-7 11 7 11 7-4 7-11 7-11-7-11-7z"/><circle cx="12" cy="12" r="3"/></svg>
+              <svg viewBox="0 0 24 24" fill="none" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M3 8.5C6.5 6 14 5.5 21 9"/>
+                <path d="M4 14.5s3-4 8-4 8 4 8 4-3 4-8 4-8-4-8-4z"/>
+                <circle cx="12" cy="14.5" r="2"/>
+              </svg>
             </div>
             <div class="svc-info">
               <span class="svc-name">Diseño de Cejas</span>
@@ -505,10 +562,13 @@
           </div>
         </a>
 
+        <!-- Depilación Nariz y Oídos: Pinzas de precisión / higiene -->
         <a href="agenda.html?servicio=Depilacion+Nariz+y+Oidos" class="service-btn">
           <div class="service-left">
             <div class="svc-icon">
-              <svg viewBox="0 0 24 24" fill="none" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+              <svg viewBox="0 0 24 24" fill="none" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M12 3v18"/><path d="M8 5l4 14 4-14"/><circle cx="12" cy="19" r="1.5"/>
+              </svg>
             </div>
             <div class="svc-info">
               <span class="svc-name">Depilación Nariz y Oídos</span>
@@ -521,10 +581,13 @@
           </div>
         </a>
 
+        <!-- Depilación Nariz: Silueta de nariz -->
         <a href="agenda.html?servicio=Depilacion+Nariz" class="service-btn">
           <div class="service-left">
             <div class="svc-icon">
-              <svg viewBox="0 0 24 24" fill="none" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M9.59 4.59A2 2 0 1 1 11 8H2m10.59 11.41A2 2 0 1 0 14 16H2m15.73-8.27A2.5 2.5 0 1 1 19.5 12H2"/></svg>
+              <svg viewBox="0 0 24 24" fill="none" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M11 4v8.5c0 1.5-2.5 2.5-2.5 4.5 0 1.4 1.1 2.5 2.5 2.5h2c1.4 0 2.5-1.1 2.5-2.5 0-2-2.5-3-2.5-4.5V4"/>
+              </svg>
             </div>
             <div class="svc-info">
               <span class="svc-name">Depilación Nariz</span>
@@ -537,10 +600,14 @@
           </div>
         </a>
 
+        <!-- Depilación Oído: Silueta de oído -->
         <a href="agenda.html?servicio=Depilacion+Oido" class="service-btn">
           <div class="service-left">
             <div class="svc-icon">
-              <svg viewBox="0 0 24 24" fill="none" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M6 8.5a6.5 6.5 0 1 1 13 0c0 6-6 6-6 10a3.5 3.5 0 1 1-7 0"/><path d="M15 8.5a2.5 2.5 0 0 0-5 0v1a2 2 0 1 1 0 4"/></svg>
+              <svg viewBox="0 0 24 24" fill="none" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M6 8.5a6.5 6.5 0 1 1 13 0c0 6-6 6-6 10a3.5 3.5 0 1 1-7 0"/>
+                <path d="M15 8.5a2.5 2.5 0 0 0-5 0v1a2 2 0 1 1 0 4"/>
+              </svg>
             </div>
             <div class="svc-info">
               <span class="svc-name">Depilación Oído</span>
