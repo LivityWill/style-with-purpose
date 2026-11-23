@@ -77,12 +77,12 @@
 
     header { text-align: center; padding: 12px 0 34px; border-bottom: 1px solid #131924; }
 
-    /* Emblema caligráfico neón parpadeante (sin imagen) */
+    /* Emblema caligráfico neón parpadeante con trazo ondulado */
     .neon-sign-box {
       background: radial-gradient(circle at 50% 45%, rgba(245, 158, 11, 0.11) 0%, rgba(9, 12, 18, 0.96) 72%);
       border: 1px solid rgba(245, 158, 11, 0.25);
       border-radius: 20px;
-      padding: 20px 18px 18px;
+      padding: 20px 18px 14px;
       margin: 0 auto 18px;
       max-width: 360px;
       box-shadow: 0 12px 30px rgba(0, 0, 0, 0.85), inset 0 0 22px rgba(245, 158, 11, 0.06);
@@ -99,15 +99,25 @@
       animation: neonFlicker 4.5s infinite;
     }
 
-    .neon-underline {
-      width: 150px;
-      height: 3px;
-      margin: 10px auto 0;
-      border-radius: 999px;
-      background: linear-gradient(90deg, transparent, #f59e0b, #fde68a, #f59e0b, transparent);
-      box-shadow: 0 0 10px #f59e0b, 0 0 22px rgba(245, 158, 11, 0.75);
+    .neon-wave-wrap {
+      width: 176px;
+      height: 22px;
+      margin: 4px auto 0;
       transform: rotate(-3deg);
-      animation: barFlicker 4.5s infinite;
+      animation: neonFlicker 4.5s infinite;
+    }
+
+    .neon-wave-svg {
+      width: 100%;
+      height: 100%;
+      overflow: visible;
+    }
+
+    .neon-wave-path {
+      fill: none;
+      stroke: #fbbf24;
+      stroke-width: 3;
+      stroke-linecap: round;
     }
 
     @keyframes neonFlicker {
@@ -118,12 +128,14 @@
           0 0 12px #fbbf24,
           0 0 24px #f59e0b,
           0 0 42px rgba(217, 119, 6, 0.85);
+        filter: drop-shadow(0 0 6px #f59e0b) drop-shadow(0 0 14px rgba(245, 158, 11, 0.75));
       }
       20%, 24%, 55% {
         opacity: 0.72;
         text-shadow:
           0 0 3px #fef3c7,
           0 0 8px rgba(245, 158, 11, 0.45);
+        filter: drop-shadow(0 0 3px rgba(245, 158, 11, 0.4));
       }
       22% {
         opacity: 0.9;
@@ -131,22 +143,12 @@
           0 0 4px #fffbeb,
           0 0 10px #fbbf24,
           0 0 18px rgba(245, 158, 11, 0.65);
-      }
-    }
-
-    @keyframes barFlicker {
-      0%, 19%, 21%, 23%, 25%, 54%, 56%, 100% {
-        opacity: 1;
-        box-shadow: 0 0 10px #f59e0b, 0 0 22px rgba(245, 158, 11, 0.8);
-      }
-      20%, 24%, 55% {
-        opacity: 0.65;
-        box-shadow: 0 0 4px rgba(245, 158, 11, 0.4);
+        filter: drop-shadow(0 0 5px rgba(245, 158, 11, 0.65));
       }
     }
 
     @media (prefers-reduced-motion: reduce) {
-      .neon-script, .neon-underline { animation: none; }
+      .neon-script, .neon-wave-wrap { animation: none; }
     }
 
     .badge {
@@ -197,7 +199,7 @@
       display: flex; align-items: center; justify-content: center; flex-shrink: 0; color: var(--silver-bright);
     }
     .service-btn:hover .svc-icon { border-color: rgba(56, 189, 248, 0.55); color: var(--sapphire-glow); }
-    .svc-icon i { width: 22px; height: 22px; stroke-width: 1.85; }
+    .svc-icon i { width: 21px; height: 21px; stroke-width: 1.75; }
 
     .svc-info { display: flex; flex-direction: column; min-width: 0; }
     .svc-name { font-size: 14.5px; font-weight: 700; color: var(--silver-bright); line-height: 1.25; }
@@ -270,7 +272,11 @@
     <header>
       <div class="neon-sign-box" aria-label="Style, with purpose.">
         <div class="neon-script">Style, with purpose.</div>
-        <div class="neon-underline"></div>
+        <div class="neon-wave-wrap" aria-hidden="true">
+          <svg class="neon-wave-svg" viewBox="0 0 180 24">
+            <path class="neon-wave-path" d="M 8 15 Q 32 4, 58 14 T 112 12 T 172 10" />
+          </svg>
+        </div>
       </div>
 
       <span class="badge" data-i18n="badge">Style with Purpose · CDMX</span>
@@ -315,7 +321,7 @@
           <span class="trust-label" data-i18n="pillar1">Diseño a medida</span>
         </div>
         <div class="trust-item">
-          <span class="trust-num" data-i18n="pillar2Num">Autor</span>
+          <span class="trust-num" data-i18n="pillar2Num">Especialista</span>
           <span class="trust-label" data-i18n="pillar2">Asesoría de imagen</span>
         </div>
         <div class="trust-item">
@@ -409,7 +415,7 @@
         step2: "<strong>Genera tu folio único:</strong> Recibe al instante tu clave de reserva vinculada a la agenda.",
         step3: "<strong>Bloquea tu espacio:</strong> Confirma con tu cuota de reserva prioritaria de $100 MXN vía WhatsApp.",
         pillar1: "Diseño a medida",
-        pillar2Num: "Autor",
+        pillar2Num: "Especialista",
         pillar2: "Asesoría de imagen",
         pillar3: "Cita exclusiva",
         policyHtml: "<strong>Política transparente de reserva:</strong><br>En servicios principales y combos (Lun–Vie), tu espacio se bloquea con una <strong>cuota de reserva prioritaria de $100 MXN</strong> y liquidas el costo base íntegro en caja. En <strong>Domingos Privados (Condesa)</strong>, el servicio es de $380 MXN con anticipo de $100 MXN.",
@@ -427,8 +433,8 @@
             tag: "Toca para agendar",
             note: "Incluye $100 de reserva prioritaria para bloquear tu espacio. El costo base se liquida en caja.",
             items: [
-              { id: "Experiencia Condesa", icon: "crown", featured: true, name: "Experiencia Condesa", sub: "Corte + Barba Spa Condesa ($880 caja + $100 reserva)", price: "$980", numPrice: 980 },
-              { id: "Combo Condesa", icon: "layers", featured: true, name: "Combo Condesa", sub: "Corte + Barba ($680 caja + $100 reserva)", price: "$780", numPrice: 780 }
+              { id: "Experiencia Condesa", icon: "sparkles", featured: true, name: "Experiencia Condesa", sub: "Corte + Barba Spa Condesa ($880 caja + $100 reserva)", price: "$980", numPrice: 980 },
+              { id: "Combo Condesa", icon: "scissors", featured: true, name: "Combo Condesa", sub: "Corte + Barba ($680 caja + $100 reserva)", price: "$780", numPrice: 780 }
             ]
           },
           {
@@ -437,7 +443,7 @@
             note: "",
             items: [
               { id: "Corte", icon: "scissors", name: "Corte a tu Medida", sub: "Asesoría y diseño ($380 caja + $100 reserva)", price: "$480", numPrice: 480 },
-              { id: "Barba", icon: "scan-face", name: "Diseño de Barba", sub: "Perfilado y acabado ($360 caja + $100 reserva)", price: "$460", numPrice: 460 },
+              { id: "Barba", icon: "user", name: "Diseño de Barba", sub: "Perfilado y acabado ($360 caja + $100 reserva)", price: "$460", numPrice: 460 },
               { id: "Barba Spa Condesa", icon: "flame", name: "Barba Spa Condesa", sub: "Ritual completo ($560 caja + $100 reserva)", price: "$660", numPrice: 660 }
             ]
           },
@@ -446,12 +452,12 @@
             tag: "Precio directo",
             note: "Agrégalos a tu experiencia o agéndalos directo. Se liquidan íntegros en caja.",
             items: [
-              { id: "Corte Nino", icon: "baby", name: "Corte Niño", sub: "Estilo y comodidad a su medida", price: "$320", numPrice: 320 },
+              { id: "Corte Nino", icon: "smile", name: "Corte Niño", sub: "Estilo y comodidad a su medida", price: "$320", numPrice: 320 },
               { id: "Facial", icon: "sparkles", name: "Facial", sub: "Limpieza y cuidado de piel", price: "$280", numPrice: 280 },
               { id: "Tintura Barba", icon: "droplets", name: "Tintura Barba", sub: "Tono uniforme y natural", price: "$250", numPrice: 250 },
-              { id: "Contorno", icon: "ruler", name: "Contorno", sub: "Definición limpia y precisa", price: "$200", numPrice: 200 },
+              { id: "Contorno", icon: "pen-tool", name: "Contorno", sub: "Definición limpia y precisa", price: "$200", numPrice: 200 },
               { id: "Diseno de Cejas", icon: "eye", name: "Diseño de Cejas", sub: "Armonía natural para tu rostro", price: "$150", numPrice: 150 },
-              { id: "Depilacion Nariz y Oidos", icon: "shield-check", name: "Depilación Nariz y Oídos", sub: "Paquete completo de higiene", price: "$150", numPrice: 150 },
+              { id: "Depilacion Nariz y Oidos", icon: "heart-handshake", name: "Depilación Nariz y Oídos", sub: "Paquete completo de higiene", price: "$150", numPrice: 150 },
               { id: "Depilacion Nariz", icon: "wind", name: "Depilación Nariz", sub: "Acabado limpio y rápido", price: "$100", numPrice: 100 },
               { id: "Depilacion Oido", icon: "ear", name: "Depilación Oído", sub: "Detalle y pulcritud", price: "$100", numPrice: 100 }
             ]
@@ -475,7 +481,7 @@
         step2: "<strong>Get your unique ID:</strong> Receive an instant booking code synced with our calendar.",
         step3: "<strong>Lock your spot:</strong> Confirm with a $100 MXN priority booking fee via WhatsApp.",
         pillar1: "Bespoke design",
-        pillar2Num: "Craft",
+        pillar2Num: "Specialist",
         pillar2: "Image consulting",
         pillar3: "Appointment only",
         policyHtml: "<strong>Transparent Booking Policy:</strong><br>For main services and combos (Mon–Fri), your slot is locked with a <strong>$100 MXN priority reservation fee</strong>, and the base service price is paid in full at checkout. For <strong>Private Sundays (Condesa)</strong>, total service is $380 MXN ($100 deposit).",
@@ -493,8 +499,8 @@
             tag: "Tap to book",
             note: "Includes $100 MXN priority booking fee to lock your slot. Base balance is paid at checkout.",
             items: [
-              { id: "Experiencia Condesa", icon: "crown", featured: true, name: "Condesa Experience", sub: "Haircut + Condesa Spa Beard ($880 checkout + $100 booking)", price: "$980", numPrice: 980 },
-              { id: "Combo Condesa", icon: "layers", featured: true, name: "Condesa Combo", sub: "Haircut + Beard ($680 checkout + $100 booking)", price: "$780", numPrice: 780 }
+              { id: "Experiencia Condesa", icon: "sparkles", featured: true, name: "Condesa Experience", sub: "Haircut + Condesa Spa Beard ($880 checkout + $100 booking)", price: "$980", numPrice: 980 },
+              { id: "Combo Condesa", icon: "scissors", featured: true, name: "Condesa Combo", sub: "Haircut + Beard ($680 checkout + $100 booking)", price: "$780", numPrice: 780 }
             ]
           },
           {
@@ -503,7 +509,7 @@
             note: "",
             items: [
               { id: "Corte", icon: "scissors", name: "Bespoke Haircut", sub: "Style consulting & tailored cut ($380 checkout + $100 booking)", price: "$480", numPrice: 480 },
-              { id: "Barba", icon: "scan-face", name: "Beard Sculpting", sub: "Precision lining & finish ($360 checkout + $100 booking)", price: "$460", numPrice: 460 },
+              { id: "Barba", icon: "user", name: "Beard Sculpting", sub: "Precision lining & finish ($360 checkout + $100 booking)", price: "$460", numPrice: 460 },
               { id: "Barba Spa Condesa", icon: "flame", name: "Condesa Beard Spa", sub: "Full ritual ($560 checkout + $100 booking)", price: "$660", numPrice: 660 }
             ]
           },
@@ -512,12 +518,12 @@
             tag: "Direct price",
             note: "Add to your session or book directly. Paid in full at checkout.",
             items: [
-              { id: "Corte Nino", icon: "baby", name: "Kids Haircut", sub: "Tailored style & comfort", price: "$320", numPrice: 320 },
+              { id: "Corte Nino", icon: "smile", name: "Kids Haircut", sub: "Tailored style & comfort", price: "$320", numPrice: 320 },
               { id: "Facial", icon: "sparkles", name: "Facial Treatment", sub: "Deep cleansing & skin care", price: "$280", numPrice: 280 },
               { id: "Tintura Barba", icon: "droplets", name: "Beard Tint", sub: "Even, natural tone", price: "$250", numPrice: 250 },
-              { id: "Contorno", icon: "ruler", name: "Razor Line-Up", sub: "Crisp & precise definition", price: "$200", numPrice: 200 },
+              { id: "Contorno", icon: "pen-tool", name: "Razor Line-Up", sub: "Crisp & precise definition", price: "$200", numPrice: 200 },
               { id: "Diseno de Cejas", icon: "eye", name: "Eyebrow Design", sub: "Natural facial balance", price: "$150", numPrice: 150 },
-              { id: "Depilacion Nariz y Oidos", icon: "shield-check", name: "Nose & Ear Waxing", sub: "Complete grooming pack", price: "$150", numPrice: 150 },
+              { id: "Depilacion Nariz y Oidos", icon: "heart-handshake", name: "Nose & Ear Waxing", sub: "Complete grooming pack", price: "$150", numPrice: 150 },
               { id: "Depilacion Nariz", icon: "wind", name: "Nose Waxing", sub: "Clean & quick finish", price: "$100", numPrice: 100 },
               { id: "Depilacion Oido", icon: "ear", name: "Ear Waxing", sub: "Clean precision detail", price: "$100", numPrice: 100 }
             ]
