@@ -7,7 +7,7 @@
   <meta name="description" content="Barbería de autor en CDMX. Experiencia y diseño a tu medida con atención 1 a 1. Condesa." />
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@700&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
   <script src="https://unpkg.com/lucide@0.460.0/dist/umd/lucide.min.js" defer></script>
 
   <!-- DataLayer & Google Tag Manager (GTM-KN3KH4QM) -->
@@ -76,12 +76,79 @@
     .lang-btn.active { background: var(--sapphire); color: #ffffff; }
 
     header { text-align: center; padding: 12px 0 34px; border-bottom: 1px solid #131924; }
-    .hero-emblem {
-      width: 64px; height: 64px; margin: 0 auto 18px; border-radius: 18px;
-      background: linear-gradient(145deg, #171f2e 0%, #090c11 100%);
-      border: 1px solid #2d384a; box-shadow: inset 0 1px 0 rgba(255,255,255,0.09), 0 10px 28px rgba(0,0,0,0.85);
-      display: flex; align-items: center; justify-content: center; color: var(--sapphire-glow);
+
+    /* Emblema caligráfico neón parpadeante (sin imagen) */
+    .neon-sign-box {
+      background: radial-gradient(circle at 50% 45%, rgba(245, 158, 11, 0.11) 0%, rgba(9, 12, 18, 0.96) 72%);
+      border: 1px solid rgba(245, 158, 11, 0.25);
+      border-radius: 20px;
+      padding: 20px 18px 18px;
+      margin: 0 auto 18px;
+      max-width: 360px;
+      box-shadow: 0 12px 30px rgba(0, 0, 0, 0.85), inset 0 0 22px rgba(245, 158, 11, 0.06);
     }
+
+    .neon-script {
+      font-family: 'Dancing Script', cursive;
+      font-size: 40px;
+      font-weight: 700;
+      line-height: 1.05;
+      color: #fff3c4;
+      transform: rotate(-4deg);
+      display: inline-block;
+      animation: neonFlicker 4.5s infinite;
+    }
+
+    .neon-underline {
+      width: 150px;
+      height: 3px;
+      margin: 10px auto 0;
+      border-radius: 999px;
+      background: linear-gradient(90deg, transparent, #f59e0b, #fde68a, #f59e0b, transparent);
+      box-shadow: 0 0 10px #f59e0b, 0 0 22px rgba(245, 158, 11, 0.75);
+      transform: rotate(-3deg);
+      animation: barFlicker 4.5s infinite;
+    }
+
+    @keyframes neonFlicker {
+      0%, 19%, 21%, 23%, 25%, 54%, 56%, 100% {
+        opacity: 1;
+        text-shadow:
+          0 0 5px #fffbeb,
+          0 0 12px #fbbf24,
+          0 0 24px #f59e0b,
+          0 0 42px rgba(217, 119, 6, 0.85);
+      }
+      20%, 24%, 55% {
+        opacity: 0.72;
+        text-shadow:
+          0 0 3px #fef3c7,
+          0 0 8px rgba(245, 158, 11, 0.45);
+      }
+      22% {
+        opacity: 0.9;
+        text-shadow:
+          0 0 4px #fffbeb,
+          0 0 10px #fbbf24,
+          0 0 18px rgba(245, 158, 11, 0.65);
+      }
+    }
+
+    @keyframes barFlicker {
+      0%, 19%, 21%, 23%, 25%, 54%, 56%, 100% {
+        opacity: 1;
+        box-shadow: 0 0 10px #f59e0b, 0 0 22px rgba(245, 158, 11, 0.8);
+      }
+      20%, 24%, 55% {
+        opacity: 0.65;
+        box-shadow: 0 0 4px rgba(245, 158, 11, 0.4);
+      }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      .neon-script, .neon-underline { animation: none; }
+    }
+
     .badge {
       display: inline-block; font-size: 11px; font-weight: 600; letter-spacing: 2px; text-transform: uppercase;
       color: var(--sapphire-glow); background: rgba(37, 99, 235, 0.1); border: 1px solid rgba(56, 189, 248, 0.3);
@@ -183,6 +250,7 @@
     @media (max-width: 420px) {
       .schedule-grid { grid-template-columns: 1fr; }
       h1 { font-size: 28px; }
+      .neon-script { font-size: 34px; }
     }
   </style>
 </head>
@@ -200,9 +268,11 @@
     </div>
 
     <header>
-      <div class="hero-emblem">
-        <i data-lucide="scissors" style="width:28px;height:28px;stroke-width:1.9;"></i>
+      <div class="neon-sign-box" aria-label="Style, with purpose.">
+        <div class="neon-script">Style, with purpose.</div>
+        <div class="neon-underline"></div>
       </div>
+
       <span class="badge" data-i18n="badge">Style with Purpose · CDMX</span>
       <h1 data-i18n="heroTitle">Experiencia y diseño a tu medida.</h1>
       <p class="hero-sub" data-i18n="heroSub">Asesoría de imagen, técnica precisa y atención 1 a 1 pensada para tu estilo, facciones y ritmo de vida.</p>
@@ -367,7 +437,7 @@
             note: "",
             items: [
               { id: "Corte", icon: "scissors", name: "Corte a tu Medida", sub: "Asesoría y diseño ($380 caja + $100 reserva)", price: "$480", numPrice: 480 },
-              { id: "Barba", icon: "user-check", name: "Diseño de Barba", sub: "Perfilado y acabado ($360 caja + $100 reserva)", price: "$460", numPrice: 460 },
+              { id: "Barba", icon: "scan-face", name: "Diseño de Barba", sub: "Perfilado y acabado ($360 caja + $100 reserva)", price: "$460", numPrice: 460 },
               { id: "Barba Spa Condesa", icon: "flame", name: "Barba Spa Condesa", sub: "Ritual completo ($560 caja + $100 reserva)", price: "$660", numPrice: 660 }
             ]
           },
@@ -376,12 +446,12 @@
             tag: "Precio directo",
             note: "Agrégalos a tu experiencia o agéndalos directo. Se liquidan íntegros en caja.",
             items: [
-              { id: "Corte Nino", icon: "scissors", name: "Corte Niño", sub: "Estilo y comodidad a su medida", price: "$320", numPrice: 320 },
+              { id: "Corte Nino", icon: "baby", name: "Corte Niño", sub: "Estilo y comodidad a su medida", price: "$320", numPrice: 320 },
               { id: "Facial", icon: "sparkles", name: "Facial", sub: "Limpieza y cuidado de piel", price: "$280", numPrice: 280 },
-              { id: "Tintura Barba", icon: "paintbrush", name: "Tintura Barba", sub: "Tono uniforme y natural", price: "$250", numPrice: 250 },
-              { id: "Contorno", icon: "wand-2", name: "Contorno", sub: "Definición limpia y precisa", price: "$200", numPrice: 200 },
+              { id: "Tintura Barba", icon: "droplets", name: "Tintura Barba", sub: "Tono uniforme y natural", price: "$250", numPrice: 250 },
+              { id: "Contorno", icon: "ruler", name: "Contorno", sub: "Definición limpia y precisa", price: "$200", numPrice: 200 },
               { id: "Diseno de Cejas", icon: "eye", name: "Diseño de Cejas", sub: "Armonía natural para tu rostro", price: "$150", numPrice: 150 },
-              { id: "Depilacion Nariz y Oidos", icon: "shield", name: "Depilación Nariz y Oídos", sub: "Paquete completo de higiene", price: "$150", numPrice: 150 },
+              { id: "Depilacion Nariz y Oidos", icon: "shield-check", name: "Depilación Nariz y Oídos", sub: "Paquete completo de higiene", price: "$150", numPrice: 150 },
               { id: "Depilacion Nariz", icon: "wind", name: "Depilación Nariz", sub: "Acabado limpio y rápido", price: "$100", numPrice: 100 },
               { id: "Depilacion Oido", icon: "ear", name: "Depilación Oído", sub: "Detalle y pulcritud", price: "$100", numPrice: 100 }
             ]
@@ -433,7 +503,7 @@
             note: "",
             items: [
               { id: "Corte", icon: "scissors", name: "Bespoke Haircut", sub: "Style consulting & tailored cut ($380 checkout + $100 booking)", price: "$480", numPrice: 480 },
-              { id: "Barba", icon: "user-check", name: "Beard Sculpting", sub: "Precision lining & finish ($360 checkout + $100 booking)", price: "$460", numPrice: 460 },
+              { id: "Barba", icon: "scan-face", name: "Beard Sculpting", sub: "Precision lining & finish ($360 checkout + $100 booking)", price: "$460", numPrice: 460 },
               { id: "Barba Spa Condesa", icon: "flame", name: "Condesa Beard Spa", sub: "Full ritual ($560 checkout + $100 booking)", price: "$660", numPrice: 660 }
             ]
           },
@@ -442,12 +512,12 @@
             tag: "Direct price",
             note: "Add to your session or book directly. Paid in full at checkout.",
             items: [
-              { id: "Corte Nino", icon: "scissors", name: "Kids Haircut", sub: "Tailored style & comfort", price: "$320", numPrice: 320 },
+              { id: "Corte Nino", icon: "baby", name: "Kids Haircut", sub: "Tailored style & comfort", price: "$320", numPrice: 320 },
               { id: "Facial", icon: "sparkles", name: "Facial Treatment", sub: "Deep cleansing & skin care", price: "$280", numPrice: 280 },
-              { id: "Tintura Barba", icon: "paintbrush", name: "Beard Tint", sub: "Even, natural tone", price: "$250", numPrice: 250 },
-              { id: "Contorno", icon: "wand-2", name: "Razor Line-Up", sub: "Crisp & precise definition", price: "$200", numPrice: 200 },
+              { id: "Tintura Barba", icon: "droplets", name: "Beard Tint", sub: "Even, natural tone", price: "$250", numPrice: 250 },
+              { id: "Contorno", icon: "ruler", name: "Razor Line-Up", sub: "Crisp & precise definition", price: "$200", numPrice: 200 },
               { id: "Diseno de Cejas", icon: "eye", name: "Eyebrow Design", sub: "Natural facial balance", price: "$150", numPrice: 150 },
-              { id: "Depilacion Nariz y Oidos", icon: "shield", name: "Nose & Ear Waxing", sub: "Complete grooming pack", price: "$150", numPrice: 150 },
+              { id: "Depilacion Nariz y Oidos", icon: "shield-check", name: "Nose & Ear Waxing", sub: "Complete grooming pack", price: "$150", numPrice: 150 },
               { id: "Depilacion Nariz", icon: "wind", name: "Nose Waxing", sub: "Clean & quick finish", price: "$100", numPrice: 100 },
               { id: "Depilacion Oido", icon: "ear", name: "Ear Waxing", sub: "Clean precision detail", price: "$100", numPrice: 100 }
             ]
