@@ -3,166 +3,446 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Agenda tu Cita | Estudio Privado</title>
+  <title>Reservar Cita | Style with Purpose</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <script src="https://unpkg.com/lucide@0.460.0/dist/umd/lucide.min.js" defer></script>
 
-  <!-- META PIXEL: Reemplaza TU_PIXEL_ID en las 2 líneas de abajo -->
+  <!-- DataLayer & Google Tag Manager (GTM-KN3KH4QM) -->
   <script>
-    !function(f,b,e,v,n,t,s)
-    {if(f.fbq)return;n=f.fbq=function(){n.callMethod?
-    n.callMethod.apply(n,arguments):n.queue.push(arguments)};
-    if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
-    n.queue=[];t=b.createElement(e);t.async=!0;
-    t.src=v;s=b.getElementsByTagName(e)[0];
-    s.parentNode.insertBefore(t,s)}(window, document,'script',
-    'https://connect.facebook.net/en_US/fbevents.js');
-    fbq('init', 'TU_PIXEL_ID');
-    fbq('track', 'PageView');
+    window.dataLayer = window.dataLayer || [];
+    window.dataLayer.push({
+      'gtm.start': new Date().getTime(),
+      event: 'gtm.js',
+      page_type: 'booking',
+      brand: 'Style with Purpose',
+      currency: 'MXN'
+    });
   </script>
-  <noscript>
-    <img height="1" width="1" style="display:none"
-      src="https://www.facebook.com/tr?id=TU_PIXEL_ID&ev=PageView&noscript=1"/>
-  </noscript>
-  <!-- FIN META PIXEL -->
+  <script async src="https://www.googletagmanager.com/gtm.js?id=GTM-KN3KH4QM"></script>
+
+  <!-- Meta Pixel Code (1459724833029473) -->
+  <script>
+  !function(f,b,e,v,n,t,s)
+  {if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+  n.callMethod.apply(n,arguments):n.queue.push(arguments)};
+  if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
+  n.queue=[];t=b.createElement(e);t.async=!0;
+  t.src=v;s=b.getElementsByTagName(e)[0];
+  s.parentNode.insertBefore(t,s)}(window, document,'script',
+  'https://connect.facebook.net/en_US/fbevents.js');
+  fbq('init', '1459724833029473');
+  fbq('track', 'PageView');
+  fbq('track', 'InitiateCheckout', { currency: 'MXN' });
+  </script>
+  <noscript><img height="1" width="1" style="display:none"
+  src="https://www.facebook.com/tr?id=1459724833029473&ev=PageView&noscript=1"
+  /></noscript>
 
   <style>
-    * { box-sizing: border-box; margin: 0; padding: 0; font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif; }
+    :root {
+      --bg-black: #000000;
+      --obsidian: #090c12;
+      --border-steel: #1e293b;
+      --silver-bright: #e2e8f0;
+      --silver-mid: #94a3b8;
+      --silver-dim: #64748b;
+      --sapphire: #2563eb;
+      --sapphire-glow: #38bdf8;
+    }
+
+    * { box-sizing: border-box; margin: 0; padding: 0; font-family: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, sans-serif; }
+
     body {
-      background: #0d0d0d;
-      color: #f5f5f5;
-      min-height: 100vh;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      padding: 20px;
+      background: var(--bg-black); color: var(--silver-bright); min-height: 100vh;
+      display: flex; align-items: center; justify-content: center; padding: 20px; line-height: 1.5; -webkit-font-smoothing: antialiased;
     }
+
     .card {
-      background: #161616;
-      border: 1px solid #2a2a2a;
-      border-radius: 16px;
-      max-width: 420px;
-      width: 100%;
-      padding: 28px 24px;
-      box-shadow: 0 20px 50px rgba(0,0,0,0.6);
+      background: linear-gradient(180deg, #0c1018 0%, #07090e 100%); border: 1px solid var(--border-steel);
+      border-radius: 18px; max-width: 460px; width: 100%; padding: 26px 22px; box-shadow: 0 16px 40px rgba(0, 0, 0, 0.75);
     }
+
+    .topbar { display: flex; justify-content: space-between; align-items: center; margin-bottom: 18px; gap: 10px; }
+    .back-link { font-size: 13px; font-weight: 600; color: var(--silver-mid); text-decoration: none; display: inline-flex; align-items: center; gap: 6px; }
+    .back-link:hover { color: var(--silver-bright); }
+
+    .lang-switch { display: inline-flex; background: var(--bg-black); border: 1px solid var(--border-steel); border-radius: 99px; padding: 3px; gap: 2px; }
+    .lang-btn { border: none; background: transparent; color: var(--silver-mid); font-size: 11px; font-weight: 700; padding: 4px 10px; border-radius: 99px; cursor: pointer; }
+    .lang-btn.active { background: var(--sapphire); color: #ffffff; }
+
     .badge {
-      display: inline-block;
-      font-size: 11px;
-      letter-spacing: 1.5px;
-      text-transform: uppercase;
-      color: #d4af37;
-      border: 1px solid rgba(212,175,55,0.4);
-      padding: 4px 10px;
-      border-radius: 99px;
-      margin-bottom: 12px;
+      display: inline-block; font-size: 11px; font-weight: 600; letter-spacing: 1.6px; text-transform: uppercase;
+      color: var(--sapphire-glow); background: rgba(37, 99, 235, 0.1); border: 1px solid rgba(56, 189, 248, 0.3);
+      padding: 4px 12px; border-radius: 99px; margin-bottom: 12px;
     }
-    h1 { font-size: 24px; font-weight: 700; margin-bottom: 6px; }
-    .subtitle { font-size: 14px; color: #a3a3a3; margin-bottom: 22px; line-height: 1.4; }
-    label { display: block; font-size: 13px; color: #d4d4d4; margin-bottom: 6px; font-weight: 500; }
+
+    h1 {
+      font-size: 25px; font-weight: 800; letter-spacing: -0.6px; margin-bottom: 6px;
+      background: linear-gradient(180deg, #ffffff 0%, #cbd5e1 65%, #94a3b8 100%);
+      -webkit-background-clip: text; -webkit-text-fill-color: transparent;
+    }
+
+    .subtitle { font-size: 13.5px; color: var(--silver-mid); margin-bottom: 16px; }
+
+    .selected-summary {
+      background: var(--obsidian); border: 1px solid rgba(56, 189, 248, 0.32); border-radius: 13px;
+      padding: 14px; margin-bottom: 18px; display: flex; justify-content: space-between; align-items: center; gap: 12px;
+    }
+    .sum-label { font-size: 10.5px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.9px; color: var(--sapphire-glow); display: block; margin-bottom: 2px; }
+    .sum-name { font-size: 15px; font-weight: 800; color: var(--silver-bright); }
+    .sum-desc { font-size: 12px; color: var(--silver-mid); margin-top: 2px; }
+    .sum-price { font-size: 20px; font-weight: 800; color: var(--sapphire-glow); white-space: nowrap; }
+
+    label { display: block; font-size: 13px; color: var(--silver-bright); margin-bottom: 7px; font-weight: 600; }
+
     input, select {
-      width: 100%;
-      padding: 12px 14px;
-      margin-bottom: 16px;
-      border-radius: 10px;
-      border: 1px solid #333;
-      background: #0f0f0f;
-      color: #fff;
-      font-size: 15px;
-      outline: none;
+      width: 100%; padding: 13px 14px; margin-bottom: 16px; border-radius: 11px; border: 1px solid var(--border-steel);
+      background: var(--bg-black); color: var(--silver-bright); font-size: 14.5px; outline: none; color-scheme: dark;
     }
-    input:focus, select:focus { border-color: #d4af37; }
+    input::placeholder { color: var(--silver-dim); }
+    input:focus, select:focus { border-color: var(--sapphire-glow); }
+
+    .mode-pill {
+      font-size: 13px; font-weight: 600; color: var(--sapphire-glow); background: rgba(37, 99, 235, 0.12);
+      border: 1px solid rgba(56, 189, 248, 0.3); padding: 10px 12px; border-radius: 10px; margin-bottom: 16px; display: none;
+    }
+
+    .slots-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 10px; margin-bottom: 18px; }
+    .slot-btn {
+      padding: 12px; border-radius: 10px; border: 1px solid var(--border-steel); background: var(--bg-black);
+      color: var(--silver-bright); font-size: 14px; font-weight: 600; cursor: pointer; transition: all 0.15s;
+    }
+    .slot-btn:hover { border-color: var(--sapphire-glow); }
+    .slot-btn.active { background: var(--sapphire); color: #ffffff; border-color: var(--sapphire-glow); }
+
+    .status-msg { font-size: 12.5px; color: var(--silver-mid); margin-bottom: 14px; text-align: center; }
+
     .info-box {
-      background: rgba(212,175,55,0.08);
-      border-left: 3px solid #d4af37;
-      padding: 12px;
-      border-radius: 8px;
-      font-size: 13px;
-      color: #e5e5e5;
-      margin-bottom: 18px;
-      line-height: 1.45;
+      background: var(--obsidian); border: 1px solid var(--border-steel); border-left: 3px solid var(--sapphire-glow);
+      padding: 13px; border-radius: 11px; font-size: 12.5px; color: var(--silver-mid); margin-bottom: 18px; line-height: 1.5;
     }
-    button {
-      width: 100%;
-      padding: 14px;
-      border: none;
-      border-radius: 10px;
-      background: #d4af37;
-      color: #0d0d0d;
-      font-size: 16px;
-      font-weight: 700;
-      cursor: pointer;
-      transition: opacity 0.2s;
+    .info-box strong { color: var(--silver-bright); }
+
+    .cta-btn {
+      width: 100%; padding: 15px; border: none; border-radius: 12px; background: linear-gradient(135deg, #2563eb 0%, #1d4ed8 100%);
+      color: #f8fafc; font-size: 15px; font-weight: 700; border: 1px solid rgba(96, 165, 250, 0.35);
+      box-shadow: 0 8px 24px rgba(37, 99, 235, 0.25); cursor: pointer; transition: all 0.18s;
     }
-    button:disabled { opacity: 0.6; cursor: not-allowed; }
-    .footer-note { text-align: center; font-size: 12px; color: #737373; margin-top: 14px; }
+    .cta-btn:hover:not(:disabled) { background: linear-gradient(135deg, #3b82f6 0%, #2563eb 100%); box-shadow: 0 10px 28px rgba(56, 189, 248, 0.35); }
+    .cta-btn:disabled { opacity: 0.35; cursor: not-allowed; box-shadow: none; }
+
+    .footer-note { text-align: center; font-size: 11.5px; color: var(--silver-dim); margin-top: 16px; }
   </style>
 </head>
 <body>
+  <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-KN3KH4QM"
+  height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+
   <div class="card">
-    <span class="badge">Solo con cita previa</span>
-    <h1>Reserva tu Horario</h1>
-    <p class="subtitle">Sin filas ni esperas. Registra tus datos para generar tu folio y confirmar por WhatsApp.</p>
+    <div class="topbar">
+      <a href="index.html" class="back-link" id="backLink">
+        <i data-lucide="arrow-left" style="width:15px;height:15px;"></i>
+        <span data-i18n="backText">Volver</span>
+      </a>
+      <div class="lang-switch" role="group" aria-label="Language">
+        <button type="button" class="lang-btn" id="btn-es" onclick="setLanguage('es')">ES</button>
+        <button type="button" class="lang-btn" id="btn-en" onclick="setLanguage('en')">EN</button>
+      </div>
+    </div>
+
+    <span class="badge" data-i18n="badge">Style with Purpose · Agenda</span>
+    <h1 data-i18n="titleH1">Agenda tu Espacio</h1>
+    <p class="subtitle" data-i18n="subtitle">Revisa tu servicio elegido y selecciona el día para ver horarios libres.</p>
+
+    <div class="selected-summary" id="serviceSummary">
+      <div>
+        <span class="sum-label" data-i18n="sumLabel">Servicio seleccionado</span>
+        <div class="sum-name" id="sumName">Corte a tu Medida</div>
+        <div class="sum-desc" id="sumDesc">$380 en caja + $100 reserva prioritaria</div>
+      </div>
+      <div class="sum-price" id="sumPrice">$480</div>
+    </div>
 
     <form id="bookingForm">
-      <label for="nombre">Tu nombre</label>
+      <label for="servicioSelect" data-i18n="lblService">1. Servicio o experiencia</label>
+      <select id="servicioSelect" required></select>
+
+      <label for="fecha" data-i18n="lblDate">2. Elige el día</label>
+      <input type="date" id="fecha" required />
+
+      <div id="modePill" class="mode-pill"></div>
+
+      <label data-i18n="lblSlots">3. Horarios disponibles</label>
+      <div id="slotsMsg" class="status-msg" data-i18n="slotsPlaceholder">Selecciona una fecha arriba para consultar disponibilidad.</div>
+      <div id="slotsGrid" class="slots-grid"></div>
+
+      <label for="nombre" data-i18n="lblName">4. Tu nombre</label>
       <input type="text" id="nombre" placeholder="Ej. Carlos Mendoza" required />
 
-      <label for="telefono">WhatsApp (10 dígitos)</label>
+      <label for="telefono" data-i18n="lblPhone">5. Tu WhatsApp (10 dígitos)</label>
       <input type="tel" id="telefono" placeholder="55 1234 5678" pattern="[0-9\s\-]{10,15}" required />
 
-      <label for="modalidad">Elige servicio y sede</label>
-      <select id="modalidad" required>
-        <option value="Lunes a Viernes ($480)" data-precio="480">Lunes a Viernes — $480 MXN (Apartas con $100)</option>
-        <option value="Domingo Privado Condesa ($380)" data-precio="380">Domingo Privado Condesa — $380 MXN</option>
-      </select>
-
-      <label for="horario">Día y horario que prefieres</label>
-      <input type="text" id="horario" placeholder="Ej. Jueves 6:00 PM / Domingo 11:00 AM" required />
-
-      <div class="info-box">
-        <strong>Política de agenda:</strong> Tu lugar se bloquea con un anticipo de <strong>$100 MXN</strong> (se descuenta de tu total el día de tu cita).
+      <div class="info-box" data-i18n="policyBox">
+        <strong>Política de reserva:</strong> En servicios principales y combos (Lun–Vie) bloqueas tu espacio con <strong>$100 MXN de reserva prioritaria</strong> y liquidas el costo base íntegro en caja. Domingos privados en Condesa: $380 MXN ($100 de anticipo).
       </div>
 
-      <button type="submit" id="submitBtn">Apartar cita por WhatsApp</button>
+      <button type="submit" id="submitBtn" class="cta-btn" disabled data-i18n="submitBtn">Apartar cita por WhatsApp</button>
     </form>
 
-    <p class="footer-note">Confirmación inmediata · Cupo limitado por día</p>
+    <p class="footer-note" data-i18n="footerNote">Style with Purpose · Atención 1 a 1 con folio de reserva</p>
   </div>
 
   <script>
-    // === CONFIGURACIÓN (CAMBIA ESTOS 2 DATOS) ===
     const SCRIPT_URL = "PEGA_AQUI_TU_URL_DE_GOOGLE_APPS_SCRIPT";
-    const WHATSAPP_DESTINO = "5215512345678"; // 521 + 10 dígitos (tu WA Business o el del barbero)
+    const WHATSAPP_DESTINO = "5215512345678"; // 521 + 10 dígitos
 
+    const SERVICES = [
+      { id: "Experiencia Condesa", es: "Experiencia Condesa — $980", en: "Condesa Experience — $980", nameEs: "Experiencia Condesa", nameEn: "Condesa Experience", descEs: "Corte + Barba Spa Condesa ($880 caja + $100 reserva)", descEn: "Haircut + Condesa Spa Beard ($880 checkout + $100 book)", price: 980 },
+      { id: "Combo Condesa", es: "Combo Condesa — $780", en: "Condesa Combo — $780", nameEs: "Combo Condesa", nameEn: "Condesa Combo", descEs: "Corte + Barba ($680 caja + $100 reserva)", descEn: "Haircut + Beard ($680 checkout + $100 book)", price: 780 },
+      { id: "Corte", es: "Corte a tu Medida — $480", en: "Bespoke Haircut — $480", nameEs: "Corte a tu Medida", nameEn: "Bespoke Haircut", descEs: "Asesoría y diseño ($380 caja + $100 reserva)", descEn: "Style consulting & cut ($380 checkout + $100 book)", price: 480 },
+      { id: "Barba", es: "Diseño de Barba — $460", en: "Beard Sculpting — $460", nameEs: "Diseño de Barba", nameEn: "Beard Sculpting", descEs: "Perfilado y acabado ($360 caja + $100 reserva)", descEn: "Precision lining & finish ($360 checkout + $100 book)", price: 460 },
+      { id: "Barba Spa Condesa", es: "Barba Spa Condesa — $660", en: "Condesa Beard Spa — $660", nameEs: "Barba Spa Condesa", nameEn: "Condesa Beard Spa", descEs: "Ritual completo ($560 caja + $100 reserva)", descEn: "Full ritual ($560 checkout + $100 book)", price: 660 },
+      { id: "Corte Nino", es: "Corte Niño — $320", en: "Kids Haircut — $320", nameEs: "Corte Niño", nameEn: "Kids Haircut", descEs: "Precio directo — se liquida íntegro en caja", descEn: "Direct price — paid in full at checkout", price: 320 },
+      { id: "Facial", es: "Facial — $280", en: "Facial Treatment — $280", nameEs: "Facial", nameEn: "Facial Treatment", descEs: "Precio directo — se liquida íntegro en caja", descEn: "Direct price — paid in full at checkout", price: 280 },
+      { id: "Tintura Barba", es: "Tintura Barba — $250", en: "Beard Tint — $250", nameEs: "Tintura Barba", nameEn: "Beard Tint", descEs: "Precio directo — se liquida íntegro en caja", descEn: "Direct price — paid in full at checkout", price: 250 },
+      { id: "Contorno", es: "Contorno — $200", en: "Razor Line-Up — $200", nameEs: "Contorno", nameEn: "Razor Line-Up", descEs: "Precio directo — se liquida íntegro en caja", descEn: "Direct price — paid in full at checkout", price: 200 },
+      { id: "Diseno de Cejas", es: "Diseño de Cejas — $150", en: "Eyebrow Design — $150", nameEs: "Diseño de Cejas", nameEn: "Eyebrow Design", descEs: "Precio directo — se liquida íntegro en caja", descEn: "Direct price — paid in full at checkout", price: 150 },
+      { id: "Depilacion Nariz y Oidos", es: "Depilación Nariz y Oídos — $150", en: "Nose & Ear Waxing — $150", nameEs: "Depilación Nariz y Oídos", nameEn: "Nose & Ear Waxing", descEs: "Precio directo — se liquida íntegro en caja", descEn: "Direct price — paid in full at checkout", price: 150 },
+      { id: "Depilacion Nariz", es: "Depilación Nariz — $100", en: "Nose Waxing — $100", nameEs: "Depilación Nariz", nameEn: "Nose Waxing", descEs: "Precio directo — se liquida íntegro en caja", descEn: "Direct price — paid in full at checkout", price: 100 },
+      { id: "Depilacion Oido", es: "Depilación Oído — $100", en: "Ear Waxing — $100", nameEs: "Depilación Oído", nameEn: "Ear Waxing", descEs: "Precio directo — se liquida íntegro en caja", descEn: "Direct price — paid in full at checkout", price: 100 }
+    ];
+
+    const AGENDA_I18N = {
+      es: {
+        docTitle: "Reservar Cita | Style with Purpose",
+        backText: "Volver",
+        badge: "Style with Purpose · Agenda",
+        titleH1: "Agenda tu Espacio",
+        subtitle: "Revisa tu servicio elegido y selecciona el día para ver horarios libres.",
+        sumLabel: "Servicio seleccionado",
+        lblService: "1. Servicio o experiencia",
+        lblDate: "2. Elige el día",
+        lblSlots: "3. Horarios disponibles",
+        slotsPlaceholder: "Selecciona una fecha arriba para consultar disponibilidad.",
+        slotsLoading: "Consultando horarios disponibles...",
+        slotsClosed: "Sábados sin servicio. Elige Lunes–Viernes o Domingo en Condesa.",
+        slotsFull: "Sin espacios libres para este día. Prueba con otra fecha.",
+        slotsCount: (n) => `Quedan ${n} espacios disponibles:`,
+        slotsError: "Error al consultar agenda. Intenta de nuevo.",
+        lblName: "4. Tu nombre",
+        lblPhone: "5. Tu WhatsApp (10 dígitos)",
+        policyBox: "<strong>Política de reserva:</strong> En servicios principales y combos (Lun–Vie) bloqueas tu espacio con <strong>$100 MXN de reserva prioritaria</strong> y liquidas el costo base íntegro en caja. Domingos privados en Condesa: $380 MXN ($100 de anticipo).",
+        submitBtn: "Apartar cita por WhatsApp",
+        submittingBtn: "Bloqueando tu horario...",
+        footerNote: "Style with Purpose · Atención 1 a 1 con folio de reserva",
+        slotTaken: "Alguien acaba de apartar ese horario. Elige otro disponible.",
+        submitError: "Hubo un problema al guardar tu reserva. Intenta de nuevo.",
+        sundayName: "Domingo Privado · Estudio Condesa",
+        sundayDesc: "Sesión privada 1 a 1 en Condesa ($100 anticipo)",
+        waMsg: (nombre, folio, fecha, hora, servicio, precio) =>
+          `Hola, soy ${nombre}. Acabo de pre-reservar en Style with Purpose (Folio ${folio}) para el ${fecha} a las ${hora} hrs — Servicio: ${servicio} ($${precio} MXN). ¿Me compartes los datos para el anticipo de $100?`
+      },
+      en: {
+        docTitle: "Book Appointment | Style with Purpose",
+        backText: "Back",
+        badge: "Style with Purpose · Booking",
+        titleH1: "Book Your Session",
+        subtitle: "Review your selected service and pick a date to see open time slots.",
+        sumLabel: "Selected service",
+        lblService: "1. Service or experience",
+        lblDate: "2. Choose a date",
+        lblSlots: "3. Available time slots",
+        slotsPlaceholder: "Select a date above to check availability.",
+        slotsLoading: "Checking available slots...",
+        slotsClosed: "Closed on Saturdays. Choose Mon–Fri or Private Sunday in Condesa.",
+        slotsFull: "No slots left for this date. Try another day.",
+        slotsCount: (n) => `${n} slots available:`,
+        slotsError: "Could not load availability. Please try again.",
+        lblName: "4. Your name",
+        lblPhone: "5. Your WhatsApp (10 digits)",
+        policyBox: "<strong>Booking Policy:</strong> For main services & combos (Mon–Fri), lock your spot with a <strong>$100 MXN priority booking fee</strong> and pay the base service balance at checkout. Private Sundays in Condesa: $380 MXN ($100 deposit).",
+        submitBtn: "Reserve via WhatsApp",
+        submittingBtn: "Locking your slot...",
+        footerNote: "Style with Purpose · 1-on-1 appointment with booking ID",
+        slotTaken: "Someone just booked that slot. Please select another available time.",
+        submitError: "There was an issue saving your booking. Please try again.",
+        sundayName: "Private Sunday · Condesa Studio",
+        sundayDesc: "Private 1-on-1 session in Condesa ($100 deposit)",
+        waMsg: (nombre, folio, fecha, hora, servicio, precio) =>
+          `Hi, I'm ${nombre}. I just pre-booked at Style with Purpose (ID ${folio}) for ${fecha} at ${hora} — Service: ${servicio} ($${precio} MXN). Could you share the details for the $100 deposit?`
+      }
+    };
+
+    const params = new URLSearchParams(window.location.search);
+    const fechaInput = document.getElementById("fecha");
+    const servicioSelect = document.getElementById("servicioSelect");
+    const slotsGrid = document.getElementById("slotsGrid");
+    const slotsMsg = document.getElementById("slotsMsg");
+    const modePill = document.getElementById("modePill");
+    const submitBtn = document.getElementById("submitBtn");
     const form = document.getElementById("bookingForm");
-    const btn = document.getElementById("submitBtn");
+
+    let currentLang = "es";
+    let horaSeleccionada = "";
+    let modalidadActual = "";
+    let precioActual = 0;
+    let esDomingoActivo = false;
+
+    function detectLang() {
+      const urlLang = params.get("lang");
+      if (urlLang === "es" || urlLang === "en") return urlLang;
+      const saved = localStorage.getItem("swp_lang");
+      if (saved === "es" || saved === "en") return saved;
+      const sysLang = (navigator.languages && navigator.languages[0]) || navigator.language || "es";
+      return sysLang.toLowerCase().startsWith("en") ? "en" : "es";
+    }
+
+    function getActiveService() {
+      return SERVICES.find(s => s.id === servicioSelect.value) || SERVICES[2];
+    }
+
+    function updateServiceSummary() {
+      const dict = AGENDA_I18N[currentLang];
+      const svc = getActiveService();
+
+      if (esDomingoActivo) {
+        document.getElementById("sumName").textContent = `${currentLang === "es" ? svc.nameEs : svc.nameEn} · ${dict.sundayName}`;
+        document.getElementById("sumDesc").textContent = dict.sundayDesc;
+        document.getElementById("sumPrice").textContent = "$380";
+        precioActual = 380;
+      } else {
+        document.getElementById("sumName").textContent = currentLang === "es" ? svc.nameEs : svc.nameEn;
+        document.getElementById("sumDesc").textContent = currentLang === "es" ? svc.descEs : svc.descEn;
+        document.getElementById("sumPrice").textContent = `$${svc.price}`;
+        precioActual = svc.price;
+      }
+    }
+
+    function populateServices(lang, selectedId) {
+      const paramService = params.get("servicio");
+      const validParam = SERVICES.some(s => s.id === paramService) ? paramService : null;
+      const currentVal = selectedId || servicioSelect.value || validParam || "Corte";
+
+      servicioSelect.innerHTML = SERVICES.map(s => `
+        <option value="${s.id}" ${s.id === currentVal ? "selected" : ""}>${s[lang]}</option>
+      `).join("");
+
+      updateServiceSummary();
+    }
+
+    function setLanguage(lang, persist = true) {
+      currentLang = lang;
+      if (persist) localStorage.setItem("swp_lang", lang);
+      const dict = AGENDA_I18N[lang];
+      document.documentElement.lang = lang;
+      document.title = dict.docTitle;
+
+      document.getElementById("btn-es").classList.toggle("active", lang === "es");
+      document.getElementById("btn-en").classList.toggle("active", lang === "en");
+
+      document.querySelectorAll("[data-i18n]").forEach(el => {
+        const key = el.getAttribute("data-i18n");
+        if (typeof dict[key] === "string") el.innerHTML = dict[key];
+      });
+
+      document.getElementById("backLink").href = `index.html?lang=${lang}`;
+      populateServices(lang, servicioSelect.value);
+      if (window.lucide) lucide.createIcons();
+    }
+
+    const hoy = new Date();
+    fechaInput.min = hoy.toISOString().split("T")[0];
+
+    fechaInput.addEventListener("change", async () => {
+      const dict = AGENDA_I18N[currentLang];
+      const fecha = fechaInput.value;
+      if (!fecha) return;
+
+      horaSeleccionada = "";
+      submitBtn.disabled = true;
+      slotsGrid.innerHTML = "";
+      modePill.style.display = "none";
+      slotsMsg.textContent = dict.slotsLoading;
+
+      try {
+        const res = await fetch(`${SCRIPT_URL}?fecha=${encodeURIComponent(fecha)}`);
+        const data = await res.json();
+
+        if (data.cerrado) {
+          esDomingoActivo = false;
+          updateServiceSummary();
+          slotsMsg.textContent = dict.slotsClosed;
+          return;
+        }
+
+        const svcObj = getActiveService();
+        esDomingoActivo = Boolean(data.esDomingo);
+        modalidadActual = data.modalidad || (esDomingoActivo ? "Domingo Condesa" : "Lun-Vie");
+        precioActual = esDomingoActivo ? 380 : svcObj.price;
+        updateServiceSummary();
+
+        modePill.textContent = `${modalidadActual} · ${svcObj.id} ($${precioActual} MXN)`;
+        modePill.style.display = "block";
+
+        if (!data.slots || data.slots.length === 0) {
+          slotsMsg.textContent = dict.slotsFull;
+          return;
+        }
+
+        slotsMsg.textContent = dict.slotsCount(data.slots.length);
+        data.slots.forEach(hora => {
+          const btn = document.createElement("button");
+          btn.type = "button";
+          btn.className = "slot-btn";
+          btn.textContent = hora;
+          btn.onclick = () => {
+            document.querySelectorAll(".slot-btn").forEach(b => b.classList.remove("active"));
+            btn.classList.add("active");
+            horaSeleccionada = hora;
+            submitBtn.disabled = false;
+          };
+          slotsGrid.appendChild(btn);
+        });
+      } catch (err) {
+        slotsMsg.textContent = dict.slotsError;
+      }
+    });
+
+    servicioSelect.addEventListener("change", () => {
+      updateServiceSummary();
+      const svc = getActiveService();
+      window.dataLayer = window.dataLayer || [];
+      window.dataLayer.push({
+        event: 'select_service',
+        service_name: svc.id,
+        value: Number(precioActual || svc.price),
+        currency: 'MXN'
+      });
+      if (fechaInput.value) fechaInput.dispatchEvent(new Event("change"));
+    });
 
     form.addEventListener("submit", async (e) => {
       e.preventDefault();
-      btn.disabled = true;
-      btn.textContent = "Generando tu folio...";
+      if (!horaSeleccionada) return;
 
-      const select = document.getElementById("modalidad");
-      const precio = Number(select.options[select.selectedIndex].dataset.precio);
+      const dict = AGENDA_I18N[currentLang];
+      const svcObj = getActiveService();
+
+      submitBtn.disabled = true;
+      submitBtn.textContent = dict.submittingBtn;
 
       const payload = {
+        fecha: fechaInput.value,
+        hora: horaSeleccionada,
+        servicio: svcObj.id,
+        modalidad: modalidadActual,
+        precio: precioActual || svcObj.price,
         nombre: document.getElementById("nombre").value.trim(),
-        telefono: document.getElementById("telefono").value.trim(),
-        modalidad: select.value,
-        horario: document.getElementById("horario").value.trim(),
-        precio: precio
+        telefono: document.getElementById("telefono").value.trim()
       };
 
-      // 1. Dispara evento de conversión a Meta Ads
-      if (typeof fbq === "function") {
-        fbq("track", "Lead", {
-          content_name: payload.modalidad,
-          value: payload.precio,
-          currency: "MXN"
-        });
-      }
-
-      // 2. Guarda en tu Google Sheets y obtiene Folio
-      let folio = "BBR-" + Math.floor(100 + Math.random() * 900);
       try {
         const res = await fetch(SCRIPT_URL, {
           method: "POST",
@@ -170,15 +450,60 @@
           body: JSON.stringify(payload)
         });
         const data = await res.json();
-        if (data.folio) folio = data.folio;
-      } catch (err) {
-        console.warn("Redirección con folio de respaldo", err);
-      }
 
-      // 3. Redirige a WhatsApp con el mensaje listo
-      const mensaje = `Hola, soy ${payload.nombre}. Quiero confirmar mi cita (Folio ${folio}) para ${payload.modalidad}, horario preferido: ${payload.horario}.`;
-      const waUrl = `https://wa.me/${WHATSAPP_DESTINO}?text=${encodeURIComponent(mensaje)}`;
-      window.location.href = waUrl;
+        if (data.status === "ocupado") {
+          alert(dict.slotTaken);
+          fechaInput.dispatchEvent(new Event("change"));
+          submitBtn.textContent = dict.submitBtn;
+          return;
+        }
+
+        const folio = data.folio || "SWP-000";
+
+        if (typeof fbq === "function") {
+          fbq("track", "Lead", {
+            content_name: payload.servicio,
+            value: Number(payload.precio),
+            currency: "MXN",
+            order_id: folio
+          });
+        }
+
+        window.dataLayer = window.dataLayer || [];
+        window.dataLayer.push({
+          event: "generate_lead",
+          service_name: payload.servicio,
+          value: Number(payload.precio),
+          currency: "MXN",
+          folio: folio
+        });
+
+        const mensaje = dict.waMsg(
+          payload.nombre,
+          folio,
+          payload.fecha,
+          payload.hora,
+          payload.servicio,
+          payload.precio
+        );
+        window.location.href = `https://wa.me/${WHATSAPP_DESTINO}?text=${encodeURIComponent(mensaje)}`;
+      } catch (err) {
+        alert(dict.submitError);
+        submitBtn.disabled = false;
+        submitBtn.textContent = dict.submitBtn;
+      }
+    });
+
+    window.addEventListener("DOMContentLoaded", () => {
+      setLanguage(detectLang(), false);
+      const initialSvc = getActiveService();
+      window.dataLayer = window.dataLayer || [];
+      window.dataLayer.push({
+        event: 'begin_booking',
+        service_name: initialSvc.id,
+        value: Number(precioActual || initialSvc.price),
+        currency: 'MXN'
+      });
     });
   </script>
 </body>
