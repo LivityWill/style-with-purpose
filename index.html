@@ -8,7 +8,6 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
-  <!-- Respaldo vectorial profesional mientras subes tus PNGs HD del Pack 3 -->
   <script src="https://unpkg.com/lucide@0.460.0/dist/umd/lucide.min.js" defer></script>
 
   <!-- META PIXEL: Reemplaza TU_PIXEL_ID -->
@@ -104,8 +103,8 @@
       border-bottom: 1px solid #131924;
     }
     .hero-emblem {
-      width: 68px;
-      height: 68px;
+      width: 64px;
+      height: 64px;
       margin: 0 auto 18px;
       border-radius: 18px;
       background: linear-gradient(145deg, #171f2e 0%, #090c11 100%);
@@ -114,10 +113,8 @@
       display: flex;
       align-items: center;
       justify-content: center;
-      overflow: hidden;
+      color: var(--sapphire-glow);
     }
-    .hero-emblem img { width: 100%; height: 100%; object-fit: cover; }
-    .hero-emblem i { width: 28px; height: 28px; color: var(--silver-bright); }
 
     .badge {
       display: inline-block;
@@ -172,7 +169,7 @@
       transform: translateY(-1px);
     }
 
-    /* Banner Modelo Híbrido (L-V + Domingo Privado Condesa) */
+    /* Modelo Híbrido */
     .schedule-grid {
       display: grid;
       grid-template-columns: 1fr 1fr;
@@ -243,7 +240,7 @@
       line-height: 1.45;
     }
 
-    /* Botones de Servicios Pack 3 HD */
+    /* Botones de Servicios */
     .btn-list {
       display: flex;
       flex-direction: column;
@@ -280,35 +277,28 @@
       min-width: 0;
     }
 
-    /* Contenedor de ícono HD Pack 3 */
+    /* Contenedor de ícono real y legible */
     .svc-icon {
-      width: 52px;
-      height: 52px;
+      width: 48px;
+      height: 48px;
       border-radius: 13px;
-      background: linear-gradient(145deg, #1a2232 0%, #0b0e14 100%);
-      border: 1px solid #2e394b;
-      box-shadow: inset 0 1px 0 rgba(255,255,255,0.08);
+      background: linear-gradient(145deg, #161e2c 0%, #0b0e14 100%);
+      border: 1px solid #2b3648;
+      box-shadow: inset 0 1px 0 rgba(255,255,255,0.07);
       display: flex;
       align-items: center;
       justify-content: center;
       flex-shrink: 0;
-      overflow: hidden;
-      position: relative;
-    }
-    .svc-icon img {
-      width: 100%;
-      height: 100%;
-      object-fit: cover;
-      display: block;
-    }
-    .svc-icon .fallback-icon {
-      display: none;
-      width: 22px;
-      height: 22px;
       color: var(--silver-bright);
     }
-    .svc-icon.use-fallback .fallback-icon {
-      display: block;
+    .service-btn:hover .svc-icon {
+      border-color: rgba(56, 189, 248, 0.55);
+      color: var(--sapphire-glow);
+    }
+    .svc-icon i {
+      width: 22px;
+      height: 22px;
+      stroke-width: 1.85;
     }
 
     .svc-info {
@@ -439,7 +429,6 @@
 </head>
 <body>
   <div class="container">
-    <!-- Topbar + Selector automático de idioma -->
     <div class="topbar">
       <span class="brand-mini">Style with Purpose</span>
       <div class="lang-switch" role="group" aria-label="Language">
@@ -449,8 +438,8 @@
     </div>
 
     <header>
-      <div class="hero-emblem" id="heroEmblem">
-        <img src="icons/corte.png" alt="Style with Purpose" onerror="this.remove(); document.getElementById('heroEmblem').innerHTML='<i data-lucide=&quot;scissors&quot;></i>'; if(window.lucide) lucide.createIcons();" />
+      <div class="hero-emblem">
+        <i data-lucide="scissors" style="width:28px;height:28px;stroke-width:1.9;"></i>
       </div>
       <span class="badge" data-i18n="badge">Style with Purpose · CDMX</span>
       <h1 data-i18n="heroTitle">Experiencia y diseño a tu medida.</h1>
@@ -460,7 +449,6 @@
         <i data-lucide="arrow-right" style="width:18px;height:18px;"></i>
       </a>
 
-      <!-- Modalidad Híbrida (Propuesta integrada) -->
       <div class="schedule-grid">
         <div class="schedule-card">
           <span class="sch-tag" data-i18n="monFriTag">Lunes a Viernes</span>
@@ -475,10 +463,8 @@
       </div>
     </header>
 
-    <!-- Contenedor dinámico de la carta completa -->
     <div id="catalogRoot"></div>
 
-    <!-- Cómo funciona -->
     <section>
       <div class="section-head">
         <h2 data-i18n="howTitle">¿Cómo funciona tu reserva?</h2>
@@ -490,7 +476,6 @@
       </ul>
     </section>
 
-    <!-- Pilares -->
     <section>
       <div class="trust-grid">
         <div class="trust-item">
@@ -508,7 +493,6 @@
       </div>
     </section>
 
-    <!-- Política transparente -->
     <section>
       <div class="policy-box" data-i18n="policyHtml">
         <strong>Política transparente de reserva:</strong><br>
@@ -526,7 +510,6 @@
   </div>
 
   <script>
-    // === DICCIONARIO BILINGÜE (ESPAÑOL / INGLÉS) ===
     const I18N = {
       es: {
         title: "Style with Purpose | Experiencia y Diseño a tu Medida",
@@ -559,8 +542,8 @@
             tag: "Toca para agendar",
             note: "Incluye $100 de reserva prioritaria para bloquear tu espacio. El costo base se liquida en caja.",
             items: [
-              { id: "Experiencia Condesa", img: "icons/experiencia-condesa.png", fallback: "crown", featured: true, name: "Experiencia Condesa", sub: "Corte + Barba Spa Condesa ($880 caja + $100 reserva)", price: "$980" },
-              { id: "Combo Condesa", img: "icons/combo-condesa.png", fallback: "sparkles", featured: true, name: "Combo Condesa", sub: "Corte + Barba ($680 caja + $100 reserva)", price: "$780" }
+              { id: "Experiencia Condesa", icon: "crown", featured: true, name: "Experiencia Condesa", sub: "Corte + Barba Spa Condesa ($880 caja + $100 reserva)", price: "$980" },
+              { id: "Combo Condesa", icon: "layers", featured: true, name: "Combo Condesa", sub: "Corte + Barba ($680 caja + $100 reserva)", price: "$780" }
             ]
           },
           {
@@ -568,9 +551,9 @@
             tag: "Reserva +$100",
             note: "",
             items: [
-              { id: "Corte", img: "icons/corte.png", fallback: "scissors", name: "Corte a tu Medida", sub: "Asesoría y diseño ($380 caja + $100 reserva)", price: "$480" },
-              { id: "Barba", img: "icons/barba.png", fallback: "user-round-check", name: "Diseño de Barba", sub: "Perfilado y acabado ($360 caja + $100 reserva)", price: "$460" },
-              { id: "Barba Spa Condesa", img: "icons/barba-spa.png", fallback: "droplets", name: "Barba Spa Condesa", sub: "Ritual completo ($560 caja + $100 reserva)", price: "$660" }
+              { id: "Corte", icon: "scissors", name: "Corte a tu Medida", sub: "Asesoría y diseño ($380 caja + $100 reserva)", price: "$480" },
+              { id: "Barba", icon: "user-check", name: "Diseño de Barba", sub: "Perfilado y acabado ($360 caja + $100 reserva)", price: "$460" },
+              { id: "Barba Spa Condesa", icon: "flame", name: "Barba Spa Condesa", sub: "Ritual completo ($560 caja + $100 reserva)", price: "$660" }
             ]
           },
           {
@@ -578,14 +561,14 @@
             tag: "Precio directo",
             note: "Agrégalos a tu experiencia o agéndalos directo. Se liquidan íntegros en caja.",
             items: [
-              { id: "Corte Nino", img: "icons/corte-nino.png", fallback: "scissors", name: "Corte Niño", sub: "Estilo y comodidad a su medida", price: "$320" },
-              { id: "Facial", img: "icons/facial.png", fallback: "sparkles", name: "Facial", sub: "Limpieza y cuidado de piel", price: "$280" },
-              { id: "Tintura Barba", img: "icons/tintura-barba.png", fallback: "paintbrush", name: "Tintura Barba", sub: "Tono uniforme y natural", price: "$250" },
-              { id: "Contorno", img: "icons/contorno.png", fallback: "pen-tool", name: "Contorno", sub: "Definición limpia con navaja", price: "$200" },
-              { id: "Diseno de Cejas", img: "icons/cejas.png", fallback: "eye", name: "Diseño de Cejas", sub: "Armonía natural para tu rostro", price: "$150" },
-              { id: "Depilacion Nariz y Oidos", img: "icons/nariz-oidos.png", fallback: "shield-check", name: "Depilación Nariz y Oídos", sub: "Paquete completo de higiene", price: "$150" },
-              { id: "Depilacion Nariz", img: "icons/nariz.png", fallback: "wind", name: "Depilación Nariz", sub: "Acabado limpio y rápido", price: "$100" },
-              { id: "Depilacion Oido", img: "icons/oido.png", fallback: "ear", name: "Depilación Oído", sub: "Detalle y pulcritud", price: "$100" }
+              { id: "Corte Nino", icon: "smile", name: "Corte Niño", sub: "Estilo y comodidad a su medida", price: "$320" },
+              { id: "Facial", icon: "sparkles", name: "Facial", sub: "Limpieza y cuidado de piel", price: "$280" },
+              { id: "Tintura Barba", icon: "paintbrush", name: "Tintura Barba", sub: "Tono uniforme y natural", price: "$250" },
+              { id: "Contorno", icon: "wand-2", name: "Contorno", sub: "Definición limpia y precisa", price: "$200" },
+              { id: "Diseno de Cejas", icon: "eye", name: "Diseño de Cejas", sub: "Armonía natural para tu rostro", price: "$150" },
+              { id: "Depilacion Nariz y Oidos", icon: "shield", name: "Depilación Nariz y Oídos", sub: "Paquete completo de higiene", price: "$150" },
+              { id: "Depilacion Nariz", icon: "wind", name: "Depilación Nariz", sub: "Acabado limpio y rápido", price: "$100" },
+              { id: "Depilacion Oido", icon: "ear", name: "Depilación Oído", sub: "Detalle y pulcritud", price: "$100" }
             ]
           }
         ]
@@ -621,8 +604,8 @@
             tag: "Tap to book",
             note: "Includes $100 MXN priority booking fee to lock your slot. Base balance is paid at checkout.",
             items: [
-              { id: "Experiencia Condesa", img: "icons/experiencia-condesa.png", fallback: "crown", featured: true, name: "Condesa Experience", sub: "Haircut + Condesa Spa Beard ($880 checkout + $100 booking)", price: "$980" },
-              { id: "Combo Condesa", img: "icons/combo-condesa.png", fallback: "sparkles", featured: true, name: "Condesa Combo", sub: "Haircut + Beard ($680 checkout + $100 booking)", price: "$780" }
+              { id: "Experiencia Condesa", icon: "crown", featured: true, name: "Condesa Experience", sub: "Haircut + Condesa Spa Beard ($880 checkout + $100 booking)", price: "$980" },
+              { id: "Combo Condesa", icon: "layers", featured: true, name: "Condesa Combo", sub: "Haircut + Beard ($680 checkout + $100 booking)", price: "$780" }
             ]
           },
           {
@@ -630,9 +613,9 @@
             tag: "+$100 Booking",
             note: "",
             items: [
-              { id: "Corte", img: "icons/corte.png", fallback: "scissors", name: "Bespoke Haircut", sub: "Style consulting & tailored cut ($380 checkout + $100 booking)", price: "$480" },
-              { id: "Barba", img: "icons/barba.png", fallback: "user-round-check", name: "Beard Sculpting", sub: "Precision lining & finish ($360 checkout + $100 booking)", price: "$460" },
-              { id: "Barba Spa Condesa", img: "icons/barba-spa.png", fallback: "droplets", name: "Condesa Beard Spa", sub: "Full hot-towel ritual ($560 checkout + $100 booking)", price: "$660" }
+              { id: "Corte", icon: "scissors", name: "Bespoke Haircut", sub: "Style consulting & tailored cut ($380 checkout + $100 booking)", price: "$480" },
+              { id: "Barba", icon: "user-check", name: "Beard Sculpting", sub: "Precision lining & finish ($360 checkout + $100 booking)", price: "$460" },
+              { id: "Barba Spa Condesa", icon: "flame", name: "Condesa Beard Spa", sub: "Full ritual ($560 checkout + $100 booking)", price: "$660" }
             ]
           },
           {
@@ -640,14 +623,14 @@
             tag: "Direct price",
             note: "Add to your session or book directly. Paid in full at checkout.",
             items: [
-              { id: "Corte Nino", img: "icons/corte-nino.png", fallback: "scissors", name: "Kids Haircut", sub: "Tailored style & comfort", price: "$320" },
-              { id: "Facial", img: "icons/facial.png", fallback: "sparkles", name: "Facial Treatment", sub: "Deep cleansing & skin care", price: "$280" },
-              { id: "Tintura Barba", img: "icons/tintura-barba.png", fallback: "paintbrush", name: "Beard Tint", sub: "Even, natural tone", price: "$250" },
-              { id: "Contorno", img: "icons/contorno.png", fallback: "pen-tool", name: "Razor Line-Up", sub: "Crisp straight-razor definition", price: "$200" },
-              { id: "Diseno de Cejas", img: "icons/cejas.png", fallback: "eye", name: "Eyebrow Design", sub: "Natural facial balance", price: "$150" },
-              { id: "Depilacion Nariz y Oidos", img: "icons/nariz-oidos.png", fallback: "shield-check", name: "Nose & Ear Waxing", sub: "Complete grooming pack", price: "$150" },
-              { id: "Depilacion Nariz", img: "icons/nariz.png", fallback: "wind", name: "Nose Waxing", sub: "Clean & quick finish", price: "$100" },
-              { id: "Depilacion Oido", img: "icons/oido.png", fallback: "ear", name: "Ear Waxing", sub: "Clean precision detail", price: "$100" }
+              { id: "Corte Nino", icon: "smile", name: "Kids Haircut", sub: "Tailored style & comfort", price: "$320" },
+              { id: "Facial", icon: "sparkles", name: "Facial Treatment", sub: "Deep cleansing & skin care", price: "$280" },
+              { id: "Tintura Barba", icon: "paintbrush", name: "Beard Tint", sub: "Even, natural tone", price: "$250" },
+              { id: "Contorno", icon: "wand-2", name: "Razor Line-Up", sub: "Crisp & precise definition", price: "$200" },
+              { id: "Diseno de Cejas", icon: "eye", name: "Eyebrow Design", sub: "Natural facial balance", price: "$150" },
+              { id: "Depilacion Nariz y Oidos", icon: "shield", name: "Nose & Ear Waxing", sub: "Complete grooming pack", price: "$150" },
+              { id: "Depilacion Nariz", icon: "wind", name: "Nose Waxing", sub: "Clean & quick finish", price: "$100" },
+              { id: "Depilacion Oido", icon: "ear", name: "Ear Waxing", sub: "Clean precision detail", price: "$100" }
             ]
           }
         ]
@@ -678,9 +661,7 @@
                  onclick="if(typeof fbq==='function'){fbq('trackCustom','SelectService',{service:'${item.id}'});}">
                 <div class="service-left">
                   <div class="svc-icon">
-                    <img src="${item.img}" alt="${item.name}" loading="lazy"
-                         onerror="this.style.display='none'; this.parentElement.classList.add('use-fallback');" />
-                    <i data-lucide="${item.fallback}" class="fallback-icon"></i>
+                    <i data-lucide="${item.icon}"></i>
                   </div>
                   <div class="svc-info">
                     <span class="svc-name">${item.name}</span>
