@@ -10,24 +10,39 @@
   <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
   <script src="https://unpkg.com/lucide@0.460.0/dist/umd/lucide.min.js" defer></script>
 
-  <!-- META PIXEL: Reemplaza TU_PIXEL_ID -->
+  <!-- DataLayer & Google Tag Manager (GTM-KN3KH4QM) -->
   <script>
-    !function(f,b,e,v,n,t,s)
-    {if(f.fbq)return;n=f.fbq=function(){n.callMethod?
-    n.callMethod.apply(n,arguments):n.queue.push(arguments)};
-    if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
-    n.queue=[];t=b.createElement(e);t.async=!0;
-    t.src=v;s=b.getElementsByTagName(e)[0];
-    s.parentNode.insertBefore(t,s)}(window, document,'script',
-    'https://connect.facebook.net/en_US/fbevents.js');
-    fbq('init', 'TU_PIXEL_ID');
-    fbq('track', 'PageView');
-    fbq('track', 'ViewContent', { content_name: 'Landing Style with Purpose' });
+    window.dataLayer = window.dataLayer || [];
+    window.dataLayer.push({
+      'gtm.start': new Date().getTime(),
+      event: 'gtm.js',
+      page_type: 'landing',
+      brand: 'Style with Purpose',
+      currency: 'MXN'
+    });
   </script>
-  <noscript>
-    <img height="1" width="1" style="display:none"
-      src="https://www.facebook.com/tr?id=TU_PIXEL_ID&ev=PageView&noscript=1"/>
-  </noscript>
+  <script async src="https://www.googletagmanager.com/gtm.js?id=GTM-KN3KH4QM"></script>
+
+  <!-- Meta Pixel Code (1459724833029473) -->
+  <script>
+  !function(f,b,e,v,n,t,s)
+  {if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+  n.callMethod.apply(n,arguments):n.queue.push(arguments)};
+  if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
+  n.queue=[];t=b.createElement(e);t.async=!0;
+  t.src=v;s=b.getElementsByTagName(e)[0];
+  s.parentNode.insertBefore(t,s)}(window, document,'script',
+  'https://connect.facebook.net/en_US/fbevents.js');
+  fbq('init', '1459724833029473');
+  fbq('track', 'PageView');
+  fbq('track', 'ViewContent', {
+    content_name: 'Landing Style with Purpose',
+    currency: 'MXN'
+  });
+  </script>
+  <noscript><img height="1" width="1" style="display:none"
+  src="https://www.facebook.com/tr?id=1459724833029473&ev=PageView&noscript=1"
+  /></noscript>
 
   <style>
     :root {
@@ -52,373 +67,117 @@
       text-rendering: optimizeLegibility;
     }
 
-    .container {
-      max-width: 540px;
-      margin: 0 auto;
-      padding: 20px 18px 68px;
-    }
+    .container { max-width: 540px; margin: 0 auto; padding: 20px 18px 68px; }
 
-    /* Barra superior con selector ES / EN */
-    .topbar {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      margin-bottom: 18px;
-    }
-    .brand-mini {
-      font-size: 12px;
-      font-weight: 700;
-      letter-spacing: 1.8px;
-      text-transform: uppercase;
-      color: var(--silver-mid);
-    }
-    .lang-switch {
-      display: inline-flex;
-      background: var(--obsidian);
-      border: 1px solid var(--border-steel);
-      border-radius: 99px;
-      padding: 3px;
-      gap: 2px;
-    }
-    .lang-btn {
-      border: none;
-      background: transparent;
-      color: var(--silver-mid);
-      font-size: 11px;
-      font-weight: 700;
-      padding: 5px 11px;
-      border-radius: 99px;
-      cursor: pointer;
-      transition: all 0.18s ease;
-    }
-    .lang-btn.active {
-      background: var(--sapphire);
-      color: #ffffff;
-    }
+    .topbar { display: flex; justify-content: space-between; align-items: center; margin-bottom: 18px; }
+    .brand-mini { font-size: 12px; font-weight: 700; letter-spacing: 1.8px; text-transform: uppercase; color: var(--silver-mid); }
+    .lang-switch { display: inline-flex; background: var(--obsidian); border: 1px solid var(--border-steel); border-radius: 99px; padding: 3px; gap: 2px; }
+    .lang-btn { border: none; background: transparent; color: var(--silver-mid); font-size: 11px; font-weight: 700; padding: 5px 11px; border-radius: 99px; cursor: pointer; transition: all 0.18s ease; }
+    .lang-btn.active { background: var(--sapphire); color: #ffffff; }
 
-    /* Hero */
-    header {
-      text-align: center;
-      padding: 12px 0 34px;
-      border-bottom: 1px solid #131924;
-    }
+    header { text-align: center; padding: 12px 0 34px; border-bottom: 1px solid #131924; }
     .hero-emblem {
-      width: 64px;
-      height: 64px;
-      margin: 0 auto 18px;
-      border-radius: 18px;
+      width: 64px; height: 64px; margin: 0 auto 18px; border-radius: 18px;
       background: linear-gradient(145deg, #171f2e 0%, #090c11 100%);
-      border: 1px solid #2d384a;
-      box-shadow: inset 0 1px 0 rgba(255,255,255,0.09), 0 10px 28px rgba(0,0,0,0.85);
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      color: var(--sapphire-glow);
+      border: 1px solid #2d384a; box-shadow: inset 0 1px 0 rgba(255,255,255,0.09), 0 10px 28px rgba(0,0,0,0.85);
+      display: flex; align-items: center; justify-content: center; color: var(--sapphire-glow);
     }
-
     .badge {
-      display: inline-block;
-      font-size: 11px;
-      font-weight: 600;
-      letter-spacing: 2px;
-      text-transform: uppercase;
-      color: var(--sapphire-glow);
-      background: rgba(37, 99, 235, 0.1);
-      border: 1px solid rgba(56, 189, 248, 0.3);
-      padding: 5px 14px;
-      border-radius: 99px;
-      margin-bottom: 16px;
+      display: inline-block; font-size: 11px; font-weight: 600; letter-spacing: 2px; text-transform: uppercase;
+      color: var(--sapphire-glow); background: rgba(37, 99, 235, 0.1); border: 1px solid rgba(56, 189, 248, 0.3);
+      padding: 5px 14px; border-radius: 99px; margin-bottom: 16px;
     }
     h1 {
-      font-size: 32px;
-      font-weight: 800;
-      letter-spacing: -0.8px;
-      margin-bottom: 12px;
-      line-height: 1.14;
+      font-size: 32px; font-weight: 800; letter-spacing: -0.8px; margin-bottom: 12px; line-height: 1.14;
       background: linear-gradient(180deg, #ffffff 0%, #cbd5e1 62%, #94a3b8 100%);
-      -webkit-background-clip: text;
-      -webkit-text-fill-color: transparent;
+      -webkit-background-clip: text; -webkit-text-fill-color: transparent;
     }
-    .hero-sub {
-      font-size: 15px;
-      color: var(--silver-mid);
-      margin-bottom: 24px;
-      max-width: 440px;
-      margin-inline: auto;
-    }
+    .hero-sub { font-size: 15px; color: var(--silver-mid); margin-bottom: 24px; max-width: 440px; margin-inline: auto; }
     .cta-btn {
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      gap: 10px;
-      width: 100%;
-      text-decoration: none;
-      padding: 15px 20px;
-      border-radius: 13px;
-      background: linear-gradient(135deg, #2563eb 0%, #1d4ed8 100%);
-      color: #f8fafc;
-      font-size: 15px;
-      font-weight: 700;
-      border: 1px solid rgba(96, 165, 250, 0.35);
-      box-shadow: 0 8px 24px rgba(37, 99, 235, 0.28);
-      transition: transform 0.15s, box-shadow 0.2s, background 0.2s;
+      display: flex; align-items: center; justify-content: center; gap: 10px; width: 100%; text-decoration: none;
+      padding: 15px 20px; border-radius: 13px; background: linear-gradient(135deg, #2563eb 0%, #1d4ed8 100%);
+      color: #f8fafc; font-size: 15px; font-weight: 700; border: 1px solid rgba(96, 165, 250, 0.35);
+      box-shadow: 0 8px 24px rgba(37, 99, 235, 0.28); transition: transform 0.15s, box-shadow 0.2s, background 0.2s;
     }
-    .cta-btn:hover {
-      background: linear-gradient(135deg, #3b82f6 0%, #2563eb 100%);
-      box-shadow: 0 10px 28px rgba(56, 189, 248, 0.38);
-      transform: translateY(-1px);
-    }
+    .cta-btn:hover { background: linear-gradient(135deg, #3b82f6 0%, #2563eb 100%); box-shadow: 0 10px 28px rgba(56, 189, 248, 0.38); transform: translateY(-1px); }
 
-    /* Modelo Híbrido */
-    .schedule-grid {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 10px;
-      margin-top: 24px;
-    }
-    .schedule-card {
-      background: var(--obsidian);
-      border: 1px solid var(--border-steel);
-      border-radius: 13px;
-      padding: 14px;
-      text-align: left;
-    }
-    .schedule-card.sunday {
-      border-color: rgba(56, 189, 248, 0.35);
-      background: linear-gradient(145deg, #0d1626 0%, #080b10 100%);
-    }
-    .sch-tag {
-      font-size: 10.5px;
-      font-weight: 700;
-      text-transform: uppercase;
-      letter-spacing: 0.8px;
-      color: var(--sapphire-glow);
-      display: block;
-      margin-bottom: 4px;
-    }
-    .sch-title {
-      font-size: 13.5px;
-      font-weight: 700;
-      color: var(--silver-bright);
-      margin-bottom: 3px;
-    }
-    .sch-desc {
-      font-size: 11.5px;
-      color: var(--silver-mid);
-      line-height: 1.4;
-    }
+    .schedule-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; margin-top: 24px; }
+    .schedule-card { background: var(--obsidian); border: 1px solid var(--border-steel); border-radius: 13px; padding: 14px; text-align: left; }
+    .schedule-card.sunday { border-color: rgba(56, 189, 248, 0.35); background: linear-gradient(145deg, #0d1626 0%, #080b10 100%); }
+    .sch-tag { font-size: 10.5px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.8px; color: var(--sapphire-glow); display: block; margin-bottom: 4px; }
+    .sch-title { font-size: 13.5px; font-weight: 700; color: var(--silver-bright); margin-bottom: 3px; }
+    .sch-desc { font-size: 11.5px; color: var(--silver-mid); line-height: 1.4; }
 
-    section {
-      padding: 28px 0;
-      border-bottom: 1px solid #131924;
-    }
-    .section-head {
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      margin-bottom: 10px;
-      gap: 10px;
-    }
-    h2 {
-      font-size: 17px;
-      font-weight: 700;
-      color: var(--silver-bright);
-      letter-spacing: -0.2px;
-    }
-    .section-tag {
-      font-size: 10.5px;
-      color: var(--sapphire-glow);
-      font-weight: 700;
-      text-transform: uppercase;
-      letter-spacing: 0.8px;
-      white-space: nowrap;
-    }
-    .section-note {
-      font-size: 12.5px;
-      color: var(--silver-mid);
-      margin-bottom: 16px;
-      line-height: 1.45;
-    }
+    section { padding: 28px 0; border-bottom: 1px solid #131924; }
+    .section-head { display: flex; align-items: center; justify-content: space-between; margin-bottom: 10px; gap: 10px; }
+    h2 { font-size: 17px; font-weight: 700; color: var(--silver-bright); letter-spacing: -0.2px; }
+    .section-tag { font-size: 10.5px; color: var(--sapphire-glow); font-weight: 700; text-transform: uppercase; letter-spacing: 0.8px; white-space: nowrap; }
+    .section-note { font-size: 12.5px; color: var(--silver-mid); margin-bottom: 16px; line-height: 1.45; }
 
-    /* Botones de Servicios */
-    .btn-list {
-      display: flex;
-      flex-direction: column;
-      gap: 10px;
-    }
+    .btn-list { display: flex; flex-direction: column; gap: 10px; }
     .service-btn {
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      gap: 12px;
-      width: 100%;
-      text-decoration: none;
-      background: linear-gradient(180deg, #0d1118 0%, #080a0f 100%);
-      border: 1px solid var(--border-steel);
-      border-radius: 15px;
-      padding: 12px 14px;
-      color: var(--silver-bright);
-      transition: border-color 0.2s, background 0.2s, transform 0.12s, box-shadow 0.2s;
+      display: flex; align-items: center; justify-content: space-between; gap: 12px; width: 100%; text-decoration: none;
+      background: linear-gradient(180deg, #0d1118 0%, #080a0f 100%); border: 1px solid var(--border-steel); border-radius: 15px;
+      padding: 12px 14px; color: var(--silver-bright); transition: border-color 0.2s, background 0.2s, transform 0.12s, box-shadow 0.2s;
     }
-    .service-btn:hover {
-      border-color: var(--sapphire-glow);
-      background: var(--obsidian-hover);
-      box-shadow: 0 0 20px rgba(56, 189, 248, 0.14);
-      transform: translateY(-1px);
-    }
-    .service-btn.featured {
-      border-color: rgba(56, 189, 248, 0.38);
-      background: linear-gradient(145deg, #0f1727 0%, #080b10 100%);
-    }
-    .service-left {
-      display: flex;
-      align-items: center;
-      gap: 14px;
-      min-width: 0;
-    }
+    .service-btn:hover { border-color: var(--sapphire-glow); background: var(--obsidian-hover); box-shadow: 0 0 20px rgba(56, 189, 248, 0.14); transform: translateY(-1px); }
+    .service-btn.featured { border-color: rgba(56, 189, 248, 0.38); background: linear-gradient(145deg, #0f1727 0%, #080b10 100%); }
+    .service-left { display: flex; align-items: center; gap: 14px; min-width: 0; }
 
-    /* Contenedor de ícono real y legible */
     .svc-icon {
-      width: 48px;
-      height: 48px;
-      border-radius: 13px;
-      background: linear-gradient(145deg, #161e2c 0%, #0b0e14 100%);
-      border: 1px solid #2b3648;
-      box-shadow: inset 0 1px 0 rgba(255,255,255,0.07);
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      flex-shrink: 0;
-      color: var(--silver-bright);
+      width: 48px; height: 48px; border-radius: 13px; background: linear-gradient(145deg, #161e2c 0%, #0b0e14 100%);
+      border: 1px solid #2b3648; box-shadow: inset 0 1px 0 rgba(255,255,255,0.07);
+      display: flex; align-items: center; justify-content: center; flex-shrink: 0; color: var(--silver-bright);
     }
-    .service-btn:hover .svc-icon {
-      border-color: rgba(56, 189, 248, 0.55);
-      color: var(--sapphire-glow);
-    }
-    .svc-icon i {
-      width: 22px;
-      height: 22px;
-      stroke-width: 1.85;
-    }
+    .service-btn:hover .svc-icon { border-color: rgba(56, 189, 248, 0.55); color: var(--sapphire-glow); }
+    .svc-icon i { width: 22px; height: 22px; stroke-width: 1.85; }
 
-    .svc-info {
-      display: flex;
-      flex-direction: column;
-      min-width: 0;
-    }
-    .svc-name {
-      font-size: 14.5px;
-      font-weight: 700;
-      color: var(--silver-bright);
-      line-height: 1.25;
-    }
-    .svc-sub {
-      font-size: 12px;
-      color: var(--silver-mid);
-      margin-top: 2px;
-    }
-    .service-right {
-      display: flex;
-      align-items: center;
-      gap: 8px;
-      flex-shrink: 0;
-    }
-    .svc-price {
-      font-size: 16px;
-      font-weight: 800;
-      color: var(--sapphire-glow);
-      white-space: nowrap;
-    }
-    .chevron {
-      width: 16px;
-      height: 16px;
-      color: var(--silver-dim);
-      transition: transform 0.15s, color 0.15s;
-    }
-    .service-btn:hover .chevron {
-      color: var(--silver-bright);
-      transform: translateX(2px);
-    }
+    .svc-info { display: flex; flex-direction: column; min-width: 0; }
+    .svc-name { font-size: 14.5px; font-weight: 700; color: var(--silver-bright); line-height: 1.25; }
+    .svc-sub { font-size: 12px; color: var(--silver-mid); margin-top: 2px; }
+    .service-right { display: flex; align-items: center; gap: 8px; flex-shrink: 0; }
+    .svc-price { font-size: 16px; font-weight: 800; color: var(--sapphire-glow); white-space: nowrap; }
+    .chevron { width: 16px; height: 16px; color: var(--silver-dim); transition: transform 0.15s, color 0.15s; }
+    .service-btn:hover .chevron { color: var(--silver-bright); transform: translateX(2px); }
 
-    /* Pasos y pilares */
     .steps { list-style: none; display: flex; flex-direction: column; gap: 10px; }
-    .steps li {
-      display: flex;
-      align-items: flex-start;
-      gap: 12px;
-      background: var(--obsidian);
-      border: 1px solid var(--border-steel);
-      padding: 14px;
-      border-radius: 13px;
-      font-size: 13.5px;
-      color: var(--silver-mid);
-    }
+    .steps li { display: flex; align-items: flex-start; gap: 12px; background: var(--obsidian); border: 1px solid var(--border-steel); padding: 14px; border-radius: 13px; font-size: 13.5px; color: var(--silver-mid); }
     .steps strong { color: var(--silver-bright); }
     .step-num {
-      width: 24px;
-      height: 24px;
-      border-radius: 50%;
-      background: rgba(37, 99, 235, 0.18);
-      border: 1px solid rgba(56, 189, 248, 0.35);
-      color: var(--sapphire-glow);
-      font-size: 12px;
-      font-weight: 800;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      flex-shrink: 0;
+      width: 24px; height: 24px; border-radius: 50%; background: rgba(37, 99, 235, 0.18); border: 1px solid rgba(56, 189, 248, 0.35);
+      color: var(--sapphire-glow); font-size: 12px; font-weight: 800; display: flex; align-items: center; justify-content: center; flex-shrink: 0;
     }
 
-    .trust-grid {
-      display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: 10px;
-      text-align: center;
-    }
-    .trust-item {
-      background: var(--obsidian);
-      border: 1px solid var(--border-steel);
-      border-radius: 12px;
-      padding: 16px 8px;
-    }
-    .trust-num {
-      font-size: 15px;
-      font-weight: 800;
-      color: var(--silver-bright);
-      display: block;
-      margin-bottom: 3px;
-    }
-    .trust-label {
-      font-size: 11.5px;
-      color: var(--silver-mid);
-    }
+    .trust-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 10px; text-align: center; }
+    .trust-item { background: var(--obsidian); border: 1px solid var(--border-steel); border-radius: 12px; padding: 16px 8px; }
+    .trust-num { font-size: 15px; font-weight: 800; color: var(--silver-bright); display: block; margin-bottom: 3px; }
+    .trust-label { font-size: 11.5px; color: var(--silver-mid); }
 
     .policy-box {
-      background: var(--obsidian);
-      border: 1px solid var(--border-steel);
-      border-left: 3px solid var(--sapphire-glow);
-      border-radius: 12px;
-      padding: 16px;
-      font-size: 13.5px;
-      color: var(--silver-mid);
-      line-height: 1.55;
+      background: var(--obsidian); border: 1px solid var(--border-steel); border-left: 3px solid var(--sapphire-glow);
+      border-radius: 12px; padding: 16px; font-size: 13.5px; color: var(--silver-mid); line-height: 1.55;
     }
     .policy-box strong { color: var(--silver-bright); }
 
-    .final-cta {
-      text-align: center;
-      padding-top: 30px;
+    .final-cta { text-align: center; padding-top: 30px; }
+    .final-cta p { font-size: 14px; color: var(--silver-mid); margin: 8px 0 20px; }
+
+    footer { text-align: center; font-size: 12px; color: var(--silver-dim); margin-top: 36px; display: flex; flex-direction: column; gap: 8px; align-items: center; }
+    .footer-links { display: flex; gap: 14px; flex-wrap: wrap; justify-content: center; }
+    .footer-link-btn { background: none; border: none; color: var(--silver-mid); font-size: 12px; text-decoration: underline; cursor: pointer; }
+    .footer-link-btn:hover { color: var(--sapphire-glow); }
+
+    .modal-backdrop {
+      position: fixed; inset: 0; background: rgba(0,0,0,0.82); display: none; align-items: center; justify-content: center; padding: 18px; z-index: 50;
     }
-    .final-cta p {
-      font-size: 14px;
-      color: var(--silver-mid);
-      margin: 8px 0 20px;
+    .modal-backdrop.open { display: flex; }
+    .modal-card {
+      background: #0c1018; border: 1px solid var(--border-steel); border-radius: 16px; max-width: 460px; width: 100%; padding: 22px; color: var(--silver-mid); font-size: 13px; line-height: 1.55;
     }
-    footer {
-      text-align: center;
-      font-size: 12px;
-      color: var(--silver-dim);
-      margin-top: 36px;
+    .modal-card h3 { color: var(--silver-bright); font-size: 17px; margin-bottom: 10px; }
+    .modal-close {
+      margin-top: 16px; width: 100%; padding: 11px; border-radius: 10px; border: 1px solid var(--border-steel);
+      background: var(--sapphire); color: #fff; font-weight: 700; cursor: pointer;
     }
 
     @media (max-width: 420px) {
@@ -428,6 +187,9 @@
   </style>
 </head>
 <body>
+  <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-KN3KH4QM"
+  height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+
   <div class="container">
     <div class="topbar">
       <span class="brand-mini">Style with Purpose</span>
@@ -444,7 +206,7 @@
       <span class="badge" data-i18n="badge">Style with Purpose · CDMX</span>
       <h1 data-i18n="heroTitle">Experiencia y diseño a tu medida.</h1>
       <p class="hero-sub" data-i18n="heroSub">Asesoría de imagen, técnica precisa y atención 1 a 1 pensada para tu estilo, facciones y ritmo de vida.</p>
-      <a href="agenda.html" class="cta-btn" id="heroCta">
+      <a href="agenda.html" class="cta-btn" id="heroCta" onclick="trackBeginBooking('General', 0)">
         <span data-i18n="heroCta">Diseñar mi cita ahora</span>
         <i data-lucide="arrow-right" style="width:18px;height:18px;"></i>
       </a>
@@ -503,13 +265,62 @@
     <div class="final-cta">
       <h2 data-i18n="finalTitle">¿Listo para tu siguiente experiencia?</h2>
       <p data-i18n="finalSub">Elige tu servicio, selecciona tu horario y asegura tu espacio hoy.</p>
-      <a href="agenda.html" class="cta-btn" id="finalCtaBtn" data-i18n="finalCta">Apartar mi espacio ahora</a>
+      <a href="agenda.html" class="cta-btn" id="finalCtaBtn" data-i18n="finalCta" onclick="trackBeginBooking('General', 0)">Apartar mi espacio ahora</a>
     </div>
 
-    <footer data-i18n="footer">© 2026 Style with Purpose · Ciudad de México</footer>
+    <footer>
+      <span data-i18n="footer">© 2026 Style with Purpose · Ciudad de México</span>
+      <div class="footer-links">
+        <button type="button" class="footer-link-btn" onclick="openPrivacy()" data-i18n="privacyBtn">Aviso de Privacidad</button>
+      </div>
+    </footer>
+  </div>
+
+  <div class="modal-backdrop" id="privacyModal" role="dialog" aria-modal="true">
+    <div class="modal-card">
+      <h3 data-i18n="privacyTitle">Aviso de Privacidad</h3>
+      <p data-i18n="privacyBody">
+        Style with Purpose recaba únicamente los datos necesarios para agendar y confirmar tu cita (nombre, teléfono de contacto, servicio, fecha y hora). La información no se comercializa a terceros. Utilizamos medición analítica (Google Tag Manager y Meta Pixel) para evaluar el rendimiento del sitio y campañas publicitarias conforme a las políticas aplicables.
+      </p>
+      <button type="button" class="modal-close" onclick="closePrivacy()" data-i18n="closeBtn">Entendido</button>
+    </div>
   </div>
 
   <script>
+    function trackServiceSelection(id, numericPrice) {
+      window.dataLayer = window.dataLayer || [];
+      window.dataLayer.push({
+        event: 'select_service',
+        service_name: id,
+        value: Number(numericPrice || 0),
+        currency: 'MXN'
+      });
+      if (typeof fbq === 'function') {
+        fbq('trackCustom', 'SelectService', {
+          content_name: id,
+          value: Number(numericPrice || 0),
+          currency: 'MXN'
+        });
+      }
+    }
+
+    function trackBeginBooking(serviceName, numericPrice) {
+      window.dataLayer = window.dataLayer || [];
+      window.dataLayer.push({
+        event: 'begin_booking',
+        service_name: serviceName,
+        value: Number(numericPrice || 0),
+        currency: 'MXN'
+      });
+    }
+
+    function openPrivacy() {
+      document.getElementById("privacyModal").classList.add("open");
+    }
+    function closePrivacy() {
+      document.getElementById("privacyModal").classList.remove("open");
+    }
+
     const I18N = {
       es: {
         title: "Style with Purpose | Experiencia y Diseño a tu Medida",
@@ -536,14 +347,18 @@
         finalSub: "Elige tu servicio, selecciona tu horario y asegura tu espacio hoy.",
         finalCta: "Apartar mi espacio ahora",
         footer: "© 2026 Style with Purpose · Ciudad de México",
+        privacyBtn: "Aviso de Privacidad",
+        privacyTitle: "Aviso de Privacidad",
+        privacyBody: "Style with Purpose recaba únicamente los datos necesarios para agendar y confirmar tu cita (nombre, teléfono de contacto, servicio, fecha y hora). La información no se comercializa a terceros. Utilizamos medición analítica (Google Tag Manager y Meta Pixel) para evaluar el rendimiento del sitio y campañas publicitarias conforme a las políticas aplicables.",
+        closeBtn: "Entendido",
         sections: [
           {
             title: "Combos Exclusivos",
             tag: "Toca para agendar",
             note: "Incluye $100 de reserva prioritaria para bloquear tu espacio. El costo base se liquida en caja.",
             items: [
-              { id: "Experiencia Condesa", icon: "crown", featured: true, name: "Experiencia Condesa", sub: "Corte + Barba Spa Condesa ($880 caja + $100 reserva)", price: "$980" },
-              { id: "Combo Condesa", icon: "layers", featured: true, name: "Combo Condesa", sub: "Corte + Barba ($680 caja + $100 reserva)", price: "$780" }
+              { id: "Experiencia Condesa", icon: "crown", featured: true, name: "Experiencia Condesa", sub: "Corte + Barba Spa Condesa ($880 caja + $100 reserva)", price: "$980", numPrice: 980 },
+              { id: "Combo Condesa", icon: "layers", featured: true, name: "Combo Condesa", sub: "Corte + Barba ($680 caja + $100 reserva)", price: "$780", numPrice: 780 }
             ]
           },
           {
@@ -551,9 +366,9 @@
             tag: "Reserva +$100",
             note: "",
             items: [
-              { id: "Corte", icon: "scissors", name: "Corte a tu Medida", sub: "Asesoría y diseño ($380 caja + $100 reserva)", price: "$480" },
-              { id: "Barba", icon: "user-check", name: "Diseño de Barba", sub: "Perfilado y acabado ($360 caja + $100 reserva)", price: "$460" },
-              { id: "Barba Spa Condesa", icon: "flame", name: "Barba Spa Condesa", sub: "Ritual completo ($560 caja + $100 reserva)", price: "$660" }
+              { id: "Corte", icon: "scissors", name: "Corte a tu Medida", sub: "Asesoría y diseño ($380 caja + $100 reserva)", price: "$480", numPrice: 480 },
+              { id: "Barba", icon: "user-check", name: "Diseño de Barba", sub: "Perfilado y acabado ($360 caja + $100 reserva)", price: "$460", numPrice: 460 },
+              { id: "Barba Spa Condesa", icon: "flame", name: "Barba Spa Condesa", sub: "Ritual completo ($560 caja + $100 reserva)", price: "$660", numPrice: 660 }
             ]
           },
           {
@@ -561,14 +376,14 @@
             tag: "Precio directo",
             note: "Agrégalos a tu experiencia o agéndalos directo. Se liquidan íntegros en caja.",
             items: [
-              { id: "Corte Nino", icon: "smile", name: "Corte Niño", sub: "Estilo y comodidad a su medida", price: "$320" },
-              { id: "Facial", icon: "sparkles", name: "Facial", sub: "Limpieza y cuidado de piel", price: "$280" },
-              { id: "Tintura Barba", icon: "paintbrush", name: "Tintura Barba", sub: "Tono uniforme y natural", price: "$250" },
-              { id: "Contorno", icon: "wand-2", name: "Contorno", sub: "Definición limpia y precisa", price: "$200" },
-              { id: "Diseno de Cejas", icon: "eye", name: "Diseño de Cejas", sub: "Armonía natural para tu rostro", price: "$150" },
-              { id: "Depilacion Nariz y Oidos", icon: "shield", name: "Depilación Nariz y Oídos", sub: "Paquete completo de higiene", price: "$150" },
-              { id: "Depilacion Nariz", icon: "wind", name: "Depilación Nariz", sub: "Acabado limpio y rápido", price: "$100" },
-              { id: "Depilacion Oido", icon: "ear", name: "Depilación Oído", sub: "Detalle y pulcritud", price: "$100" }
+              { id: "Corte Nino", icon: "scissors", name: "Corte Niño", sub: "Estilo y comodidad a su medida", price: "$320", numPrice: 320 },
+              { id: "Facial", icon: "sparkles", name: "Facial", sub: "Limpieza y cuidado de piel", price: "$280", numPrice: 280 },
+              { id: "Tintura Barba", icon: "paintbrush", name: "Tintura Barba", sub: "Tono uniforme y natural", price: "$250", numPrice: 250 },
+              { id: "Contorno", icon: "wand-2", name: "Contorno", sub: "Definición limpia y precisa", price: "$200", numPrice: 200 },
+              { id: "Diseno de Cejas", icon: "eye", name: "Diseño de Cejas", sub: "Armonía natural para tu rostro", price: "$150", numPrice: 150 },
+              { id: "Depilacion Nariz y Oidos", icon: "shield", name: "Depilación Nariz y Oídos", sub: "Paquete completo de higiene", price: "$150", numPrice: 150 },
+              { id: "Depilacion Nariz", icon: "wind", name: "Depilación Nariz", sub: "Acabado limpio y rápido", price: "$100", numPrice: 100 },
+              { id: "Depilacion Oido", icon: "ear", name: "Depilación Oído", sub: "Detalle y pulcritud", price: "$100", numPrice: 100 }
             ]
           }
         ]
@@ -598,14 +413,18 @@
         finalSub: "Select your service, pick your time, and secure your chair today.",
         finalCta: "Book my session now",
         footer: "© 2026 Style with Purpose · Mexico City",
+        privacyBtn: "Privacy Policy",
+        privacyTitle: "Privacy Policy",
+        privacyBody: "Style with Purpose collects only the information needed to schedule and confirm your appointment (name, contact phone, service, date, and time). Data is never sold to third parties. Analytics tracking (Google Tag Manager and Meta Pixel) is used to measure site performance and advertising campaigns under applicable policies.",
+        closeBtn: "Got it",
         sections: [
           {
             title: "Signature Combos",
             tag: "Tap to book",
             note: "Includes $100 MXN priority booking fee to lock your slot. Base balance is paid at checkout.",
             items: [
-              { id: "Experiencia Condesa", icon: "crown", featured: true, name: "Condesa Experience", sub: "Haircut + Condesa Spa Beard ($880 checkout + $100 booking)", price: "$980" },
-              { id: "Combo Condesa", icon: "layers", featured: true, name: "Condesa Combo", sub: "Haircut + Beard ($680 checkout + $100 booking)", price: "$780" }
+              { id: "Experiencia Condesa", icon: "crown", featured: true, name: "Condesa Experience", sub: "Haircut + Condesa Spa Beard ($880 checkout + $100 booking)", price: "$980", numPrice: 980 },
+              { id: "Combo Condesa", icon: "layers", featured: true, name: "Condesa Combo", sub: "Haircut + Beard ($680 checkout + $100 booking)", price: "$780", numPrice: 780 }
             ]
           },
           {
@@ -613,9 +432,9 @@
             tag: "+$100 Booking",
             note: "",
             items: [
-              { id: "Corte", icon: "scissors", name: "Bespoke Haircut", sub: "Style consulting & tailored cut ($380 checkout + $100 booking)", price: "$480" },
-              { id: "Barba", icon: "user-check", name: "Beard Sculpting", sub: "Precision lining & finish ($360 checkout + $100 booking)", price: "$460" },
-              { id: "Barba Spa Condesa", icon: "flame", name: "Condesa Beard Spa", sub: "Full ritual ($560 checkout + $100 booking)", price: "$660" }
+              { id: "Corte", icon: "scissors", name: "Bespoke Haircut", sub: "Style consulting & tailored cut ($380 checkout + $100 booking)", price: "$480", numPrice: 480 },
+              { id: "Barba", icon: "user-check", name: "Beard Sculpting", sub: "Precision lining & finish ($360 checkout + $100 booking)", price: "$460", numPrice: 460 },
+              { id: "Barba Spa Condesa", icon: "flame", name: "Condesa Beard Spa", sub: "Full ritual ($560 checkout + $100 booking)", price: "$660", numPrice: 660 }
             ]
           },
           {
@@ -623,14 +442,14 @@
             tag: "Direct price",
             note: "Add to your session or book directly. Paid in full at checkout.",
             items: [
-              { id: "Corte Nino", icon: "smile", name: "Kids Haircut", sub: "Tailored style & comfort", price: "$320" },
-              { id: "Facial", icon: "sparkles", name: "Facial Treatment", sub: "Deep cleansing & skin care", price: "$280" },
-              { id: "Tintura Barba", icon: "paintbrush", name: "Beard Tint", sub: "Even, natural tone", price: "$250" },
-              { id: "Contorno", icon: "wand-2", name: "Razor Line-Up", sub: "Crisp & precise definition", price: "$200" },
-              { id: "Diseno de Cejas", icon: "eye", name: "Eyebrow Design", sub: "Natural facial balance", price: "$150" },
-              { id: "Depilacion Nariz y Oidos", icon: "shield", name: "Nose & Ear Waxing", sub: "Complete grooming pack", price: "$150" },
-              { id: "Depilacion Nariz", icon: "wind", name: "Nose Waxing", sub: "Clean & quick finish", price: "$100" },
-              { id: "Depilacion Oido", icon: "ear", name: "Ear Waxing", sub: "Clean precision detail", price: "$100" }
+              { id: "Corte Nino", icon: "scissors", name: "Kids Haircut", sub: "Tailored style & comfort", price: "$320", numPrice: 320 },
+              { id: "Facial", icon: "sparkles", name: "Facial Treatment", sub: "Deep cleansing & skin care", price: "$280", numPrice: 280 },
+              { id: "Tintura Barba", icon: "paintbrush", name: "Beard Tint", sub: "Even, natural tone", price: "$250", numPrice: 250 },
+              { id: "Contorno", icon: "wand-2", name: "Razor Line-Up", sub: "Crisp & precise definition", price: "$200", numPrice: 200 },
+              { id: "Diseno de Cejas", icon: "eye", name: "Eyebrow Design", sub: "Natural facial balance", price: "$150", numPrice: 150 },
+              { id: "Depilacion Nariz y Oidos", icon: "shield", name: "Nose & Ear Waxing", sub: "Complete grooming pack", price: "$150", numPrice: 150 },
+              { id: "Depilacion Nariz", icon: "wind", name: "Nose Waxing", sub: "Clean & quick finish", price: "$100", numPrice: 100 },
+              { id: "Depilacion Oido", icon: "ear", name: "Ear Waxing", sub: "Clean precision detail", price: "$100", numPrice: 100 }
             ]
           }
         ]
@@ -658,7 +477,7 @@
             ${sec.items.map(item => `
               <a href="agenda.html?servicio=${encodeURIComponent(item.id)}&lang=${lang}"
                  class="service-btn ${item.featured ? "featured" : ""}"
-                 onclick="if(typeof fbq==='function'){fbq('trackCustom','SelectService',{service:'${item.id}'});}">
+                 onclick="trackServiceSelection('${item.id}', ${item.numPrice})">
                 <div class="service-left">
                   <div class="svc-icon">
                     <i data-lucide="${item.icon}"></i>
